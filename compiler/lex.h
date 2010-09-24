@@ -11,6 +11,31 @@
  *
  */
 
+/*
+lex.c -> representa analisador léxico. Tem uma função chamada "get_next_token" que deve retornar o próximo token. 
+Caso não haja mais tokens, ele retorna um token especial que indica que os tokens acabaram.
+Ele usa o reader.c para ler os caracteres e enviar para o transducer processar até retornar o tipo do token lido.
+*/
+
+
+struct token_structure{
+	int class;
+	char repr;
+};
+
+typedef struct token_structure token_type; 
+
+token_type token;
+
+
+/*****************************************************************************
+ name: get_next_token
+ purpose: get the next char from the file being scanend.
+ args: filename --> name of the file to be read.
+ returns: next char.
+ *****************************************************************************/
+
+token_type get_next_token();
 
 
 
