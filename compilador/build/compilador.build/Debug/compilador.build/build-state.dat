@@ -1,0 +1,209 @@
+Tcompilador
+v7
+r0
+t307033731.509284
+cCheck dependencies
+cCompileC build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/main.o "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/main.c" normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/reader.o "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/reader.c" normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/printer.o "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/printer.c" normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/transducer.o "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/transducer.c" normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/lex.o "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/lex.c" normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/symbols.o "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/symbols.c" normal x86_64 c com.apple.compilers.gcc.4_2
+cLd "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug/compilador" normal x86_64
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004BF4701900000000000000EE
+t1274310681
+s238
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/stdio.h
+c000000004AC59C820000000000004174
+t1254464642
+s16756
+
+N/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug/compilador
+t1285340931
+s9152
+
+N/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/compilador.LinkFileList
+c000000004C9CBF0300000000000004DB
+t1285340931
+s1243
+
+N/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/lex.o
+t1285340931
+s1684
+
+N/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/main.o
+t1285340535
+s2844
+
+N/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/printer.o
+t1285340931
+s1692
+
+N/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/reader.o
+t1285340931
+s1688
+
+N/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/symbols.o
+t1285340931
+s1692
+
+N/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/transducer.o
+t1285340931
+s1696
+
+N/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/lex.c
+c000000004C9CBDBF00000000000000B1
+t1285340607
+s177
+i"lex.h"
+
+N/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/lex.h
+c000000004C9CBF0200000000000000DE
+t1285340930
+s222
+
+N/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/main.c
+c000000004C9CBD7700000000000000AF
+t1285340535
+s175
+i<stdio.h>
+
+N/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/printer.c
+c000000004C9CBDA800000000000000B9
+t1285340584
+s185
+i"printer.h"
+
+N/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/printer.h
+c000000004C9CBF02000000000000018F
+t1285340930
+s399
+
+N/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/reader.c
+c000000004C9CBD9900000000000000B7
+t1285340569
+s183
+i"reader.h"
+
+N/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/reader.h
+c000000004C9CBF0300000000000001A6
+t1285340931
+s422
+
+N/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/symbols.c
+c000000004C9CBDCB00000000000000B9
+t1285340619
+s185
+i"symbols.h"
+
+N/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/symbols.h
+c000000004C9CBF0300000000000000EA
+t1285340931
+s234
+
+N/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/transducer.c
+c000000004C9CBDB400000000000000BF
+t1285340596
+s191
+i"transducer.h"
+
+N/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/transducer.h
+c000000004C9CBF0300000000000000F3
+t1285340931
+s243
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies307033731#307033731#0(0"0(0#1#0"8607196736#0"0#
+
+CCompileC build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/lex.o "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/lex.c" normal x86_64 c com.apple.compilers.gcc.4_2
+s307033731.401729
+e307033731.435703
+r1
+xCompileC
+xbuild/compilador.build/Debug/compilador.build/Objects-normal/x86_64/lex.o
+x/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/lex.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@143"Compile /Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/lex.c307033731#307033731#0(0"0(0#0#135"/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/lex.c8610083488#2345"    cd "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-generated-files.hmap" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-own-target-headers.hmap" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-all-target-headers.hmap" -iquote "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-project-headers.hmap" "-F/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug/include" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/DerivedSources/x86_64" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/DerivedSources" -c "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/lex.c" -o "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/lex.o"0#
+
+CCompileC build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/main.o "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/main.c" normal x86_64 c com.apple.compilers.gcc.4_2
+s307033731.083091
+e307033731.095047
+r1
+xCompileC
+xbuild/compilador.build/Debug/compilador.build/Objects-normal/x86_64/main.o
+x/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/main.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@144"Compile /Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/main.c307033731#307033731#0(0"0(0#0#136"/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/main.c8608399072#2347"    cd "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-generated-files.hmap" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-own-target-headers.hmap" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-all-target-headers.hmap" -iquote "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-project-headers.hmap" "-F/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug/include" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/DerivedSources/x86_64" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/DerivedSources" -c "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/main.c" -o "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/main.o"0#
+
+CCompileC build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/printer.o "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/printer.c" normal x86_64 c com.apple.compilers.gcc.4_2
+s307033731.124322
+e307033731.360715
+r1
+xCompileC
+xbuild/compilador.build/Debug/compilador.build/Objects-normal/x86_64/printer.o
+x/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/printer.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@147"Compile /Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/printer.c307033731#307033731#0(0"0(0#0#139"/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/printer.c7160561098262800384#2353"    cd "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-generated-files.hmap" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-own-target-headers.hmap" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-all-target-headers.hmap" -iquote "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-project-headers.hmap" "-F/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug/include" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/DerivedSources/x86_64" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/DerivedSources" -c "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/printer.c" -o "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/printer.o"0#
+
+CCompileC build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/reader.o "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/reader.c" normal x86_64 c com.apple.compilers.gcc.4_2
+s307033731.095131
+e307033731.401632
+r1
+xCompileC
+xbuild/compilador.build/Debug/compilador.build/Objects-normal/x86_64/reader.o
+x/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/reader.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@146"Compile /Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/reader.c307033731#307033731#0(0"0(0#0#138"/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/reader.c8607874368#2351"    cd "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-generated-files.hmap" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-own-target-headers.hmap" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-all-target-headers.hmap" -iquote "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-project-headers.hmap" "-F/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug/include" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/DerivedSources/x86_64" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/DerivedSources" -c "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/reader.c" -o "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/reader.o"0#
+
+CCompileC build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/symbols.o "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/symbols.c" normal x86_64 c com.apple.compilers.gcc.4_2
+s307033731.418989
+e307033731.448710
+r1
+xCompileC
+xbuild/compilador.build/Debug/compilador.build/Objects-normal/x86_64/symbols.o
+x/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/symbols.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@147"Compile /Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/symbols.c307033731#307033731#0(0"0(0#0#139"/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/symbols.c8608808704#2353"    cd "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-generated-files.hmap" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-own-target-headers.hmap" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-all-target-headers.hmap" -iquote "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-project-headers.hmap" "-F/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug/include" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/DerivedSources/x86_64" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/DerivedSources" -c "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/symbols.c" -o "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/symbols.o"0#
+
+CCompileC build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/transducer.o "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/transducer.c" normal x86_64 c com.apple.compilers.gcc.4_2
+s307033731.360820
+e307033731.418886
+r1
+xCompileC
+xbuild/compilador.build/Debug/compilador.build/Objects-normal/x86_64/transducer.o
+x/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/transducer.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@150"Compile /Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/transducer.c307033731#307033731#0(0"0(0#0#142"/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/transducer.c8608100288#2359"    cd "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-generated-files.hmap" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-own-target-headers.hmap" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-all-target-headers.hmap" -iquote "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/compilador-project-headers.hmap" "-F/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug/include" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/DerivedSources/x86_64" "-I/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/DerivedSources" -c "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/transducer.c" -o "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/transducer.o"0#
+
+CLd "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug/compilador" normal x86_64
+s307033731.448820
+e307033731.509232
+r1
+xLd
+x/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug/compilador
+xnormal
+xx86_64
+lSLF07#2@157"Link /Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug/compilador307033731#307033731#0(0"0(0#0#0"8608517568#975"    cd "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador"    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk "-L/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug" "-F/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug" -filelist "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/compilador.build/Debug/compilador.build/Objects-normal/x86_64/compilador.LinkFileList" -mmacosx-version-min=10.6 -o "/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compilador/build/Debug/compilador"0#
+
