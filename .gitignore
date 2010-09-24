@@ -6,3 +6,7 @@ compiler/build/*
 # osx noise
 .DS_Store
 profile
+
+# developers noise :P
+compiler/compilador.1
+compiler/compiler.1

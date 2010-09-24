@@ -29,7 +29,7 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		B09CAB92124D133D007719EB /* compilador */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = compilador; path = /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug/compilador; sourceTree = "<absolute>"; };
+		B09CABA1124D1541007719EB /* compilador */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = compilador; path = /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug/compilador; sourceTree = "<absolute>"; };
 		D486B01C124CF51900274119 /* reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reader.h; sourceTree = "<group>"; };
 		D486B01D124CF51900274119 /* reader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = reader.c; sourceTree = "<group>"; };
 		D486B01F124CF52800274119 /* printer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = printer.h; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 			name = compilador;
 			productInstallPath = "$(HOME)/bin";
 			productName = compilador;
-			productReference = B09CAB92124D133D007719EB /* compilador */;
+			productReference = B09CABA1124D1541007719EB /* compilador */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
