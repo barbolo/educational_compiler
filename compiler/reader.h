@@ -17,5 +17,19 @@
  */
 
 
+/*****************************************************************************
+ name: get_next_char
+ purpose: get the next char from the file being scanend.
+ args: nothing?
+ returns: next char.
+ *****************************************************************************/
+char get_next_char();
+
+
+
+
+//tem q ter algo q pega e abrie o arquivo aí chama o get netx char ... e por aí vai
+
+
 
 #endif

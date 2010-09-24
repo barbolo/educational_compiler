@@ -11,10 +11,22 @@
  */
 
 
+/*****************************************************************************
+ name: print_text
+ purpose: to print a text.
+ args: text to be printed.
+ returns: nothing, but prints the text given as argument.
+ *****************************************************************************/
+void print_text(string str);
 
-// botar uma funçnao pra imprimir só texto. printText(string)
-// botar uma fç pra imprimir um token. printToken(tipo, valor) aí sai "Token ->  Tipo: bla_bla  Valor: bla_bla"
 
+/*****************************************************************************
+ name: print_token
+ purpose: to print token type and string.
+ args: Token type and token value to be printed
+ returns: nothing, but prints something like: "Token ->  Type: bla_bla  Value: bla_bla"
+ *****************************************************************************/
+void print_token(string type, string value);
 
 
 #endif
