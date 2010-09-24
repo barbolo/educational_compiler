@@ -10,6 +10,9 @@
  *
  */
 
+#include "stringtcc.h"
+
+int casaTeste;
 
 /*****************************************************************************
  name: print_text
@@ -17,7 +20,7 @@
  args: text to be printed.
  returns: nothing, but prints the text given as argument.
  *****************************************************************************/
-void print_text(string str);
+//void print_text(string str);
 
 
 /*****************************************************************************
@@ -26,7 +29,7 @@ void print_text(string str);
  args: Token type and token value to be printed
  returns: nothing, but prints something like: "Token ->  Type: bla_bla  Value: bla_bla"
  *****************************************************************************/
-void print_token(string type, string value);
+//void print_token(string type, string value);
 
 
 #endif
