@@ -10,9 +10,7 @@
  *
  */
 
-#include "stringtcc.h"
-
-int casaTeste;
+//#include "stringtcc.h"
 
 /*****************************************************************************
  name: print_text
@@ -20,7 +18,7 @@ int casaTeste;
  args: text to be printed.
  returns: nothing, but prints the text given as argument.
  *****************************************************************************/
-//void print_text(string str);
+void print_text(char * str);
 
 
 /*****************************************************************************
@@ -29,7 +27,8 @@ int casaTeste;
  args: Token type and token value to be printed
  returns: nothing, but prints something like: "Token ->  Type: bla_bla  Value: bla_bla"
  *****************************************************************************/
-//void print_token(string type, string value);
+void print_token(char * type, char * value);
 
+// QDO DEFINIR DE VEZ QUAL TIPO SERÁ CADA ARGUMENTO AÍ MUDA AQUI DIREITO. (e implementa de fato... meio ñ muito útil esse printer hehehe)
 
 #endif

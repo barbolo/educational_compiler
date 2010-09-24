@@ -17,7 +17,7 @@ int main (int argc, const char * argv[]) {
 
 	while (letra != EOF) {
 		letra = get_next_char("/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/compiler/teste.txt");
-		printf("Letra encontrada: %c (apareceu algo?)\n", letra);
+		printf("Letra encontrada: %c\n", letra);
 	}
 	
 	
