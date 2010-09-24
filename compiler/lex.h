@@ -27,12 +27,13 @@ typedef struct token_structure token_type;
 
 token_type token;
 
+char * text_buffer[200];
 
 /*****************************************************************************
  name: get_next_token
- purpose: get the next char from the file being scanend.
- args: filename --> name of the file to be read.
- returns: next char.
+ purpose: get the next token from the source code.
+ args: 
+ returns: next token.
  *****************************************************************************/
 
 token_type get_next_token();
