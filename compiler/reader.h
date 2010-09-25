@@ -8,9 +8,8 @@
  *  Copyright 2010 __MyCompanyName__. All rights reserved.
  *
  *
- * reader.c -> é o programa que lê o código fonte. 
- * Ele deve ser capaz de abrir o código fonte e também deve
- * ter um método "get_next_char" que retorna o próximo caractere.
+ * This file is responsable for reading the caracters from the source code and returning it 
+ * to the compiler. It is specially used by the lexical analysis step.  
  *
  *
  */
