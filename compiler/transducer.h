@@ -1,12 +1,12 @@
 #ifndef TRANSDUCER_H
 #define TRANSDUCER_H
 
+
 /*
  *  transducer.h
  *  compiler
  *
  *  Created by Filipe Morgado Simões de Campos e Rafael Barbolo Lopes on 24/09/10.
- *  Copyright 2010 __MyCompanyName__. All rights reserved.
  *
  *
  *	The transducer is an implementation of a finite automata.
@@ -19,37 +19,57 @@
 
 #include "token.h"
 
-#define INVALID_STATE	-1
-#define EMPTY_STRING	-1
 
+#define INVALID_STATE		-1
+#define EMPTY_STRING		256
 
+#define INITIAL_STATE		0
+#define AVAILABLE_STATES	100
 
-int transitions;
+typedef int transducer_state;
 
+typedef struct {
+	transducer_state next_state;
+	type_of_token type;
+	
+} automata_output;
 
+transducer_state transducer_current_state = INITIAL_STATE;
+int transducer_created_states = 1; // the initial state is always created
 
+/* automata transitions */
+automata_output transducer_transitions[AVAILABLE_STATES][257];
 
 
 
 /*****************************************************************************
- name: 
- purpose: .
- args: .
- returns: .
+ name: initialize_transitions
+ purpose: initialize table of automata transitions;
+ args: 
+ returns: 
  *****************************************************************************/
-void init_transducer(/*  TALVEZ PASSE AQEUI UMA VARIAVEL DO TIPO TRANSDUCER_TYPE  */);
 
+void initialize_transitions();
 
 
 /*****************************************************************************
- name: 
- purpose: .
- args: .
- returns: .
+ name: transducer_new_state
+ purpose: creates a new state for the automata and return it;
+ args: 
+ returns: transducer_state (int).
  *****************************************************************************/
-char * get_token_type_name(int token_type);
+
+transducer_state transducer_new_state();
 
 
+/*****************************************************************************
+ name: transducer_consume_input
+ purpose: execute a transition in transducer automata.
+ args: current and nex chars.
+ returns: token type (int).
+ *****************************************************************************/
+
+type_of_token transducer_consume_input(char current, char lookahead);
 
 
 #endif

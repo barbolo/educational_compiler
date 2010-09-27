@@ -3,94 +3,85 @@
  *  compiler
  *
  *  Created by Filipe Morgado Simões de Campos e Rafael Barbolo Lopes on 24/09/10.
- *  Copyright 2010 __MyCompanyName__. All rights reserved.
  *
  */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include "token.h"
+#include "reader.h"
 #include "analyser.h"
+#include "tables.h"
 
-
-token_type get_next_token(){
-
-	//char a_char;
-	int i = 0;
+void get_next_token() {
 	
-	init_reader(read_head);
+	char temp_string[500];
+	int counter;
 	
-	new_token(token);
-//	new_transducer(transducer); // Vai precisar disso mesmo???        !!!!!       liberar essa linha depois q o transducer tiver pronto   !!!!!!!!!!!!!!!
+	token.type = TOKEN_TYPE_IGNORED;
+	token.value = NULL;
 	
-	
-	
-	read_head = get_next_char("../resources/test_lex.poli", read_head);
-	token.column++;
-	
-	// If the file is empty, return a empty type token.
-	if (read_head.current == EOF) {
+	if (reading_head.current == EOF) {
+		/* return a END_OF_FILE token if the file was completely read */
+		
 		token.type = TOKEN_TYPE_END_OF_FILE;
-		return token;
-	}
-	
-	
-	// Read ignored chars
-	while (read_head.current != EOF && token.type == TOKEN_TYPE_IGNORED) {
-		// do nothing, chars are being ignored
 		
-//		token.type = transducer.consume_input(read_head.current, read_head.next);        !!!!!       liberar essa linha depois q o transducer tiver pronto
-		token.value[0] = read_head.current;
+	} else {
+		/* extract a token from file */
 		
-		read_head = get_next_char("../resources/test_lex.poli", read_head);
-		token.column++;
-		
-		if (token.value[0] == '\n') {
-			token.line++;
-			token.column = 0;
+		while (reading_head.current != EOF && token.type == TOKEN_TYPE_IGNORED) {
+			/* chars being discarted */
+			
+			/* the transducer automata will execute a transition to consume the current char */
+			token.type = transducer_consume_input(reading_head.current, reading_head.next);
+			
+			read_next_char();
 		}
-	}
-	
-	
-	// Read token
-	while (read_head.current != EOF && token.type == TOKEN_TYPE_INCOMPLETE) {
 		
-//		token.type = transducer.consume_input(read_head.current, read_head.next);         !!!!!      liberar essa linha depois q o transducer tiver pronto
-		token.value[i] = read_head.current;
 		
-		read_head = get_next_char("../resources/test_lex.poli", read_head);
-		token.column++;
+		/* 
+		 * the previous char will not be dicarted because it created a transition to a
+		 * valid state with transducer automata
+		 */
+		temp_string[0] = reading_head.previous;
+		counter = 1;
 		
-		// ????????  if value[-1] == ?\n  ???????????? o que é esse [-1]?
-		if (token.value[i] == '\n') {
-			token.line++;
-			token.column = 0;
-		}		
+		token.line = reading_head.line;
+		token.column = reading_head.column-1;
 		
-		i++;
-	}
-	
-	
-	
-	if (token.type == TOKEN_TYPE_IGNORED) {
-		for (int i = 0 ; i < 100; i++) {
-			token.value[i] = 0;
+		while (reading_head.current != EOF && token.type == TOKEN_TYPE_INCOMPLETE) {
+			/* building token */
+			
+			/* the transducer automata will execute a transition to consume the current char */
+			token.type = transducer_consume_input(reading_head.current, reading_head.next);
+			
+			temp_string[counter] = reading_head.current;
+			counter += 1;
+			
+			read_next_char();
 		}
+
+		
+		/* allocate memory to token value */
+		token.value = (char*) malloc(counter*sizeof(char));
+		while (counter > 0) {
+			/* fill each char of the token value */
+			token.value[counter-1] = temp_string[counter-1];
+			counter -= 1;
+		}
+		
+		
+		if (token.type == TOKEN_TYPE_IGNORED) {
+			free(token.value);
+			token.value = NULL;
+		} else if (token.type == TOKEN_TYPE_INCOMPLETE) {
+			token.type = TOKEN_TYPE_INVALID;
+		} else if (token.type == TOKEN_TYPE_IDENTIFIER && (find_by_key(&table_reserved_words, token.value) >= 0)) {
+			token.type = TOKEN_TYPE_RESERVED_WORD;
+		}
+		
+		token.index = update_semantic_tables();
+		
 	}
 	
-	if (token.type == TOKEN_TYPE_INCOMPLETE) {
-		token.type = TOKEN_TYPE_INVALID; 
-	}
-	else {
-//		if (token.type == TOKEN_TYPE_IDENTIFIER &&      !!!!!     Semantic::TableReservedWords.include?(value)      !!!!!!!       ) {
-//			token.type = TOKEN_TYPE_RESERVED_WORD;
-//		}
-	}
-
-	
-	// !!!!!!!!!!!!!!!!!!!!!!
-	//token.index = table_value(value, type)       !!!!!!        liberar essa linha e fazer a função table_value depois q as tabelas ficarem prontas
-	// !!!!!!!!!!!!!!!!!!!!!!	
-
-	return token;
 }
-
-///*
-

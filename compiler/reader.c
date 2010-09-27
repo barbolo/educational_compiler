@@ -2,115 +2,43 @@
  *  reader.c
  *  compilador
  *
- *  Created by Filipe Morgado Simões de Campos on 24/09/10.
- *  Copyright 2010 __MyCompanyName__. All rights reserved.
+ *  Created by Filipe Morgado Simões de Campos e Rafael Barbolo Lopes on 24/09/10.
  *
  */
 
+#include <stdio.h>
+#include <stdlib.h>
 #include "reader.h"
 
-
-void init_reader(reader_type read_head){
+void init_reader(char *filename) {
 	
-	file_pointer = NULL;
+	/* open file */
+	reading_head.file_pointer = fopen(filename, "r");
 	
-	first_time = 1;
+	/* raise an error and end the execution if the file could not be opened */
+	if( reading_head.file_pointer == NULL ) {
+		printf("ERROR: \n\tFile \"%s\" could not be opened. \n\tCheck its path, name and extension.\n",filename);
+		exit(1);
+	}
 	
-	read_head.last = 0;
-	read_head.current = 0;
-	read_head.next = 0;
+	/* update the reading head */
+	reading_head.previous = 0;
+	reading_head.current = fgetc(reading_head.file_pointer);
+	reading_head.next = fgetc(reading_head.file_pointer);
+	reading_head.line = 1;
+	reading_head.column = 1;
 	
 }
 
-
-reader_type get_next_char(char *filename, reader_type read_head){
- 
-	//To use files in C programs, you must declare a file variable to use. This variable must be of type FILE, and be declared as a pointer type.
-
-	int caracter;
+void read_next_char() {
+	/* update the heading read */
+	reading_head.previous = reading_head.current;
+	reading_head.current = reading_head.next;
+	reading_head.next = fgetc(reading_head.file_pointer);
 	
-	
-	// Test if file is already opened.
-	if (file_pointer == NULL) {
-
-		file_pointer = fopen( filename, "r" );
-
-		// Testing if file was opened successfully.
-		if( file_pointer == NULL ) {
-			
-			printf("File, %s, can not be opened.\n",filename);
-			
-			read_head.current = -1;
-			read_head.last = -1;
-			read_head.next = -1;
-			
-			return read_head;
-			//exit(1);
-		}
+	if (reading_head.previous == '\n') {
+		reading_head.line += 1;
+		reading_head.column = 0;
 	}
-	
-	
-	// Get next char
-	
-	//If it is the firs time reading the file:
-	if (first_time == 1) {
-
-		caracter = 0;
-		caracter = fgetc( file_pointer );
-		if (caracter != EOF) {
-			read_head.current = ((char)caracter);
-		}
-		else {
-			fclose( file_pointer );
-			read_head.current = EOF;
-			read_head.next = EOF;
-			return read_head;
-		}		
-		
-		caracter = 0;
-		caracter = fgetc( file_pointer );
-		if (caracter != EOF) {
-			read_head.next = ((char)caracter);
-		}
-		else {
-			fclose( file_pointer );
-			read_head.next = EOF;
-			return read_head;
-		}
-		
-		first_time = 0;
-	}
-	//If not, get the new char and update the old ones.
-	else {
-		
-		//Update last
-		read_head.last = read_head.current;
-		
-		//Update current
-		if (read_head.next == EOF) {
-			//avoid the program to read after EOF
-			read_head.current = read_head.next;
-			return read_head;
-		}
-		else {
-			read_head.current = read_head.next;
-		}
-
-		
-		//Get new one.
-		caracter = 0;
-		caracter = fgetc( file_pointer );
-		
-		if (caracter != EOF) {
-			read_head.next = ((char)caracter);
-		}
-		else {
-			fclose( file_pointer );
-			read_head.next = EOF;
-		}
-		
-	}
-
-  return read_head;
- 
- }
+	reading_head.column += 1;
+}

@@ -1,70 +1,46 @@
-
 #include <stdio.h>
-
+#include <stdlib.h>
+#include "reader.h"
+#include "token.h"
 #include "analyser.h"
-#include "hashtable.h"
-
-
-void reader_test(){	
-	char letra;
-    
-	init_reader();
-	
-	while (letra != EOF) {
-		//letra = get_next_char("../../teste.txt");
-		printf("Char found: %c\n", letra);
-	}
-	
-	printf("EOF: %c \n", EOF);
-}
-
-
-
-void lexical_analysis(){
-    
-	//char a_char;
-	
-	init_reader();
-	//a_char = get_next_char("../../teste.txt");
-	
-	
-	/*
-	input = File.read('../resources/test_lex.poli');
-    
-	
-    analyser = Lex::Analyser.new(input);
-    
-	while (token = analyser.get_next_token).type != Token::Type::END_OF_FILE {
-		puts token.to_str;
-	}
-	*/
-	
-	
-}
-
-
+#include "tables.h"
 
 int main (int argc, const char * argv[]) {
 	
-	lexical_analysis();
-
 	
+	/* initialize the file reader */
+	init_reader("../../../resources/test_lex.poli");
 	
-	// testing table hash
+	/* initialize transducer automata transitions */
+	initialize_transitions();
 	
-	int one, two, three, result;
+	/* initialize semantic tables */
+	initialize_semantic_tables();
 	
-	hash_table hash_test;
+	/* loop that reads all tokens from source code */
+	while (token.type != TOKEN_TYPE_END_OF_FILE) {
+		get_next_token();
+		
+		if (token.type != TOKEN_TYPE_END_OF_FILE) {
+			printf("Token: %s (%d) :: %s (%d) :: line %i, column %i\n", 
+				   token.value, token.index, token_type_name(), token.type, token.line, token.column);
+		}
+		
+	}
 	
-	hash_test = init_table(hash_test);
+	char *a;
 	
-	one = add(&hash_test, "casa");
-	two = add(&hash_test, "casa");
-	three = add(&hash_test, "amor");
+	hash_table t;
+	t = init_table(t);
+	t = init_table(t);
 	
-	result = find_by_key(&hash_test, "amor");
+	a = "ola";
 	
-	// test - end
+	add(&t, "ola2");
+	add(&t, "ola3");
 	
-    return 0;
+	printf("valor:%d\n", find_by_key(&t, a));
+	printf("valor:%d\n", find_by_key(&table_symbols, "bc") >= 0);
+	
+	return 0;
 }

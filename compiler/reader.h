@@ -5,7 +5,6 @@
  *  compilador
  *
  *  Created by Filipe Morgado Simões de Campos e Rafael Barbolo Lopes on 24/09/10.
- *  Copyright 2010 __MyCompanyName__. All rights reserved.
  *
  *
  * This file is responsable for reading the caracters from the source code and returning it 
@@ -14,37 +13,41 @@
  *
  */
 
-#include <stdio.h>
 
-struct reader {
-	char last;
+/* struct used to read a file */
+typedef struct reader_type {
+	FILE * file_pointer; // pointer to the file being read
+
+	/* last, current and next chars */
+	char previous; // last char
 	char current;
 	char next;
-};
+	
+	/* column and line of the cursor in the file */
+	int line;
+	int column;
+} Reader;
 
-typedef struct reader reader_type;
 
-
-int first_time;
-FILE * file_pointer;
-
+/* global variable: reading head */
+Reader reading_head;
 
 
 /*****************************************************************************
- name: get_next_char
- purpose: get the next char from the file being scanend.
- args: filename --> name of the file to be read and the structure where the chars are stored, read_head;
- returns: reader_type read_head.
+ name: read_next_char
+ purpose: read the next char from the file being scanned.
+ args: 
+ returns: 
  *****************************************************************************/
-reader_type get_next_char(char *filename, reader_type read_head);
+void read_next_char();
 
 /*****************************************************************************
  name: init_reader
- purpose: init_reader variables.
- args: nothin.g
- returns: nothing.
+ purpose: initialize the file reader.
+ args: filename
+ returns: 
  *****************************************************************************/
-void init_reader();
+void init_reader(char *filename);
 
 
 
