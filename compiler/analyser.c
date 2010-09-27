@@ -16,6 +16,7 @@
 void get_next_token() {
 	
 	char temp_string[500];
+	char stra[3];
 	int counter;
 	
 	token.type = TOKEN_TYPE_IGNORED;

@@ -28,19 +28,5 @@ int main (int argc, const char * argv[]) {
 		
 	}
 	
-	char *a;
-	
-	hash_table t;
-	t = init_table(t);
-	t = init_table(t);
-	
-	a = "ola";
-	
-	add(&t, "ola2");
-	add(&t, "ola3");
-	
-	printf("valor:%d\n", find_by_key(&t, a));
-	printf("valor:%d\n", find_by_key(&table_symbols, "bc") >= 0);
-	
 	return 0;
 }

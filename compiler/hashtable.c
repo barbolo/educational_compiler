@@ -2,12 +2,13 @@
  *  hashtable.c
  *  compiler
  *
- *  Created by Filipe Morgado Simões de Campos e Rafael Barbolo Lopes on 24/09/10.
+ *  Created by Filipe Morgado Simões de Campos e Rafael Barbolo Lopes on 24/09/10
  *
  */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "hashtable.h"
 
 
@@ -92,7 +93,7 @@ int find_by_key(hash_table * table, char * key){
 	
 	while (1) {
 		
-		if (current_table_cell->key == key) {
+		if (strcmp(current_table_cell->key, key) == 0) {
 			return current_table_cell->value;
 		} 
 		
