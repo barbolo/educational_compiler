@@ -1,13 +1,11 @@
 #ifndef TRANSDUCER_H
 #define TRANSDUCER_H
 
-
-
 /*
  *  transducer.h
  *  compiler
  *
- *  Created by Rafael Barbolo Lopes on 24/09/10.
+ *  Created by Filipe Morgado Simões de Campos e Rafael Barbolo Lopes on 24/09/10.
  *  Copyright 2010 __MyCompanyName__. All rights reserved.
  *
  *
@@ -19,28 +17,39 @@
  *
  */
 
-// preciso de uma tabela de transicoes
-// preciso de uma tabela de tipos de tokens
-// tabela de estado? acho que fica na propria de transicoes
-// método "add_transition", "add_state". Entrada é sempre um char. saída é um id da tabela de tipos de tokens ou -1.
+#include "token.h"
 
-typedef int State;
-typedef int TokenType;
+#define INVALID_STATE	-1
+#define EMPTY_STRING	-1
 
-struct Output {
-	State state;
-	TokenType type;
-};
+
+
+int transitions;
 
 
 
 
-Por exemplo, se no estado 1, para qualquer entrada de A a Z for para o estado 2, eu só faço:
-for(i=(int)'A'; i <= (int)'Z'; i++) {
-	tabelaTransicao[1][i] = 2;
-}
 
-int 
+
+/*****************************************************************************
+ name: 
+ purpose: .
+ args: .
+ returns: .
+ *****************************************************************************/
+void init_transducer(/*  TALVEZ PASSE AQEUI UMA VARIAVEL DO TIPO TRANSDUCER_TYPE  */);
+
+
+
+/*****************************************************************************
+ name: 
+ purpose: .
+ args: .
+ returns: .
+ *****************************************************************************/
+char * get_token_type_name(int token_type);
+
+
 
 
 #endif

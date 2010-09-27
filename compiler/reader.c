@@ -7,25 +7,23 @@
  *
  */
 
-#include <stdio.h>
-
 #include "reader.h"
 
 
-void init_reader(){
+void init_reader(reader_type read_head){
 	
 	file_pointer = NULL;
 	
 	first_time = 1;
 	
-	reader_head.last = 0;
-	reader_head.current = 0;
-	reader_head.next = 0;
+	read_head.last = 0;
+	read_head.current = 0;
+	read_head.next = 0;
 	
 }
 
 
-char get_next_char(char *filename){
+reader_type get_next_char(char *filename, reader_type read_head){
  
 	//To use files in C programs, you must declare a file variable to use. This variable must be of type FILE, and be declared as a pointer type.
 
@@ -39,8 +37,14 @@ char get_next_char(char *filename){
 
 		// Testing if file was opened successfully.
 		if( file_pointer == NULL ) {
+			
 			printf("File, %s, can not be opened.\n",filename);
-			return 0;
+			
+			read_head.current = -1;
+			read_head.last = -1;
+			read_head.next = -1;
+			
+			return read_head;
 			//exit(1);
 		}
 	}
@@ -54,21 +58,24 @@ char get_next_char(char *filename){
 		caracter = 0;
 		caracter = fgetc( file_pointer );
 		if (caracter != EOF) {
-			reader_head.current = ((char)caracter);
+			read_head.current = ((char)caracter);
 		}
 		else {
 			fclose( file_pointer );
-			return EOF;
+			read_head.current = EOF;
+			read_head.next = EOF;
+			return read_head;
 		}		
 		
 		caracter = 0;
 		caracter = fgetc( file_pointer );
 		if (caracter != EOF) {
-			reader_head.next = ((char)caracter);
+			read_head.next = ((char)caracter);
 		}
 		else {
 			fclose( file_pointer );
-			return EOF;
+			read_head.next = EOF;
+			return read_head;
 		}
 		
 		first_time = 0;
@@ -77,25 +84,33 @@ char get_next_char(char *filename){
 	else {
 		
 		//Update last
-		reader_head.last = reader_head.current;
+		read_head.last = read_head.current;
 		
 		//Update current
-		reader_head.current = reader_head.next;
+		if (read_head.next == EOF) {
+			//avoid the program to read after EOF
+			read_head.current = read_head.next;
+			return read_head;
+		}
+		else {
+			read_head.current = read_head.next;
+		}
+
 		
 		//Get new one.
 		caracter = 0;
 		caracter = fgetc( file_pointer );
 		
 		if (caracter != EOF) {
-			reader_head.next = ((char)caracter);
+			read_head.next = ((char)caracter);
 		}
 		else {
 			fclose( file_pointer );
-			reader_head.next = EOF;
+			read_head.next = EOF;
 		}
 		
 	}
 
-  return reader_head.current;
+  return read_head;
  
  }

@@ -12,8 +12,11 @@
 		D486B01E124CF51900274119 /* reader.c in Sources */ = {isa = PBXBuildFile; fileRef = D486B01D124CF51900274119 /* reader.c */; };
 		D486B021124CF52800274119 /* printer.c in Sources */ = {isa = PBXBuildFile; fileRef = D486B020124CF52800274119 /* printer.c */; };
 		D486B024124CF53400274119 /* transducer.c in Sources */ = {isa = PBXBuildFile; fileRef = D486B023124CF53400274119 /* transducer.c */; };
-		D486B027124CF53F00274119 /* lex.c in Sources */ = {isa = PBXBuildFile; fileRef = D486B026124CF53F00274119 /* lex.c */; };
 		D486B02A124CF54B00274119 /* symbols.c in Sources */ = {isa = PBXBuildFile; fileRef = D486B029124CF54B00274119 /* symbols.c */; };
+		D4F9BE75124F78C500BE338F /* analyser.c in Sources */ = {isa = PBXBuildFile; fileRef = D4F9BE74124F78C500BE338F /* analyser.c */; };
+		D4F9BE78124F78D500BE338F /* token.c in Sources */ = {isa = PBXBuildFile; fileRef = D4F9BE77124F78D500BE338F /* token.c */; };
+		D4F9C00D12500D9900BE338F /* hashtable.c in Sources */ = {isa = PBXBuildFile; fileRef = D4F9C00C12500D9900BE338F /* hashtable.c */; };
+		D4F9C01A1250123200BE338F /* tablesymbols.c in Sources */ = {isa = PBXBuildFile; fileRef = D4F9C0191250123200BE338F /* tablesymbols.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,10 +42,16 @@
 		D486B020124CF52800274119 /* printer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = printer.c; sourceTree = "<group>"; };
 		D486B022124CF53400274119 /* transducer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transducer.h; sourceTree = "<group>"; };
 		D486B023124CF53400274119 /* transducer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = transducer.c; sourceTree = "<group>"; };
-		D486B025124CF53F00274119 /* lex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lex.h; sourceTree = "<group>"; };
-		D486B026124CF53F00274119 /* lex.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lex.c; sourceTree = "<group>"; };
 		D486B028124CF54B00274119 /* symbols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = symbols.h; sourceTree = "<group>"; };
 		D486B029124CF54B00274119 /* symbols.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = symbols.c; sourceTree = "<group>"; };
+		D4F9BE73124F78C500BE338F /* analyser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = analyser.h; sourceTree = "<group>"; };
+		D4F9BE74124F78C500BE338F /* analyser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = analyser.c; sourceTree = "<group>"; };
+		D4F9BE76124F78D500BE338F /* token.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = token.h; sourceTree = "<group>"; };
+		D4F9BE77124F78D500BE338F /* token.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = token.c; sourceTree = "<group>"; };
+		D4F9C00B12500D9900BE338F /* hashtable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hashtable.h; sourceTree = "<group>"; };
+		D4F9C00C12500D9900BE338F /* hashtable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hashtable.c; sourceTree = "<group>"; };
+		D4F9C0181250123200BE338F /* tablesymbols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tablesymbols.h; sourceTree = "<group>"; };
+		D4F9C0191250123200BE338F /* tablesymbols.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tablesymbols.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,18 +78,10 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				D4F9BE5C124F73E200BE338F /* Semantic */,
+				D4F9BE55124F73BE00BE338F /* Lex */,
 				D405F1C8124D1A25008E3B10 /* TCC Libs */,
 				08FB7796FE84155DC02AAC07 /* main.c */,
-				D486B01C124CF51900274119 /* reader.h */,
-				D486B01D124CF51900274119 /* reader.c */,
-				D486B01F124CF52800274119 /* printer.h */,
-				D486B020124CF52800274119 /* printer.c */,
-				D486B022124CF53400274119 /* transducer.h */,
-				D486B023124CF53400274119 /* transducer.c */,
-				D486B025124CF53F00274119 /* lex.h */,
-				D486B026124CF53F00274119 /* lex.c */,
-				D486B028124CF54B00274119 /* symbols.h */,
-				D486B029124CF54B00274119 /* symbols.c */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -103,10 +104,40 @@
 		D405F1C8124D1A25008E3B10 /* TCC Libs */ = {
 			isa = PBXGroup;
 			children = (
+				D486B01F124CF52800274119 /* printer.h */,
+				D486B020124CF52800274119 /* printer.c */,
 				D405F1C5124D19F7008E3B10 /* stringtcc.h */,
 				D405F1C6124D19F7008E3B10 /* stringtcc.c */,
+				D4F9C00B12500D9900BE338F /* hashtable.h */,
+				D4F9C00C12500D9900BE338F /* hashtable.c */,
 			);
 			name = "TCC Libs";
+			sourceTree = "<group>";
+		};
+		D4F9BE55124F73BE00BE338F /* Lex */ = {
+			isa = PBXGroup;
+			children = (
+				D4F9BE73124F78C500BE338F /* analyser.h */,
+				D4F9BE74124F78C500BE338F /* analyser.c */,
+				D4F9BE76124F78D500BE338F /* token.h */,
+				D4F9BE77124F78D500BE338F /* token.c */,
+				D486B022124CF53400274119 /* transducer.h */,
+				D486B023124CF53400274119 /* transducer.c */,
+				D486B01C124CF51900274119 /* reader.h */,
+				D486B01D124CF51900274119 /* reader.c */,
+			);
+			name = Lex;
+			sourceTree = "<group>";
+		};
+		D4F9BE5C124F73E200BE338F /* Semantic */ = {
+			isa = PBXGroup;
+			children = (
+				D486B028124CF54B00274119 /* symbols.h */,
+				D486B029124CF54B00274119 /* symbols.c */,
+				D4F9C0181250123200BE338F /* tablesymbols.h */,
+				D4F9C0191250123200BE338F /* tablesymbols.c */,
+			);
+			name = Semantic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,9 +187,12 @@
 				D486B01E124CF51900274119 /* reader.c in Sources */,
 				D486B021124CF52800274119 /* printer.c in Sources */,
 				D486B024124CF53400274119 /* transducer.c in Sources */,
-				D486B027124CF53F00274119 /* lex.c in Sources */,
 				D486B02A124CF54B00274119 /* symbols.c in Sources */,
 				D405F1C7124D19F7008E3B10 /* stringtcc.c in Sources */,
+				D4F9BE75124F78C500BE338F /* analyser.c in Sources */,
+				D4F9BE78124F78D500BE338F /* token.c in Sources */,
+				D4F9C00D12500D9900BE338F /* hashtable.c in Sources */,
+				D4F9C01A1250123200BE338F /* tablesymbols.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
