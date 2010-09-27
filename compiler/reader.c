@@ -15,7 +15,7 @@ void init_reader(char *filename) {
 	/* open file */
 	reading_head.file_pointer = fopen(filename, "r");
 	
-	/* raise an error and end the execution if the file could not be opened */
+	/* raise an error and terminate execution if the file could not be opened */
 	if( reading_head.file_pointer == NULL ) {
 		printf("ERROR: \n\tFile \"%s\" could not be opened. \n\tCheck its path, name and extension.\n",filename);
 		exit(1);

@@ -1,3 +1,5 @@
+#ifndef TABLES_H
+#define TABLES_H
 /*
  *  tables.h
  *  compiler
@@ -34,3 +36,6 @@ void initialize_semantic_tables();
  *****************************************************************************/
 
 int update_semantic_tables();
+
+
+#endif

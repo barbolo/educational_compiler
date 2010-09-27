@@ -1,3 +1,5 @@
+#ifndef HASHTABLE_H
+#define HASHTABLE_H
 /*
  *  hashtable.h
  *  compiler
@@ -62,3 +64,4 @@ hash_table * find_last_cell(hash_table * table);
 int find_by_key(hash_table * table, char * key);
 
 
+#endif
