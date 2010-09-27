@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8DD76FAC0486AB0100D96B5E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.c */; settings = {ATTRIBUTES = (); }; };
+		B0A80ADB12515FFF0079D32B /* strings.c in Sources */ = {isa = PBXBuildFile; fileRef = B0A80ADA12515FFF0079D32B /* strings.c */; };
 		D486B01E124CF51900274119 /* reader.c in Sources */ = {isa = PBXBuildFile; fileRef = D486B01D124CF51900274119 /* reader.c */; };
 		D486B024124CF53400274119 /* transducer.c in Sources */ = {isa = PBXBuildFile; fileRef = D486B023124CF53400274119 /* transducer.c */; };
 		D4F9BE75124F78C500BE338F /* analyser.c in Sources */ = {isa = PBXBuildFile; fileRef = D4F9BE74124F78C500BE338F /* analyser.c */; };
@@ -30,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		B0A80AD912515FFF0079D32B /* strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strings.h; sourceTree = "<group>"; };
+		B0A80ADA12515FFF0079D32B /* strings.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = strings.c; sourceTree = "<group>"; };
 		D405F1A8124D1759008E3B10 /* compilador */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = compilador; sourceTree = BUILT_PRODUCTS_DIR; };
 		D486B01C124CF51900274119 /* reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reader.h; sourceTree = "<group>"; };
 		D486B01D124CF51900274119 /* reader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = reader.c; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 				D486B01D124CF51900274119 /* reader.c */,
 				D4F9C00B12500D9900BE338F /* hashtable.h */,
 				D4F9C00C12500D9900BE338F /* hashtable.c */,
+				B0A80AD912515FFF0079D32B /* strings.h */,
+				B0A80ADA12515FFF0079D32B /* strings.c */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 				D4F9BE78124F78D500BE338F /* token.c in Sources */,
 				D4F9C00D12500D9900BE338F /* hashtable.c in Sources */,
 				D4F9C01A1250123200BE338F /* tables.c in Sources */,
+				B0A80ADB12515FFF0079D32B /* strings.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
