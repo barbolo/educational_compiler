@@ -1,3 +1,6 @@
+#ifndef STRING_H
+#define STRING_H
+
 /*
  *  strings.h
  *  compiler
@@ -15,3 +18,7 @@
  *****************************************************************************/
 
 int strcmp(char *s1, char *s2);
+
+
+
+#endif
