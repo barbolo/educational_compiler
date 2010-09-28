@@ -22,7 +22,7 @@ int main (int argc, const char * argv[]) {
 		get_next_token();
 		
 		if (token.type != TOKEN_TYPE_END_OF_FILE) {
-			printf("Token: %s (%d) :: %s (%d) :: line %i, column %i\n", 
+			printf("Token:	%s	(%d)	::	%s	(%d)	::	line	%i, column	%i\n", 
 				   token.value, token.index, token_type_name(), token.type, token.line, token.column);
 		}
 		
