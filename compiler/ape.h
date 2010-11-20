@@ -11,26 +11,7 @@
  */
 
 
-int get_token_value_id(Token * token ){
-	
-	//se for palavra reservada, ver q palavara é e aí pega o ID dela
-	
-	
-	
-	//se for palavra special, ver qual é e aí pega o ID dele
-	
-	
-	
-	//se for identifier, int number ou string... aí já da o ID direito
-	
-	
-	//hum...
-	
-	
-	
-}
-
-
+int get_token_value_id(Token * token );
 
 
 
