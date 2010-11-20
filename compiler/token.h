@@ -19,6 +19,16 @@
 #define TOKEN_TYPE_SPECIAL			4
 #define TOKEN_TYPE_IGNORED			5	// blank char, \n, \t, comments
 #define TOKEN_TYPE_END_OF_FILE		6	// this is a special token type, that belongs to the tokens returned when the file content has been all read
+#define TOKEN_TYPE_STRING			7
+
+
+
+
+// !!!!! parece q vai precisar adicionar um token do tipo string -> modificar o lexico pra poder marcar o token como sendo uma string !!!!! 
+
+
+
+
 
 typedef int type_of_token;
 

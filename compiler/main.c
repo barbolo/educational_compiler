@@ -17,6 +17,14 @@ int main (int argc, const char * argv[]) {
 	/* initialize semantic tables */
 	initialize_semantic_tables();
 	
+	/* initialize APE */
+	//
+	
+	/* call sintatic analyser*/
+	
+	
+	
+	
 	/* loop that reads all tokens from source code */
 	while (token.type != TOKEN_TYPE_END_OF_FILE) {
 		get_next_token();

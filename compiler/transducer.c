@@ -103,8 +103,20 @@ void initialize_transitions() {
 	transducer_transitions[0][(int)')'].next_state = 0;
 	transducer_transitions[0][(int)')'].type = TOKEN_TYPE_SPECIAL;
 	
-	transducer_transitions[0][(int)'.'].next_state = 0;
-	transducer_transitions[0][(int)'.'].type = TOKEN_TYPE_SPECIAL;
+	transducer_transitions[0][(int)','].next_state = 0;
+	transducer_transitions[0][(int)','].type = TOKEN_TYPE_SPECIAL;
+
+	transducer_transitions[0][(int)'}'].next_state = 0;
+	transducer_transitions[0][(int)'}'].type = TOKEN_TYPE_SPECIAL;
+	
+	transducer_transitions[0][(int)'{'].next_state = 0;
+	transducer_transitions[0][(int)'{'].type = TOKEN_TYPE_SPECIAL;
+	
+	transducer_transitions[0][(int)'['].next_state = 0;
+	transducer_transitions[0][(int)'['].type = TOKEN_TYPE_SPECIAL;
+	
+	transducer_transitions[0][(int)']'].next_state = 0;
+	transducer_transitions[0][(int)']'].type = TOKEN_TYPE_SPECIAL;
 	
 	
 	/* nondeterministic special chars with dept <= 2 */
@@ -141,6 +153,14 @@ void initialize_transitions() {
 	transducer_transitions[s][EMPTY_STRING].next_state = 0;
 	transducer_transitions[s][EMPTY_STRING].type = TOKEN_TYPE_SPECIAL;
 	
+	// !=
+	s = transducer_new_state();
+	transducer_transitions[0][(int)'!'].next_state = s;
+	transducer_transitions[0][(int)'!'].type = TOKEN_TYPE_INCOMPLETE;
+	
+	transducer_transitions[s][(int)'='].next_state = 0;
+	transducer_transitions[s][(int)'='].type = TOKEN_TYPE_SPECIAL;
+		
 }
 
 

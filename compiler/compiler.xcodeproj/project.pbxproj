@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8DD76FAC0486AB0100D96B5E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.c */; settings = {ATTRIBUTES = (); }; };
 		B0A80ADB12515FFF0079D32B /* strings.c in Sources */ = {isa = PBXBuildFile; fileRef = B0A80ADA12515FFF0079D32B /* strings.c */; };
+		D429569212985CE9000C5797 /* ape.c in Sources */ = {isa = PBXBuildFile; fileRef = D429569112985CE9000C5797 /* ape.c */; };
+		D429569612985D25000C5797 /* sintatic.c in Sources */ = {isa = PBXBuildFile; fileRef = D429569512985D25000C5797 /* sintatic.c */; };
 		D486B01E124CF51900274119 /* reader.c in Sources */ = {isa = PBXBuildFile; fileRef = D486B01D124CF51900274119 /* reader.c */; };
 		D486B024124CF53400274119 /* transducer.c in Sources */ = {isa = PBXBuildFile; fileRef = D486B023124CF53400274119 /* transducer.c */; };
 		D4F9BE75124F78C500BE338F /* analyser.c in Sources */ = {isa = PBXBuildFile; fileRef = D4F9BE74124F78C500BE338F /* analyser.c */; };
@@ -34,6 +36,13 @@
 		B0A80AD912515FFF0079D32B /* strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strings.h; sourceTree = "<group>"; };
 		B0A80ADA12515FFF0079D32B /* strings.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = strings.c; sourceTree = "<group>"; };
 		D405F1A8124D1759008E3B10 /* compilador */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = compilador; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4295676129835DD000C5797 /* program.poli */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = program.poli; sourceTree = "<group>"; };
+		D4295677129835DD000C5797 /* linguagemFinal.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = linguagemFinal.txt; sourceTree = "<group>"; };
+		D4295678129835DD000C5797 /* linguagemReduzidaLegível.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "linguagemReduzidaLegível.txt"; sourceTree = "<group>"; };
+		D429569012985CE9000C5797 /* ape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ape.h; sourceTree = "<group>"; };
+		D429569112985CE9000C5797 /* ape.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ape.c; sourceTree = "<group>"; };
+		D429569412985D25000C5797 /* sintatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sintatic.h; sourceTree = "<group>"; };
+		D429569512985D25000C5797 /* sintatic.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sintatic.c; sourceTree = "<group>"; };
 		D486B01C124CF51900274119 /* reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reader.h; sourceTree = "<group>"; };
 		D486B01D124CF51900274119 /* reader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = reader.c; sourceTree = "<group>"; };
 		D486B022124CF53400274119 /* transducer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transducer.h; sourceTree = "<group>"; };
@@ -72,6 +81,8 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				D4295672129835C6000C5797 /* Docs */,
+				D429567012982E13000C5797 /* Sintatic */,
 				D4F9BE5C124F73E200BE338F /* Semantic */,
 				D4F9BE55124F73BE00BE338F /* Lex */,
 				D405F1C8124D1A25008E3B10 /* Helper */,
@@ -106,6 +117,27 @@
 				B0A80ADA12515FFF0079D32B /* strings.c */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		D429567012982E13000C5797 /* Sintatic */ = {
+			isa = PBXGroup;
+			children = (
+				D429569012985CE9000C5797 /* ape.h */,
+				D429569112985CE9000C5797 /* ape.c */,
+				D429569412985D25000C5797 /* sintatic.h */,
+				D429569512985D25000C5797 /* sintatic.c */,
+			);
+			name = Sintatic;
+			sourceTree = "<group>";
+		};
+		D4295672129835C6000C5797 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				D4295676129835DD000C5797 /* program.poli */,
+				D4295677129835DD000C5797 /* linguagemFinal.txt */,
+				D4295678129835DD000C5797 /* linguagemReduzidaLegível.txt */,
+			);
+			name = Docs;
 			sourceTree = "<group>";
 		};
 		D4F9BE55124F73BE00BE338F /* Lex */ = {
@@ -181,6 +213,8 @@
 				D4F9C00D12500D9900BE338F /* hashtable.c in Sources */,
 				D4F9C01A1250123200BE338F /* tables.c in Sources */,
 				B0A80ADB12515FFF0079D32B /* strings.c in Sources */,
+				D429569212985CE9000C5797 /* ape.c in Sources */,
+				D429569612985D25000C5797 /* sintatic.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
