@@ -22,14 +22,6 @@
 #define TOKEN_TYPE_STRING			7
 
 
-
-
-// !!!!! parece q vai precisar adicionar um token do tipo string -> modificar o lexico pra poder marcar o token como sendo uma string !!!!! 
-
-
-
-
-
 typedef int type_of_token;
 
 // ---- Token Types - end -----

@@ -38,6 +38,9 @@ char * token_type_name() {
 		case  6:
 			type_name = "end of file";
 			break;
+		case  7:
+			type_name = "string";
+			break;
 		default:
 			type_name = "Wrong token type identifier.";
 			break;

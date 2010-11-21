@@ -53,6 +53,8 @@ int update_semantic_tables() {
 	else if (token.type == TOKEN_TYPE_SPECIAL)
 		index = add(&table_specials, token.value);
 	
+	//TALVEZ PRECISE CRIAR UMA TABELA PRA STRING. MAS NAO SE SE PRECISA NAO. ver melhor depois.
+	
 	return index;
 	
 }

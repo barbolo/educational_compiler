@@ -153,14 +153,36 @@ void initialize_transitions() {
 	transducer_transitions[s][EMPTY_STRING].next_state = 0;
 	transducer_transitions[s][EMPTY_STRING].type = TOKEN_TYPE_SPECIAL;
 	
+	
+	
 	// !=
 	s = transducer_new_state();
+	
 	transducer_transitions[0][(int)'!'].next_state = s;
 	transducer_transitions[0][(int)'!'].type = TOKEN_TYPE_INCOMPLETE;
 	
 	transducer_transitions[s][(int)'='].next_state = 0;
 	transducer_transitions[s][(int)'='].type = TOKEN_TYPE_SPECIAL;
-		
+	
+	
+	// transitions with strings
+	
+	s = transducer_new_state();
+	
+	transducer_transitions[0][(int)'"'].next_state = s;
+	transducer_transitions[0][(int)'"'].type = TOKEN_TYPE_INCOMPLETE;	
+	
+	for (aux = (int)'a'; aux <= (int)'z'; aux++) {
+		transducer_transitions[s][aux].next_state = s;
+		transducer_transitions[s][aux].type = TOKEN_TYPE_INCOMPLETE;
+	}
+	for (aux = (int)'0'; aux <= (int)'9'; aux++) {
+		transducer_transitions[s][aux].next_state = s;
+		transducer_transitions[s][aux].type = TOKEN_TYPE_INCOMPLETE;
+	}
+	transducer_transitions[s][(int)'"'].next_state = 0;
+	transducer_transitions[s][(int)'"'].type = TOKEN_TYPE_STRING;
+
 }
 
 
