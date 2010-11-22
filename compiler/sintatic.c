@@ -13,9 +13,10 @@
 
 void start_sintatic(){	
 	
-	//faz de conta... algum lugar vai ter q iniciar os APE depois
+	//faz de conta... algum lugar (ape.c) vai ter q iniciar os APE depois
 	mini_programa_ape.initial_state = 0;
 	mini_programa_ape.final_state = 3;
+	
 	
 	sintatic.current_state =  mini_programa_ape.initial_state;
 	
