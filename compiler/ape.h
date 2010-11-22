@@ -11,6 +11,86 @@
  */
 
 #include "token.h"
+#include "strings.h"
+
+/*
+ 
+//TESTE!!!  ------- Início -------
+
+//Só pra validar o sintatico sem a complicaçãode uma gramática completa e enqunato a nossa nao fica 100%
+
+ Gramática:
+ mini_programa = "main" "{" "}".
+ 
+ initial: 0
+ final: 3
+ (0, "main") -> 1
+ (1, "{") -> 2
+ (2, "}") -> 3
+ 
+
+        token type id 
+      main    {      }
+     __0______1______2___
+    |go to|      |      |
+   0|state| erro | erro |
+s   |__1__|______|______|
+t   |     |      |      |
+a  1| erro|   2  | erro |   
+t   |_____|______|______|
+e   |     |      |      |
+s  2| erro| erro |   3  |
+    |_____|______|______|
+    |     |      |      |
+   3| erro| erro | erro |
+    |_____|______|______|
+ 
+*/
+
+//Wrong token
+#define APE_ERROR -1
+
+// matrix representation
+//int declaracoes_ape_transitions			[NUMBER_OF_STATES_IN_DECLARACOES_APE]		[NUMBER_OF_TOKEN_TYPE_IDS];
+int mini_programa_ape_transitions[4][3];
+
+
+typedef struct ape_type {
+	int final_state;
+	int current_state;
+	int initial_state;
+	int id_sementic_actions;
+	int id_machine;
+} APE;
+
+
+/* global APEs variables */
+APE mini_programa_ape;
+
+
+//TESTE!!!  ------- Fim -------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
@@ -112,13 +192,13 @@
 
 #define STRING_TOKEN_ID					45
 
-
+/*
 typedef struct ape_type {
-	int finalState;
-	int currentState;
-	int initialState;
+	int final_state;
+	int current_state;
+	int initial_state;
 } APE;
-
+*/
 
 /* global APEs variables */
 APE declaracoes_ape;
@@ -142,9 +222,14 @@ int texto_ape_transitions				[NUMBER_OF_STATES_IN_TEXTO_APE]				[NUMBER_OF_TOKEN
 
 
 
+
+
+//--------Functions--------------------------------------------------------------------------------------
+
+int get_token_id_simplificada(Token * token);
+
+
 int get_token_id(Token * token);
-
-
 
 void init_apes_transitions();
 

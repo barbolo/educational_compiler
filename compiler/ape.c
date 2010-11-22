@@ -10,6 +10,71 @@
 #include "ape.h"
 
 
+
+
+void init_apes_transitions(){
+	
+	
+	mini_programa_ape_transitions [0][0] = 1;
+	mini_programa_ape_transitions [0][1] = APE_ERROR;
+	mini_programa_ape_transitions [0][2] = APE_ERROR;
+	
+	mini_programa_ape_transitions [1][0] = APE_ERROR;
+	mini_programa_ape_transitions [1][1] = 2;
+	mini_programa_ape_transitions [1][2] = APE_ERROR;
+	
+	mini_programa_ape_transitions [2][0] = APE_ERROR;
+	mini_programa_ape_transitions [2][1] = APE_ERROR;
+	mini_programa_ape_transitions [2][2] = 3;
+	
+	mini_programa_ape_transitions [3][0] = APE_ERROR;
+	mini_programa_ape_transitions [3][1] = APE_ERROR;
+	mini_programa_ape_transitions [3][2] = APE_ERROR;
+	
+	
+}
+
+
+int get_token_id_simplificada(Token * token){
+	
+	int answer_id;
+	int token_special_value;
+	
+	char * reserved_word_main = "main";
+	
+	
+	
+	//se for palavra reservada, ver q palavara é e aí pega o ID dela
+	if (token->type == TOKEN_TYPE_RESERVED_WORD) {
+		
+		if ( !strcmp(reserved_word_main, token->value) ) {
+			answer_id = 0;
+		}
+	}
+	
+	
+	if (token->type == TOKEN_TYPE_SPECIAL) {
+		
+		token_special_value = ((int)*token->value);
+		
+		switch ( token_special_value ) {
+			case  ((int)'{'):
+				answer_id = 1;
+				break;
+			case  ((int)'}'):
+				answer_id = 2;
+				break;
+			default:
+				answer_id = -1;
+				break;
+		}
+	
+	}
+
+	return answer_id;
+}
+
+
 //talvez seja melhor chamar get_transition_id ou algo assim. pq nem tudo é token né.
 //vai usar essa fç pra poder consultar a matriz q representa o automato. pq nao se sabe diretamente o id do tipo do token.
 int get_token_id(Token * token){

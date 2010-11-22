@@ -8,6 +8,9 @@
 
 #include "strings.h"
 
+// false means that the strings are the same
+// true means they are different.
+
 int strcmp(char *s1, char *s2) {
 	
 	while (*s1 == *s2) {
