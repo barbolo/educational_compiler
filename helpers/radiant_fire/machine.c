@@ -1,283 +1,20 @@
-/*
- *  ape.c
- *  compiler
- *
- */
-
-#include "ape.h"
-
-int is_ape_in_final_state() {
-	Machine m = ape_parser.current_machine;
-	int i;
-	for(i=0; i< 100; i++) {
-		if (m.current_state == m.final_states[i])
-			return 1;
-		else if (m.final_states[i] == -1)
-			break;
-	}
-	return 0;
-}
-
-void change_ape_machine(int machine_id, int state) {
-	ape_parser.current_machine = ape_parser.machines[machine_id];
-	ape_parser.current_machine.current_state = state;
-}
-
-int ape_consume_token() {
-	int machine_id;
-	int token_id = ape_get_token_id();
-	Machine current_machine = ape_parser.current_machine;
-	
-	int next_state = current_machine.token_transitions[current_machine.current_state][token_id];
-	
-	//printf("%d: (%d,%d) -> %d\n", current_machine.machine_id, current_machine.current_state, token_id, next_state);
-	
-	if (next_state == APE_INVALID_STATE) {
-		// could not read the token, let's check if we can change the machine
-		
-		machine_id = machine_id_consume_token(token_id);
-		
-		if (machine_id != APE_INVALID_STATE) {
-			
-			current_machine.current_state = current_machine.machine_transitions[current_machine.current_state][machine_id];
-			
-			// enqueue the current machine
-			push_apestack(current_machine);
-			
-			// change the current machine
-			change_ape_machine(machine_id, ape_parser.machines[machine_id].initial_state);
-			
-			return ape_consume_token();
-			
-		} else if (is_ape_in_final_state() && !is_apestack_empty()) {
-			
-			// check if there's a machine in the queue
-				
-			// retrieve the machine in its original state
-			Machine m = pop_apestack();
-			change_ape_machine(m.machine_id, m.current_state);
-			
-			return ape_consume_token();
-			
-		} else {
-			// could not consume the token in any machine
-			return 0;
-		}
-		
-	} else {
-		ape_parser.current_machine.current_state = next_state;
-		return 1;
-	}
-
-	return 0;
-}
-
-int machine_id_consume_token(int token_id){
-	int i;
-	Machine m, current;
-	current = ape_parser.current_machine;
-	for (i=0; i < APE_TOTAL_MACHINES; i++) {
-		m = ape_parser.machines[i];
-		if (m.token_transitions[m.initial_state][token_id] != APE_INVALID_STATE || can_machine_consume_machine(m)) {
-			
-			if (current.machine_transitions[current.current_state][m.machine_id] != APE_INVALID_STATE) {
-				ape_parser.current_machine.current_state = current.machine_transitions[m.machine_id];
-				return m.machine_id;
-			}
-			
-		}
-	}
-	return APE_INVALID_STATE;
-}
-
-int can_machine_consume_machine(Machine m) {
-	for (int i =0; i < APE_TOTAL_MACHINES; i++) {
-		if (m.machine_transitions[m.initial_state][i]) {
-			return 1;
-		}
-	}
-	return 0;
-}
-
-int ape_get_token_id(){
-
-	switch ((int)token.type) {
-			
-		case TOKEN_TYPE_RESERVED_WORD:
-			if (strcmp(token.value, "functions") == 0) {
-				return APE_TOKEN_FUNCTIONS_ID;
-			}
-			
-			if (strcmp(token.value, "int") == 0) {
-				return APE_TOKEN_INT_ID;
-			}
-			
-			if (strcmp(token.value, "char") == 0) {
-				return APE_TOKEN_CHAR_ID;
-			}
-			
-			if (strcmp(token.value, "boolean") == 0) {
-				return APE_TOKEN_BOOLEAN_ID;
-			}
-			
-			if (strcmp(token.value, "void") == 0) {
-				return APE_TOKEN_VOID_ID;
-			}
-			
-			if (strcmp(token.value, "main") == 0) {
-				return APE_TOKEN_MAIN_ID;
-			}
-			
-			if (strcmp(token.value, "begin") == 0) {
-				return APE_TOKEN_BEGIN_ID;
-			}
-			
-			if (strcmp(token.value, "return") == 0) {
-				return APE_TOKEN_RETURN_ID;
-			}
-			
-			if (strcmp(token.value, "if") == 0) {
-				return APE_TOKEN_IF_ID;
-			}
-			
-			if (strcmp(token.value, "while") == 0) {
-				return APE_TOKEN_WHILE_ID;
-			}
-			
-			if (strcmp(token.value, "scan") == 0) {
-				return APE_TOKEN_SCAN_ID;
-			}
-			
-			if (strcmp(token.value, "print") == 0) {
-				return APE_TOKEN_PRINT_ID;
-			}
-			
-			if (strcmp(token.value, "else") == 0) {
-				return APE_TOKEN_ELSE_ID;
-			}
-			
-			if (strcmp(token.value, "NOT") == 0) {
-				return APE_TOKEN_NOT_ID;
-			}
-			
-			if (strcmp(token.value, "AND") == 0) {
-				return APE_TOKEN_AND_ID;
-			}
-			
-			if (strcmp(token.value, "OR") == 0) {
-				return APE_TOKEN_OR_ID;
-			}
-			
-			break;
-			
-		case TOKEN_TYPE_IDENTIFIER:
-			return APE_TOKEN_ID_ID;
-			break;
-			
-		case TOKEN_TYPE_INT_NUMBER:
-			return APE_TOKEN_INTEIRO_ID;
-			break;
-			
-		case TOKEN_TYPE_SPECIAL:
-			if (strcmp(token.value, "{") == 0) {
-				return APE_TOKEN_ABRE_CHAVES_ID;
-			}
-			
-			if (strcmp(token.value, "(") == 0) {
-				return APE_TOKEN_ABRE_PARENTESES_ID;
-			}
-			
-			if (strcmp(token.value, ";") == 0) {
-				return APE_TOKEN_PONTO_E_VIRGULA_ID;
-			}
-			
-			if (strcmp(token.value, ")") == 0) {
-				return APE_TOKEN_FECHA_PARENTESES_ID;
-			}
-			
-			if (strcmp(token.value, "}") == 0) {
-				return APE_TOKEN_FECHA_CHAVES_ID;
-			}
-			
-			if (strcmp(token.value, ",") == 0) {
-				return APE_TOKEN_VIRGULA_ID;
-			}
-			
-			if (strcmp(token.value, "=") == 0) {
-				return APE_TOKEN_IGUAL_ID;
-			}
-			
-			if (strcmp(token.value, "+") == 0) {
-				return APE_TOKEN_SOMA_ID;
-			}
-			
-			if (strcmp(token.value, "*") == 0) {
-				return APE_TOKEN_MULTIPLICACAO_ID;
-			}
-			
-			if (strcmp(token.value, "/") == 0) {
-				return APE_TOKEN_DIVISAO_ID;
-			}
-			
-			if (strcmp(token.value, "-") == 0) {
-				return APE_TOKEN_SUBTRACAO_ID;
-			}
-			
-			if (strcmp(token.value, "<") == 0) {
-				return APE_TOKEN_MENOR_ID;
-			}
-			
-			if (strcmp(token.value, "<=") == 0) {
-				return APE_TOKEN_MENOR_IGUAL_ID;
-			}
-			
-			if (strcmp(token.value, ">") == 0) {
-				return APE_TOKEN_MAIOR_ID;
-			}
-			
-			if (strcmp(token.value, ">=") == 0) {
-				return APE_TOKEN_MAIOR_IGUAL_ID;
-			}
-			
-			if (strcmp(token.value, "==") == 0) {
-				return APE_TOKEN_IGUAL_IGUAL_ID;
-			}
-			
-			if (strcmp(token.value, "!=") == 0) {
-				return APE_TOKEN_DIFERENTE_ID;
-			}			
-			
-			break;
-			
-		case TOKEN_TYPE_STRING:
-			return APE_TOKEN_STRING_ID;
-			break;
-
-		default:
-			break;
-	}
-	
-	return -1;
-}
-
-
 //////////////////////////////////////////////////////////
 ////////// GENERATED BY RADIANT FIRE LOADER //////////////
 //////////////////////////////////////////////////////////
 
 void init_ape_machines() {
 	/* load machines */
-	Machine programa, comando, expressao, condicao;
-	
-	
+  Machine programa, comando, expressao, condicao;
+  
+
 	/* Machine 0: programa */
-	programa.machine_id = APE_MACHINE_PROGRAMA_ID; // 0
-	programa.initial_state = 0;
-	programa.current_state = 0;
-	initialize_machine_transitions(&programa);
+  programa.machine_id = APE_MACHINE_PROGRAMA_ID; // 0
+  programa.initial_state = 0;
+  programa.current_state = 0;
+  initialize_machine_transitions(&programa);
 	programa.final_states[0] = 12;
 	programa.final_states[1] = -1;
-	
+
 	/* token transitions */
 	programa.token_transitions		[0][APE_TOKEN_FUNCTIONS_ID]		=		1;
 	programa.token_transitions		[1][APE_TOKEN_BOOLEAN_ID]		=		2;
@@ -328,21 +65,21 @@ void init_ape_machines() {
 	programa.token_transitions		[25][APE_TOKEN_BOOLEAN_ID]		=		10;
 	programa.token_transitions		[25][APE_TOKEN_CHAR_ID]		=		10;
 	programa.token_transitions		[25][APE_TOKEN_INT_ID]		=		10;
-	
+
 	/* machine transitions */
 	programa.machine_transitions		[9][APE_MACHINE_COMANDO_ID]		=		9;
 	programa.machine_transitions		[16][APE_MACHINE_COMANDO_ID]		=		16;
 	programa.machine_transitions		[17][APE_MACHINE_EXPRESSAO_ID]		=		19;
-	
+
 	/* Machine 1: comando */
-	comando.machine_id = APE_MACHINE_COMANDO_ID; // 1
-	comando.initial_state = 0;
-	comando.current_state = 0;
-	initialize_machine_transitions(&comando);
+  comando.machine_id = APE_MACHINE_COMANDO_ID; // 1
+  comando.initial_state = 0;
+  comando.current_state = 0;
+  initialize_machine_transitions(&comando);
 	comando.final_states[0] = 11;
 	comando.final_states[1] = 19;
 	comando.final_states[2] = -1;
-	
+
 	/* token transitions */
 	comando.token_transitions		[0][APE_TOKEN_ID_ID]		=		1;
 	comando.token_transitions		[0][APE_TOKEN_IF_ID]		=		2;
@@ -374,7 +111,7 @@ void init_ape_machines() {
 	comando.token_transitions		[22][APE_TOKEN_FECHA_PARENTESES_ID]		=		12;
 	comando.token_transitions		[23][APE_TOKEN_FECHA_CHAVES_ID]		=		11;
 	comando.token_transitions		[25][APE_TOKEN_FECHA_PARENTESES_ID]		=		21;
-	
+
 	/* machine transitions */
 	comando.machine_transitions		[6][APE_MACHINE_EXPRESSAO_ID]		=		12;
 	comando.machine_transitions		[7][APE_MACHINE_CONDICAO_ID]		=		9;
@@ -385,16 +122,16 @@ void init_ape_machines() {
 	comando.machine_transitions		[17][APE_MACHINE_COMANDO_ID]		=		17;
 	comando.machine_transitions		[23][APE_MACHINE_COMANDO_ID]		=		23;
 	comando.machine_transitions		[24][APE_MACHINE_CONDICAO_ID]		=		25;
-	
+
 	/* Machine 2: expressao */
-	expressao.machine_id = APE_MACHINE_EXPRESSAO_ID; // 2
-	expressao.initial_state = 0;
-	expressao.current_state = 0;
-	initialize_machine_transitions(&expressao);
+  expressao.machine_id = APE_MACHINE_EXPRESSAO_ID; // 2
+  expressao.initial_state = 0;
+  expressao.current_state = 0;
+  initialize_machine_transitions(&expressao);
 	expressao.final_states[0] = 2;
 	expressao.final_states[1] = 3;
 	expressao.final_states[2] = -1;
-	
+
 	/* token transitions */
 	expressao.token_transitions		[0][APE_TOKEN_ABRE_PARENTESES_ID]		=		1;
 	expressao.token_transitions		[0][APE_TOKEN_ID_ID]		=		2;
@@ -410,20 +147,20 @@ void init_ape_machines() {
 	expressao.token_transitions		[3][APE_TOKEN_SUBTRACAO_ID]		=		0;
 	expressao.token_transitions		[4][APE_TOKEN_FECHA_PARENTESES_ID]		=		3;
 	expressao.token_transitions		[5][APE_TOKEN_ID_ID]		=		4;
-	
+
 	/* machine transitions */
 	expressao.machine_transitions		[1][APE_MACHINE_EXPRESSAO_ID]		=		4;
 	expressao.machine_transitions		[5][APE_MACHINE_CONDICAO_ID]		=		4;
 	expressao.machine_transitions		[5][APE_MACHINE_EXPRESSAO_ID]		=		4;
-	
+
 	/* Machine 3: condicao */
-	condicao.machine_id = APE_MACHINE_CONDICAO_ID; // 3
-	condicao.initial_state = 0;
-	condicao.current_state = 0;
-	initialize_machine_transitions(&condicao);
+  condicao.machine_id = APE_MACHINE_CONDICAO_ID; // 3
+  condicao.initial_state = 0;
+  condicao.current_state = 0;
+  initialize_machine_transitions(&condicao);
 	condicao.final_states[0] = 4;
 	condicao.final_states[1] = -1;
-	
+
 	/* token transitions */
 	condicao.token_transitions		[0][APE_TOKEN_BOOLEANO_ID]		=		4;
 	condicao.token_transitions		[0][APE_TOKEN_NOT_ID]		=		3;
@@ -437,17 +174,17 @@ void init_ape_machines() {
 	condicao.token_transitions		[2][APE_TOKEN_OR_ID]		=		8;
 	condicao.token_transitions		[3][APE_TOKEN_ABRE_PARENTESES_ID]		=		6;
 	condicao.token_transitions		[7][APE_TOKEN_FECHA_PARENTESES_ID]		=		4;
-	
+
 	/* machine transitions */
 	condicao.machine_transitions		[0][APE_MACHINE_CONDICAO_ID]		=		2;
 	condicao.machine_transitions		[0][APE_MACHINE_EXPRESSAO_ID]		=		1;
 	condicao.machine_transitions		[5][APE_MACHINE_EXPRESSAO_ID]		=		4;
 	condicao.machine_transitions		[6][APE_MACHINE_CONDICAO_ID]		=		7;
 	condicao.machine_transitions		[8][APE_MACHINE_CONDICAO_ID]		=		4;
-	
-	/* initialize ape machines */
-	ape_parser.initial_machine = programa;
-	ape_parser.current_machine = programa;
+
+  /* initialize ape machines */
+  ape_parser.initial_machine = programa;
+  ape_parser.current_machine = programa;
 	ape_parser.machines[0] = programa;
 	ape_parser.machines[1] = comando;
 	ape_parser.machines[2] = expressao;

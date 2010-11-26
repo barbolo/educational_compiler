@@ -4,13 +4,12 @@
 #include "token.h"
 #include "analyser.h"
 #include "tables.h"
+#include "sintatic.h"
 
 int main (int argc, const char * argv[]) {
 	
-	
 	/* initialize the file reader */
-	//init_reader("../../../resources/test_lex.poli");
-	init_reader("../../program.poli");
+	init_reader("../../../resources/sample.edu");
 	
 	/* initialize transducer automata transitions */
 	initialize_transitions();
@@ -18,28 +17,11 @@ int main (int argc, const char * argv[]) {
 	/* initialize semantic tables */
 	initialize_semantic_tables();
 	
-	/* initialize APE */
-	init_apes_transitions();
+	// inicia as máquinas do autômato de pilha estruturado
+	init_ape_machines();
 	
 	/* call sintatic analyser*/
-	start_sintatic();
-	
-	
-	
-	/* loop that reads all tokens from source code
-	 
-	deletar isso depois. depois = qdo o sintatico tiver ficado 100% 
-	 
-	while (token.type != TOKEN_TYPE_END_OF_FILE) {
-		get_next_token();
-		
-		if (token.type != TOKEN_TYPE_END_OF_FILE) {
-			printf("Token:	%s	(%d)	::	%s	(%d)	::	line	%i, column	%i\n", 
-				   token.value, token.index, token_type_name(), token.type, token.line, token.column);
-		}
-		
-	}
-	*/
+	run_sintatic();
 	
 	return 0;
 }

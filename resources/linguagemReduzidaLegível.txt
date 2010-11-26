@@ -1,0 +1,199 @@
+programa = 
+(
+ [ 
+
+  ( 
+    ( "void" |
+	  ( ("int" | "float" | "char" | "boolean") |
+	   ( "typedef" id (("int" | "float" | "char" | "boolean") |
+	    ("struct" id "{"  declaracoes  "}")) 
+	   )  
+	  )   
+	) 
+    id "(" parametros ")" "{" [declaracoes | comandos] ("return" expressao) "}"
+  ) 
+
+  {
+  (
+   ("void" | (("int" | "float" | "char" | "boolean") | ("typedef" id (("int" | "float" | "char" | "boolean") | ("struct" id "{"  declaracoes  "}")))))
+    id "(" parametros ")" "{" [declaracoes | comandos] ("return" expressao) "}"
+  )
+  }
+ 
+ ]
+
+)
+ 
+//meu comentário: sinceramente, acho q poderia tirar toda essa parte aí de cima... ficar só o: main bla bla bla 
+ 
+"main" "{" [declaracoes | comandos] "}"
+.
+
+
+
+
+
+
+parametros = 
+[
+
+(
+ ("int" | "float" | "char" | "boolean")
+|
+  ("typedef" id 
+   (
+    ("int" | "float" | "char" | "boolean") 
+   |
+    ("struct" id "{"  declaracoes  "}")
+   )
+  )
+)
+
+(
+ id 
+|
+ (id "[" inteiro "]")
+|
+ (id "[" inteiro "]" "[" inteiro "]")
+)
+
+
+{
+
+"," 
+(
+ ("int" | "float" | "char" | "boolean")
+| 
+  ("typedef" id (("int" | "float" | "char" | "boolean") | ("struct" id "{"  declaracoes  "}")))
+)
+  
+(
+id | (id "[" inteiro "]") | (id "[" inteiro "]" "[" inteiro "]")
+)
+
+}
+
+
+]
+.
+
+
+
+
+
+
+
+declaracoes = 
+
+["const"] 
+
+{
+
+(
+
+ (
+  ("int" | "float" | "char" | "boolean") |
+  ("typedef" id (("int" | "float" | "char" | "boolean") | ("struct" id "{"  declaracoes  "}")))
+ )
+ 
+(id | (id "[" inteiro "]") | (id "[" inteiro "]" "[" inteiro "]"))
+
+{
+","
+(
+id | (id "[" inteiro "]") | (id "[" inteiro "]" "[" inteiro "]")
+)
+}
+
+";"
+
+)
+
+}
+.
+
+
+
+
+
+
+
+comandos = 
+{
+
+( 
+
+ ( 
+  (id | (id "[" inteiro "]") | (id "[" inteiro "]" "[" inteiro "]") )
+  "=" 
+  ( expressao | (id "(" [((id | inteiro) {"," (id | inteiro) } ) ] ")") )  ";"
+ )
+
+ | ("if" "(" (expressao ("==" | ">" | "<" | "<=" | ">=" | "!=") expressao | expressaoBooleana) ")" "{" [declaracoes | comandos] "}")
+ | ("while" "(" (expressao ("==" | ">" | "<" | "<=" | ">=" | "!=") expressao | expressaoBooleana) ")" "{" [declaracoes | comandos] "}")
+ | ("read" "(" ")" ";")
+ | ("write" "(" texto ")" ";")
+ | (id "(" [((id | inteiro) {"," (id | inteiro)})] ")")
+ | ("return" expressao)
+)
+
+}
+.
+
+
+
+
+
+expressaoBooleana = 
+
+(
+ ("true"| "false" )
+|
+ (expressao ("==" | ">" | "<" | "<=" | ">=" | "!=") expressao | expressaoBooleana) 
+ ("&&" |  "||" ) 
+ (expressao ("==" | ">" | "<" | "<=" | ">=" | "!=") expressao | expressaoBooleana)
+| 
+ "("
+ (expressao ("==" | ">" | "<" | "<=" | ">=" | "!=") expressao | expressaoBooleana) 
+ ")" 
+|
+ "!" expressaoBooleana
+)
+.
+
+
+
+
+
+
+expressao = 
+(
+(
+["-" | "+"] ((id | (id "[" inteiro "]") | (id "[" inteiro "]" "[" inteiro "]")) | inteiro | ("true"| "false" ) | (id "(" [((id | inteiro) {"," (id | inteiro)})] ")")) | "("  expressao ")" ) {( "*" | "/" ) (["-" | "+"] ((id | (id "[" inteiro "]") | (id "[" inteiro "]" "[" inteiro "]")) | inteiro | ("true"| "false" ) | (id "(" [((id | inteiro) {"," (id | inteiro)})] ")")) | "("  expressao ")" )}) {("+" | "-") ((["-" | "+"] ((id | (id "[" inteiro "]") | (id "[" inteiro "]" "[" inteiro "]")) | inteiro | ("true"| "false" ) | (id "(" [((id | inteiro) {"," (id | inteiro)})] ")")) | "("  expressao ")" ) {( "*" | "/" ) (["-" | "+"] ((id | (id "[" inteiro "]") | (id "[" inteiro "]" "[" inteiro "]")) | inteiro | ("true"| "false" ) | (id "(" [((id | inteiro) {"," (id | inteiro)})] ")")) | "("  expressao ")" )})} .
+
+
+
+
+
+
+texto = 
+(
+ string
+|
+ (id | (id "[" inteiro "]") 
+|
+ (id "[" inteiro "]" "[" inteiro "]")) 
+|
+ (
+   ("void" | 
+   (("int" | "float" | "char" | "boolean") 
+  |
+  ("typedef" id (("int" | "float" | "char" | "boolean") | ("struct" id "{"  declaracoes  "}"))))) id "(" parametros ")" "{" [declaracoes | comandos] ("return" expressao) "}")){"+" (string | (id | (id "[" inteiro "]") | (id "[" inteiro "]" "[" inteiro "]")) | (("void" | (("int" | "float" | "char" | "boolean") | ("typedef" id (("int" | "float" | "char" | "boolean") | ("struct" id "{"  declaracoes  "}"))))) id "(" parametros ")" "{" [declaracoes | comandos] ("return" expressao) "}"))} .
+
+
+
+
+
+
+
+

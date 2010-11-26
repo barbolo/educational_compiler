@@ -14,31 +14,31 @@ char * token_type_name() {
 	char * type_name;
 	
 	switch ( token.type ) {
-		case  -1:
+		case  TOKEN_TYPE_INVALID:
 			type_name = "invalid";
 			break;
-		case  0:
+		case  TOKEN_TYPE_INCOMPLETE:
 			type_name = "incomplete";
 			break;
-		case  1:
+		case  TOKEN_TYPE_RESERVED_WORD:
 			type_name = "reserved word";
 			break;
-		case  2:
+		case  TOKEN_TYPE_IDENTIFIER:
 			type_name = "identifier";
 			break;
-		case  3:
+		case  TOKEN_TYPE_INT_NUMBER:
 			type_name = "integer number";
 			break;
-		case  4:
+		case  TOKEN_TYPE_SPECIAL:
 			type_name = "special char";
 			break;
-		case  5:
+		case  TOKEN_TYPE_IGNORED:
 			type_name = "ignored char";
 			break;
-		case  6:
+		case  TOKEN_TYPE_END_OF_FILE:
 			type_name = "end of file";
 			break;
-		case  7:
+		case  TOKEN_TYPE_STRING:
 			type_name = "string";
 			break;
 		default:

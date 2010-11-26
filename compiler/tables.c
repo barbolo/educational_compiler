@@ -17,25 +17,22 @@ void initialize_semantic_tables() {
 	table_specials = init_table(table_specials);
 	
 	/* add reserved words */
-	add(&table_reserved_words, "if");
-	add(&table_reserved_words, "void");
+	add(&table_reserved_words, "functions");
 	add(&table_reserved_words, "int");
-	add(&table_reserved_words, "float");
 	add(&table_reserved_words, "char");
 	add(&table_reserved_words, "boolean");
-	add(&table_reserved_words, "struct");
-	add(&table_reserved_words, "typedef");
-	add(&table_reserved_words, "return");
+	add(&table_reserved_words, "void");
 	add(&table_reserved_words, "main");
-	add(&table_reserved_words, "const");
+	add(&table_reserved_words, "begin");
+	add(&table_reserved_words, "return");
+	add(&table_reserved_words, "if");
 	add(&table_reserved_words, "while");
-	add(&table_reserved_words, "read");
-	add(&table_reserved_words, "write");
-	add(&table_reserved_words, "true");
-	add(&table_reserved_words, "false");
-	//add(&table_reserved_words, "for");
-	//add(&table_reserved_words, "else");
-	
+	add(&table_reserved_words, "scan");
+	add(&table_reserved_words, "print");
+	add(&table_reserved_words, "else");
+	add(&table_reserved_words, "NOT");
+	add(&table_reserved_words, "AND");
+	add(&table_reserved_words, "OR");
 	
 }
 

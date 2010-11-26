@@ -1,0 +1,19 @@
+
+functions
+
+main {
+	int a, char b, int c;
+	begin
+	
+	a = 10;
+	
+	a = 10 * b + c;
+	
+	if (a >= 10) {
+	
+		if (b <= 1) {
+			print("legal");
+			print("legal");
+		}
+	}
+}
