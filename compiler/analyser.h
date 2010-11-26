@@ -17,7 +17,7 @@
  returns: 
  *****************************************************************************/
 
-void get_next_token();
+void get_next_token(int is_declaration);
 
 
 

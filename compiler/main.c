@@ -4,7 +4,7 @@
 #include "token.h"
 #include "analyser.h"
 #include "tables.h"
-#include "sintatic.h"
+#include "syntatic.h"
 
 int main (int argc, const char * argv[]) {
 	
@@ -17,7 +17,7 @@ int main (int argc, const char * argv[]) {
 	/* initialize semantic tables */
 	initialize_semantic_tables();
 	
-	// inicia as máquinas do autômato de pilha estruturado
+	// start APE machines
 	init_ape_machines();
 	
 	/* call sintatic analyser*/

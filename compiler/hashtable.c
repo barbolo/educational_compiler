@@ -67,6 +67,7 @@ int add(hash_table * table, char * key){
 	return table->value;
 }
 
+
 hash_table * find_last_cell(hash_table * table){
 	
 	hash_table * current_table_cell;
@@ -106,4 +107,12 @@ int find_by_key(hash_table * table, char * key){
 	}
 	
 	return -1;
+}
+
+
+
+void print_table(hash_table * table){
+
+
+
 }

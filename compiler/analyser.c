@@ -13,7 +13,7 @@
 #include "analyser.h"
 #include "tables.h"
 
-void get_next_token() {
+void get_next_token(int is_declaration) {
 	
 	char temp_string[500];
 	int counter;
@@ -80,7 +80,17 @@ void get_next_token() {
 			token.type = TOKEN_TYPE_RESERVED_WORD;
 		}
 		
-		token.index = update_semantic_tables();
+		//Only identifiers being declared will be added to the symbol table.
+		if (token.type == TOKEN_TYPE_IDENTIFIER) {
+			if (is_declaration == 1 ) {
+				token.index = update_semantic_tables();
+			}
+		}
+		else {
+			token.index = update_semantic_tables();
+		}
+
+		
 		
 	}
 	

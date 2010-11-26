@@ -64,4 +64,12 @@ hash_table * find_last_cell(hash_table * table);
 int find_by_key(hash_table * table, char * key);
 
 
+/*****************************************************************************
+ name: 
+ purpose: .
+ args: .
+ returns: .
+ *****************************************************************************/
+void print_table(hash_table * table);
+
 #endif
