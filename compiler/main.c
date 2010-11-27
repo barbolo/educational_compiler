@@ -23,5 +23,9 @@ int main (int argc, const char * argv[]) {
 	/* call sintatic analyser*/
 	run_sintatic();
 	
+	//TESTE TEMPORÁRIO!!
+	//Imprime a tabela de simbolos:
+	print_table(&table_symbols);
+	
 	return 0;
 }

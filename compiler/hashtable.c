@@ -112,7 +112,22 @@ int find_by_key(hash_table * table, char * key){
 
 
 void print_table(hash_table * table){
-
-
-
+	
+	hash_table * current_table_cell;
+	
+	current_table_cell = table;
+	
+	printf("Table: \n\n");
+	
+	while (1) {
+		
+		printf("Key(Token.value): %s  \nValue(ID na tabela): %d   \n  \n", current_table_cell->key, current_table_cell->value);
+		
+		if (current_table_cell->next != NULL) {
+			current_table_cell = current_table_cell->next;
+		}
+		else {
+			break;
+		}	
+	}
 }
