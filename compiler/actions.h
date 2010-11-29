@@ -8,6 +8,15 @@
  *
  */
 
+#include "machine.h"
+
+void (*semantic_functions_tokens[100][100][100]) ();
+void (*semantic_functions_machines[100][100][100]) ();
+
+void default_action();
+
+void init_semantic_actions();
+
 
 /*
 //Vou rascunhar o q deve ser feito...

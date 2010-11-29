@@ -1,0 +1,20 @@
+programa = “functions” {funcao} “main” “{” declaracoes “begin” {comando} “}”.
+declaracoes = [argumentos “;”].
+funcao = tipo_retorno id “(“ argumentos “)” “{“ declaracoes “begin” {comando} retorno “}”.
+argumentos = [tipo id {“,” tipo id }].
+retorno = [“return” expressao “;”].
+chamada_funcao = id “(“ (id | expressao | condicao) “)”.
+comando = atribuicao | condicional | iteracao | entrada | saída | chamada_funcao.
+atribuicao = id “=” expressao “;”.
+condicional = “if” “(“ condicao “)” “{“ {comando} “}” [“else” “{“ {comando} “}”].
+iteracao = “while” “(“ condicao “)” “{“ {comando} “}”.
+entrada = “scan” “(“ tipo ”,” id “)” “;”.
+saída = “print” “(“ (string|expressao|condicao) {"+" (string|expressao|condicao)} “)” “;”.
+expressao = termo {("+"|"-") termo}.
+termo = fator {("*"|"/") fator}.
+fator = "(" expressao ")" | id | chamada_funcao | inteiro.
+condicao = (expressao comparador expressao) | expressao_booleana.
+comparador = "<" | "<=" | ">" | ">=" | "==" | "!=".
+expressao_booleana = (condicao (“AND” | “OR”) condicao) | (“NOT" "(” condicao ")") | booleano | id.
+tipo = “int” | “char” | “boolean”.
+tipo_retorno = tipo | “void”.

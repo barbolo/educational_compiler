@@ -19,8 +19,21 @@ int is_ape_in_final_state() {
 }
 
 void change_ape_machine(int machine_id, int state) {
+	(*semantic_functions_machines[ape_parser.current_machine.machine_id][ape_parser.current_machine.current_state][machine_id])();
+	
 	ape_parser.current_machine = ape_parser.machines[machine_id];
 	ape_parser.current_machine.current_state = state;
+}
+
+void change_ape_machine_pop(int machine_id, int state) {
+	ape_parser.current_machine = ape_parser.machines[machine_id];
+	ape_parser.current_machine.current_state = state;
+}
+
+void go_to_state(int next_state) {
+	(*semantic_functions_tokens[ape_parser.current_machine.machine_id][ape_parser.current_machine.current_state][ape_get_token_id()])();
+	
+	ape_parser.current_machine.current_state = next_state;
 }
 
 int ape_consume_token() {
@@ -30,32 +43,31 @@ int ape_consume_token() {
 	
 	int next_state = current_machine.token_transitions[current_machine.current_state][token_id];
 	
-	//printf("%d: (%d,%d) -> %d\n", current_machine.machine_id, current_machine.current_state, token_id, next_state);
+	printf("%d: (%d,%d) -> %d\n", current_machine.machine_id, current_machine.current_state, token_id, next_state);
 	
 	if (next_state == APE_INVALID_STATE) {
 		// could not read the token, let's check if we can change the machine
 		
 		machine_id = machine_id_consume_token(token_id);
+		next_state = current_machine.machine_transitions[current_machine.current_state][machine_id];
 		
 		if (machine_id != APE_INVALID_STATE) {
-			
-			current_machine.current_state = current_machine.machine_transitions[current_machine.current_state][machine_id];
-			
-			// enqueue the current machine
-			push_apestack(current_machine);
 			
 			// change the current machine
 			change_ape_machine(machine_id, ape_parser.machines[machine_id].initial_state);
 			
+			current_machine.current_state = next_state;
+			
+			// enqueue the current machine
+			push_apestack(current_machine);
+			
 			return ape_consume_token();
 			
-		} else if (is_ape_in_final_state() && !is_apestack_empty()) {
-			
-			// check if there's a machine in the queue
+		} else if (is_ape_in_final_state() && !is_apestack_empty()) { // check if there's a machine in the queue
 				
 			// retrieve the machine in its original state
 			Machine m = pop_apestack();
-			change_ape_machine(m.machine_id, m.current_state);
+			change_ape_machine_pop(m.machine_id, m.current_state);
 			
 			return ape_consume_token();
 			
@@ -65,7 +77,7 @@ int ape_consume_token() {
 		}
 		
 	} else {
-		ape_parser.current_machine.current_state = next_state;
+		go_to_state(next_state);
 		return 1;
 	}
 
@@ -73,6 +85,7 @@ int ape_consume_token() {
 }
 
 int machine_id_consume_token(int token_id){
+
 	int i;
 	Machine m, current;
 	current = ape_parser.current_machine;
@@ -81,7 +94,7 @@ int machine_id_consume_token(int token_id){
 		if (m.token_transitions[m.initial_state][token_id] != APE_INVALID_STATE || can_machine_consume_machine(m)) {
 			
 			if (current.machine_transitions[current.current_state][m.machine_id] != APE_INVALID_STATE) {
-				ape_parser.current_machine.current_state = current.machine_transitions[m.machine_id];
+				//ape_parser.current_machine.current_state = current.machine_transitions[current.current_state][m.machine_id];
 				return m.machine_id;
 			}
 			
@@ -92,7 +105,7 @@ int machine_id_consume_token(int token_id){
 
 int can_machine_consume_machine(Machine m) {
 	for (int i =0; i < APE_TOTAL_MACHINES; i++) {
-		if (m.machine_transitions[m.initial_state][i]) {
+		if (m.machine_transitions[m.initial_state][i] != APE_INVALID_STATE) {
 			return 1;
 		}
 	}

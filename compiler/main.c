@@ -5,6 +5,7 @@
 #include "analyser.h"
 #include "tables.h"
 #include "syntatic.h"
+#include "actions.h"
 
 int main (int argc, const char * argv[]) {
 	
@@ -16,6 +17,9 @@ int main (int argc, const char * argv[]) {
 	
 	/* initialize semantic tables */
 	initialize_semantic_tables();
+	
+	/* initialize semantic actions */
+	init_semantic_actions();
 	
 	// start APE machines
 	init_ape_machines();

@@ -1,0 +1,95 @@
+Estruturas de dados:
+- fazer hashtable
+- fazer comparador de vetores de chars
+- fazer leitor de arquivo que tenha um método "ler próximo char"; que guarda o char atual, o anterior e o próximo; e que guarde a linha e a coluna de cada char no arquivo lido.
+
+
+Analisador Léxico:
+- implementado como subrotina (ou seja, lê trechos do código fonte durante todo o processo de compilação e não como um passo inicial)
+- avaliar se compensa criar um gerador de tabelas para o analisador léxico, de modo que se a linguagem mudar, rapidamente é criado um novo transdutor (entrada pode ser lista de palavras e suas categorias, saída pode ser transições)
+- construir um transdutor que é capaz de fazer parsing da linguagem
+- fazer parsing do arquivo de entrada, eliminando caractéres lixo e criando tokens
+- atualizar tabela de símbolos com tokens criados
+- é construída uma tabela de símbolos (tokens) lidos com seus identificadores. O sintático deverá ler esses identificadores.
+
+- funções/checklist (página 117):
+-- extração e classificação de átomos (tokens)
+-- eliminação de delimitadores e comentários
+-- conversão numérica
+-- tratamento de identificadores (atualização de tabela de símbolos)
+-- identificação de palavras reservadas
+-- recuperação de erros (ocorrência de caracteres ou palavras que não são identificadas pelo transdutor)
+-- listagens (gerenciamento de listas do código fonte de entrada)
+-- geração de tabelas de referências cruzadas (gerenciamento de todas as ocorrências de um token, permitindo sua localização no código fonte)
+-- definição e expansão de macros (não precisamos fazer, graças a deus)
+-- interação com o sistema de arquivos
+-- compilação condicional (não precisamos fazer)
+-- controles de listagens (não precisamos fazer)
+
+
+
+Analisador Sintático:
+- reduzir regras wirth da linguagem
+- gerar máquinas para as regras finais
+
+- deve-se estudar a linguagem de alto nível e preparar a gramática que a descreve
+- escolher classes de reconhecedores sintáticos para a linguagem
+- eliminar defeitos e incoerências da gramática, permitindo seu reconhecimento
+
+- funções/checklist (página 126):
+-- identificação de sentenças
+-- detecção de erros de sintaxe
+-- recuperação de erros (pode ser ignorado)
+-- correção de erros (ignorado)
+-- montagem da árvore abstrata de sentença (ignorado)
+-- comando da ativação do analisador léxico
+-- comando do modo de operação do analisador léxico (ignorado)
+-- ativação de rotinas da análise referente às dependências de contexto da linguagem
+-- ativação de rotinas de análise semântica
+-- ativação de rotinas de síntese de código objeto
+
+
+
+Analisador Semântico e Gerador de Código:
+- funções/checklist (página 131):
+-- criação e manutenção de tabelas de símbolos
+-- associar aos símbolos os correspondentes atributos
+-- manter informações sobre o escopo dos identificadores
+-- representar tipos de dados
+-- analisar restrições quanto à utilização dos identificadores
+-- verificar o escopo dos identificadores
+-- identificar declarações contextuais
+-- verificar a compatibilidade de tipos
+-- efetuar o gerenciamento da memória
+-- representar o ambiente de execução dos procedimentos
+-- efetuar a tradução do programa
+-- implementação de um ambiente de execução
+-- comunicação entre dois ambientes de execução
+-- geração de código
+-- otimização
+
+- Tabela de símbolos
+-- identificadores extraídos pelo léxico são colocados nela associados a um código único.
+-- deve tomar cuidado para o identificador estar associado a seu escopo
+-- Tabela de atributos
+--- guarda as informações dos identificadores
+-- Informações armazenadas: nome do identificador, tipo do objeto, endereço de memória.
+
+- Representação dos objetos
+-- tipos básicos (char, int, float)
+-- tipos derivados homogêneos (vetor, matriz, cadeia)
+-- tipos derivados heterogêneos (estruturas)
+
+
+
+
+
+
+
+Primeiro:
+fazer um analisador léxico. Na verdade, é a implementação do transdutor, que é um automato.
+
+Segundo:
+fazer um reconhecedor sintático. Na verdade, é a implementação de um autômato de pilha estruturado.
+
+Terceiro:

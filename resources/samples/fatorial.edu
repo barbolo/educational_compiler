@@ -22,9 +22,9 @@ main {
 	
 	n = a + b;
 	
-	if (resultado > 0) {
+	if (n > 0) {
 		resultado = fatorial(n);
-
+		print("fatorial de " + n + " = " + resultado);
 	}
 
 }

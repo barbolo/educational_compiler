@@ -30,9 +30,9 @@ void initialize_semantic_tables() {
 	add(&table_reserved_words, "scan");
 	add(&table_reserved_words, "print");
 	add(&table_reserved_words, "else");
-	add(&table_reserved_words, "NOT");
-	add(&table_reserved_words, "AND");
-	add(&table_reserved_words, "OR");
+	add(&table_reserved_words, "not");
+	add(&table_reserved_words, "and");
+	add(&table_reserved_words, "or");
 	
 }
 
