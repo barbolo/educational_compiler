@@ -14,6 +14,7 @@
 		B0A9D97D129DCDED00899179 /* ape.c in Sources */ = {isa = PBXBuildFile; fileRef = B0A9D97C129DCDED00899179 /* ape.c */; };
 		D429569612985D25000C5797 /* syntatic.c in Sources */ = {isa = PBXBuildFile; fileRef = D429569512985D25000C5797 /* syntatic.c */; };
 		D443CFA212A0218F0078B04A /* actions.c in Sources */ = {isa = PBXBuildFile; fileRef = D443CFA112A0218F0078B04A /* actions.c */; };
+		D448A7C812A9304C00F551FC /* symbol_table_hashtable.c in Sources */ = {isa = PBXBuildFile; fileRef = D448A7C712A9304C00F551FC /* symbol_table_hashtable.c */; };
 		D486B01E124CF51900274119 /* reader.c in Sources */ = {isa = PBXBuildFile; fileRef = D486B01D124CF51900274119 /* reader.c */; };
 		D486B024124CF53400274119 /* transducer.c in Sources */ = {isa = PBXBuildFile; fileRef = D486B023124CF53400274119 /* transducer.c */; };
 		D4F9BE75124F78C500BE338F /* analyser.c in Sources */ = {isa = PBXBuildFile; fileRef = D4F9BE74124F78C500BE338F /* analyser.c */; };
@@ -49,6 +50,8 @@
 		D429569512985D25000C5797 /* syntatic.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = syntatic.c; sourceTree = "<group>"; };
 		D443CFA012A0218F0078B04A /* actions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = actions.h; sourceTree = "<group>"; };
 		D443CFA112A0218F0078B04A /* actions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = actions.c; sourceTree = "<group>"; };
+		D448A7C612A9304C00F551FC /* symbol_table_hashtable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = symbol_table_hashtable.h; sourceTree = "<group>"; };
+		D448A7C712A9304C00F551FC /* symbol_table_hashtable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = symbol_table_hashtable.c; sourceTree = "<group>"; };
 		D486B01C124CF51900274119 /* reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reader.h; sourceTree = "<group>"; };
 		D486B01D124CF51900274119 /* reader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = reader.c; sourceTree = "<group>"; };
 		D486B022124CF53400274119 /* transducer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transducer.h; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 			children = (
 				D486B01C124CF51900274119 /* reader.h */,
 				D486B01D124CF51900274119 /* reader.c */,
+				D448A7C612A9304C00F551FC /* symbol_table_hashtable.h */,
+				D448A7C712A9304C00F551FC /* symbol_table_hashtable.c */,
 				D4F9C00B12500D9900BE338F /* hashtable.h */,
 				D4F9C00C12500D9900BE338F /* hashtable.c */,
 				B0A80AD912515FFF0079D32B /* strings.h */,
@@ -227,6 +232,7 @@
 				B0A9D97A129DCDA800899179 /* machine.c in Sources */,
 				B0A9D97D129DCDED00899179 /* ape.c in Sources */,
 				D443CFA212A0218F0078B04A /* actions.c in Sources */,
+				D448A7C812A9304C00F551FC /* symbol_table_hashtable.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

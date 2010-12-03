@@ -18,6 +18,30 @@ void default_action();
 void init_semantic_actions();
 
 
+
+//hum... vamo fazer assim:
+// vo criar uma scope_hastable e uma sybol_table_hastable e deixo a hastable antiga la como antes.
+//aí vai ter q fazer qdo inicia o programa ele iniciar a primeira tabela de simbolos dentro dessa hashtable dos escopos...
+// cada celula desse hastable de escopos vai ter uma tabela de simbolos e ponteiros pra próxima tabela de simbolos e pra anterior.
+// e qdo aparecer um { vai ter q criar e adicionar mais uma tabela de simbolos no hashtable de escopos.
+
+
+
+
+//Pointer to the Symbol Table of the current scope
+//hash_table * current_sybol_table_scope;
+
+//Pointer to the Symbol Table of the next scope
+//hash_table * next_sybol_table_scope;
+
+//Pointer to the Symbol Table of the last scope
+//hash_table * last_sybol_table_scope;
+
+
+
+
+
+
 /*
 //Vou rascunhar o q deve ser feito...
 
@@ -54,7 +78,7 @@ void init_semantic_actions();
 
 - fazer a mvn imprimir uma string (tem q fazer um loop pq ela só imprime um caracter por vez... algo assim)
  
-- gerenciamento de memória e praâmetros de fç ainda são misteriosos.
+- gerenciamento de memória e prâmetros de fç ainda são misteriosos.
 
 - arrumar completamente aquilo de nao deixar o léxico adicionar simbolos q nao est˜åo sendo delcarados e sim utilizados.
  ver arquivo syntatic.c

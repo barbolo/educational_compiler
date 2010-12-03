@@ -9,8 +9,9 @@
  */
 
 #include "hashtable.h"
+#include "symbol_table_hashtable.h"
 
-hash_table table_symbols;
+symbol_table_hash_table table_symbols;
 hash_table table_numbers;
 hash_table table_reserved_words;
 hash_table table_specials;
