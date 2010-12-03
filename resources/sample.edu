@@ -5,7 +5,7 @@ int fatorial(int n) {
 	begin
 	
 	if (n > 1) {
-		retorno = fatorial(n2);
+		retorno = fatorial(n);
 	} else {
 		retorno = 1;
 	}
