@@ -8,10 +8,6 @@
  */
 
 #include "actions.h"
-#include "symbol_table_hashtable.h"
-#include "string.h"
-#include "token.h"
-#include "tables.h"
 
 int get_data_type_by_name(char * type){
 	
@@ -39,6 +35,7 @@ int get_data_type_by_name(char * type){
 void default_action() {
 	// do nothing
 }
+
 
 void save_data_type(){
 	data_type_being_declared = get_data_type_by_name(token.value);
@@ -70,6 +67,31 @@ void set_function_type(){
 	}
 }
 
+//1 -> true, is unique.
+//0 -> false.
+//VAI ER Q ATUALIZAR DEPOIS Q FIZER TODO AQUELE ESQUEMA DAS MULTIPLAS TABELAS DE SIMBOLO (UMA PRA CADA ESCOPO)
+int test_if_identifier_is_unique(){
+	
+	//int found_a_token_with_the_same_value = 0;
+	int data_type = 0;
+	
+	//Test if the current token is in the symbol table
+	//if ( find_by_key_in_symbol_table(&table_symbols, token.value) != -1 ) {
+	//	found_a_token_with_the_same_value = 1;
+	//}
+	
+	data_type = (find_cell_by_key_in_symbol_table(&table_symbols, token.value))->dataType;
+	
+	//It will find itself every time, so we test if it has values equals to -1, it means: it has been just added to the table.
+	// So, we are not trying to add an existent identifier.
+	if (/*found_a_token_with_the_same_value == 1 && */ data_type == -1) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+
 //when declaring a data type
 void declaring_data_type(){
 	
@@ -82,21 +104,35 @@ void declaring_data_type(){
 //finishing variable declaration
 void declaring_variable(){
 	
-	//Set that it is a variable
-	set_variable_type();
-	
-	// set the type of the identifier in the symbol table
-	set_identifier_type_in_ST();
+	//Test if the identifier is a new one, or it has been declared.
+	if (test_if_identifier_is_unique() == 1) {
+		//Set that it is a variable
+		set_variable_type();
+		
+		// set the type of the identifier in the symbol table
+		set_identifier_type_in_ST();
+	}
+	else {
+		semantic_error = 1;
+	}
 }
 
 //when declaring a data type
 void declaring_function(){
-	
-	//Set that it is a function (Label)
-	set_function_type();
-	
-	// set the type of the identifier in the symbol table
-	set_identifier_type_in_ST();
+
+	//Test if the identifier is a new one, or it has been declared.
+	if (test_if_identifier_is_unique() == 1) {
+
+		//Set that it is a function (Label)
+		set_function_type();
+		
+		// set the type of the identifier in the symbol table
+		set_identifier_type_in_ST();
+	}
+	else {
+		semantic_error = 1;
+	}
+
 	
 }
 

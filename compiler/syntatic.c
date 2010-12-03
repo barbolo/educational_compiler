@@ -10,7 +10,7 @@
 void run_sintatic(){
 	
 	int is_declaration = 0;
-	
+	semantic_error = 0;
 	
 	// get the first token
 	get_next_token(1);
@@ -35,6 +35,12 @@ void run_sintatic(){
 		//code to do that.
 		is_declaration = 1;
 		
+		//if the semantic actions detect an error, it will set semantic_error to 1.
+		if (semantic_error == 1) {
+			printf("\n\nSemantic error.\n");
+			break;
+		}
+		
 		// get the next token
 		get_next_token(is_declaration);
 	}
@@ -42,7 +48,7 @@ void run_sintatic(){
 	if (was_correctly_parsed()) {
 		printf("\nParabéns! Você conseguiu gerar um código compilável!\n\n");
 	} else {
-		printf("\nOops! Seu código não foi compilado até o fim!\n\n ");
+		printf("Oops! Seu código não foi compilado até o fim!\n\n ");
 	}
 
 }

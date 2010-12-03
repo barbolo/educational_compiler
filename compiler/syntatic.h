@@ -13,4 +13,6 @@ void run_sintatic();
 
 int was_correctly_parsed();
 
+int semantic_error;
+
 #endif

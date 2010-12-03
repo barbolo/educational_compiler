@@ -9,6 +9,10 @@
  */
 
 #include "machine.h"
+#include "symbol_table_hashtable.h"
+#include "token.h"
+#include "tables.h"
+#include "syntatic.h"
 
 void (*semantic_functions_tokens[100][100][100]) ();
 void (*semantic_functions_machines[100][100][100]) ();
@@ -27,10 +31,17 @@ void default_action();
 
 void save_data_type();
 
-void declaring_data_type();
-
 void set_identifier_type_in_ST();
 
+int test_if_identifier_is_unique();
+
+
+
+void declaring_data_type();
+
+void declaring_variable();
+
+void declaring_function();
 
 
 

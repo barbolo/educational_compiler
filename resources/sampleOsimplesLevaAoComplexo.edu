@@ -6,7 +6,8 @@ int fatorial(int n) {
 
 main {
 
-	int agora, int brasil, int nada, int agora, int hoje,
+	int agora, int brasil, int nada, 
+ 	int hoje,
 	boolean chove,
 	char nome;
 	
