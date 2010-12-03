@@ -43,7 +43,7 @@ int ape_consume_token() {
 	
 	int next_state = current_machine.token_transitions[current_machine.current_state][token_id];
 	
-	printf("%d: (%d,%d) -> %d\n", current_machine.machine_id, current_machine.current_state, token_id, next_state);
+	//printf("%d: (%d,%d) -> %d\n", current_machine.machine_id, current_machine.current_state, token_id, next_state);
 	
 	if (next_state == APE_INVALID_STATE) {
 		// could not read the token, let's check if we can change the machine

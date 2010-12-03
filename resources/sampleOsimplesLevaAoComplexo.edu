@@ -1,8 +1,15 @@
 functions
 
+int fatorial(int n) {
+	begin
+}
+
 main {
 
-	int a, int b, int n, int resultado;
+	int agora, int brasil, int nada, int agora, int hoje,
+	boolean chove,
+	char nome;
+	
 	begin
 
 }

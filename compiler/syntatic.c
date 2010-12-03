@@ -16,16 +16,13 @@ void run_sintatic(){
 	get_next_token(1);
 	
 	printf("\nTestando sintático:\n");
-	
 	printf("token: %s - %d - %d - %d - %s\n", token.value, ape_parser.current_machine.current_state, ape_parser.current_machine.machine_id, ape_get_token_id(), token_type_name());	
-
-	printf("\nReading tokens:\n\n|   Token   |  index  |   type_name   |  type_id  | line | column |\n");
+	printf("\nReading tokens:\n\n|   Token	|	index	|	type_name	|	type_id	|	line	|	column	|\n");
 	
 	while (token.type != TOKEN_TYPE_END_OF_FILE) {
-		
 
 		// print info
-		printf("%10s	(%d)	%10s	%d	%5i %5i\n", 
+		printf("%10s		(%d)		%10s				%d		%5i		%5i\n", 
 			   token.value, token.index, token_type_name(), token.type, token.line, token.column);
 		
 		// execute APE transition
@@ -40,7 +37,6 @@ void run_sintatic(){
 		
 		// get the next token
 		get_next_token(is_declaration);
-
 	}
 	
 	if (was_correctly_parsed()) {
@@ -49,7 +45,6 @@ void run_sintatic(){
 		printf("\nOops! Seu código não foi compilado até o fim!\n\n ");
 	}
 
-	
 }
 
 

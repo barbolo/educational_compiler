@@ -46,7 +46,7 @@ int update_semantic_tables() {
 	else if (token.type == TOKEN_TYPE_RESERVED_WORD)
 		index = add(&table_reserved_words, token.value);
 	else if (token.type == TOKEN_TYPE_IDENTIFIER)
-		index = add_in_symbol_table(&table_symbols, token.value);
+		index = add_in_symbol_table(&table_symbols, token.value, token.line);
 	else if (token.type == TOKEN_TYPE_SPECIAL)
 		index = add(&table_specials, token.value);
 	

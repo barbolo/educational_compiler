@@ -17,18 +17,17 @@ symbol_table_hash_table init_symbol_table(symbol_table_hash_table new_hash_table
 	
 	new_hash_table.key = "no_key";
 	new_hash_table.value = -1;
-	new_hash_table.type = NULL;
-	new_hash_table.dataType = NULL;
-	new_hash_table.memory_address = NULL;
-	new_hash_table.line_number = NULL;
+	new_hash_table.type = -1;
+	new_hash_table.dataType = -1;
+	new_hash_table.memory_address = -1;
+	new_hash_table.line_number = -1;
 	new_hash_table.next = NULL;
 	
 	return new_hash_table;
 	
 }
 
-
-int add_in_symbol_table(symbol_table_hash_table * table, char * key){
+int add_in_symbol_table(symbol_table_hash_table * table, char * key, int line){
 	
 	int value;
 	
@@ -47,6 +46,12 @@ int add_in_symbol_table(symbol_table_hash_table * table, char * key){
 		if (table->key == "no_key") {
 			table->key = key;
 			table->value = 0;
+			
+			table->type = -1;
+			table->dataType = -1;
+			table->memory_address = -1;
+			table->line_number = line;
+			
 			table->next = NULL;
 		}
 		else {
@@ -60,6 +65,12 @@ int add_in_symbol_table(symbol_table_hash_table * table, char * key){
 			// 
 			new_hash_cell->key = key;
 			new_hash_cell->value = last_cell_pointer->value + 1;
+			
+			new_hash_cell->type = -1;
+			new_hash_cell->dataType = -1;
+			new_hash_cell->memory_address = -1;
+			new_hash_cell->line_number = line;
+			
 			new_hash_cell->next = NULL;
 			
 			last_cell_pointer->next = new_hash_cell;
@@ -70,7 +81,6 @@ int add_in_symbol_table(symbol_table_hash_table * table, char * key){
 	
 	return table->value;
 }
-
 
 symbol_table_hash_table * find_last_cell_in_symbol_table(symbol_table_hash_table * table){
 	
@@ -88,7 +98,6 @@ symbol_table_hash_table * find_last_cell_in_symbol_table(symbol_table_hash_table
 	}
 	
 }
-
 
 int find_by_key_in_symbol_table(symbol_table_hash_table * table, char * key){
 	
@@ -113,15 +122,13 @@ int find_by_key_in_symbol_table(symbol_table_hash_table * table, char * key){
 	return -1;
 }
 
-
-
 void print_symbol_table(symbol_table_hash_table * table){
 	
 	symbol_table_hash_table * current_table_cell;
 	
 	current_table_cell = table;
 	
-	printf("Table: \n\n");
+	printf("Symbol Table: \n\n");
 	
 	while (1) {
 		
@@ -134,4 +141,28 @@ void print_symbol_table(symbol_table_hash_table * table){
 			break;
 		}	
 	}
+}
+
+symbol_table_hash_table * find_cell_by_key_in_symbol_table(symbol_table_hash_table * table, char * key){
+	
+	symbol_table_hash_table * current_table_cell;
+	
+	current_table_cell = table;
+	
+	while (1) {
+		
+		if (strcmp(current_table_cell->key, key) == 0) {
+			return current_table_cell;
+		} 
+		
+		if (current_table_cell->next != NULL) {
+			current_table_cell = current_table_cell->next;
+		}
+		else {
+			return NULL;
+		}	
+	}
+	
+	return NULL;
+	
 }

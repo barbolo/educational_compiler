@@ -30,7 +30,7 @@ int main (int argc, const char * argv[]) {
 	
 	//TESTE TEMPORÁRIO!!
 	//Imprime a tabela de simbolos:
-	print_table(&table_symbols);
+	print_symbol_table(&table_symbols);
 	
 	return 0;
 }

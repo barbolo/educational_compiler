@@ -16,7 +16,7 @@
 #define DATA_TYPE_INT 0
 #define DATA_TYPE_BOOLEAN 1
 #define DATA_TYPE_CHAR 2
-
+#define DATA_TYPE_VOID 3
 
 
 typedef struct _ST_No {
@@ -66,7 +66,7 @@ symbol_table_hash_table init_symbol_table(symbol_table_hash_table new_hash_table
  args: The key and the table.
  returns: The hash_table value added.
  *****************************************************************************/
-int add_in_symbol_table(symbol_table_hash_table * table, char * key);
+int add_in_symbol_table(symbol_table_hash_table * table, char * key, int line);
 
 
 /*****************************************************************************
@@ -94,5 +94,15 @@ int find_by_key_in_symbol_table(symbol_table_hash_table * table, char * key);
  returns: .
  *****************************************************************************/
 void print_symbol_table(symbol_table_hash_table * table);
+
+
+/*****************************************************************************
+ name: 
+ purpose: .
+ args: .
+ returns: .
+ *****************************************************************************/
+symbol_table_hash_table * find_cell_by_key_in_symbol_table(symbol_table_hash_table * table, char * key);
+
 
 #endif

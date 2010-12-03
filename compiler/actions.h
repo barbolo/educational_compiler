@@ -13,9 +13,24 @@
 void (*semantic_functions_tokens[100][100][100]) ();
 void (*semantic_functions_machines[100][100][100]) ();
 
+void init_semantic_actions();
+
+
+
+int data_type_being_declared;
+
+int get_data_type_by_name(char * type);
+
+
+//Semantic actions
 void default_action();
 
-void init_semantic_actions();
+void save_data_type();
+
+void declaring_data_type();
+
+void set_identifier_type_in_ST();
+
 
 
 

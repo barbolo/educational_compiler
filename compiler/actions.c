@@ -8,10 +8,99 @@
  */
 
 #include "actions.h"
+#include "symbol_table_hashtable.h"
+#include "string.h"
+#include "token.h"
+#include "tables.h"
+
+int get_data_type_by_name(char * type){
+	
+	if (strcmp(type, "void") == 0) {
+		return DATA_TYPE_VOID;
+	}
+	
+	if (strcmp(type, "int") == 0) {
+		return DATA_TYPE_INT;
+	}
+	
+	if (strcmp(type, "char") == 0) {
+		return DATA_TYPE_CHAR;
+	}
+	
+	if (strcmp(type, "boolean") == 0) {
+		return DATA_TYPE_BOOLEAN;
+	}	
+	
+	return -1;
+}
+
+
 
 void default_action() {
 	// do nothing
 }
+
+void save_data_type(){
+	data_type_being_declared = get_data_type_by_name(token.value);
+}
+
+// set the type of the identifier in the symbol table
+void set_identifier_type_in_ST(){
+	
+	//Test if the current token is in the symbol table
+	if ( find_by_key_in_symbol_table(&table_symbols, token.value) != -1 ) {
+		//Set data type
+		(find_cell_by_key_in_symbol_table(&table_symbols, token.value))->dataType = data_type_being_declared;
+	}
+}
+
+void set_variable_type(){
+	//Test if the current token is in the symbol table
+	if ( find_by_key_in_symbol_table(&table_symbols, token.value) != -1 ) {
+		//Set data type
+		(find_cell_by_key_in_symbol_table(&table_symbols, token.value))->type = IDENTIFIER_TYPE_VARIABLE;
+	}
+}
+
+void set_function_type(){
+	//Test if the current token is in the symbol table
+	if ( find_by_key_in_symbol_table(&table_symbols, token.value) != -1 ) {
+		//Set data type
+		(find_cell_by_key_in_symbol_table(&table_symbols, token.value))->type = IDENTIFIER_TYPE_LABEL;
+	}
+}
+
+//when declaring a data type
+void declaring_data_type(){
+	
+	save_data_type();
+	
+	//se precisar de mais coisa... como geração de código
+	
+}
+
+//finishing variable declaration
+void declaring_variable(){
+	
+	//Set that it is a variable
+	set_variable_type();
+	
+	// set the type of the identifier in the symbol table
+	set_identifier_type_in_ST();
+}
+
+//when declaring a data type
+void declaring_function(){
+	
+	//Set that it is a function (Label)
+	set_function_type();
+	
+	// set the type of the identifier in the symbol table
+	set_identifier_type_in_ST();
+	
+}
+
+
 
 
 //////////////////////////////////////////////////////////
@@ -23,151 +112,151 @@ void init_semantic_actions() {
 	/* Machine 0: programa */
 	
 	/* token transitions */
-	semantic_functions_tokens 		 [0][0][APE_TOKEN_FUNCTIONS_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][1][APE_TOKEN_BOOLEAN_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][1][APE_TOKEN_CHAR_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][1][APE_TOKEN_INT_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][1][APE_TOKEN_MAIN_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][1][APE_TOKEN_VOID_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][2][APE_TOKEN_ID_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][3][APE_TOKEN_ABRE_CHAVES_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][4][APE_TOKEN_ABRE_PARENTESES_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][5][APE_TOKEN_BEGIN_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][5][APE_TOKEN_BOOLEAN_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][5][APE_TOKEN_CHAR_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][5][APE_TOKEN_INT_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][5][APE_TOKEN_PONTO_E_VIRGULA_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][6][APE_TOKEN_BOOLEAN_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][6][APE_TOKEN_CHAR_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][6][APE_TOKEN_FECHA_PARENTESES_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][6][APE_TOKEN_INT_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][7][APE_TOKEN_ID_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][8][APE_TOKEN_BEGIN_ID]		=		default_action;
+	semantic_functions_tokens 		 [0][0][APE_TOKEN_FUNCTIONS_ID]			=		default_action;
+	semantic_functions_tokens 		 [0][1][APE_TOKEN_BOOLEAN_ID]			=		declaring_data_type;
+	semantic_functions_tokens 		 [0][1][APE_TOKEN_CHAR_ID]				=		declaring_data_type;
+	semantic_functions_tokens 		 [0][1][APE_TOKEN_INT_ID]				=		declaring_data_type;
+	semantic_functions_tokens 		 [0][1][APE_TOKEN_MAIN_ID]				=		default_action;
+	semantic_functions_tokens 		 [0][1][APE_TOKEN_VOID_ID]				=		declaring_data_type;
+	semantic_functions_tokens 		 [0][2][APE_TOKEN_ID_ID]				=		declaring_function;
+	semantic_functions_tokens 		 [0][3][APE_TOKEN_ABRE_CHAVES_ID]		=		default_action; //abre chaves!!deve ter uma ação pra criar uma nova TS! ou nao!!
+	semantic_functions_tokens 		 [0][4][APE_TOKEN_ABRE_PARENTESES_ID]	=		default_action;
+	semantic_functions_tokens 		 [0][5][APE_TOKEN_BEGIN_ID]				=		default_action;
+	semantic_functions_tokens 		 [0][5][APE_TOKEN_BOOLEAN_ID]			=		declaring_data_type;
+	semantic_functions_tokens 		 [0][5][APE_TOKEN_CHAR_ID]				=		declaring_data_type;
+	semantic_functions_tokens 		 [0][5][APE_TOKEN_INT_ID]				=		declaring_data_type;
+	semantic_functions_tokens 		 [0][5][APE_TOKEN_PONTO_E_VIRGULA_ID]	=		default_action;
+	semantic_functions_tokens 		 [0][6][APE_TOKEN_BOOLEAN_ID]			=		declaring_data_type;
+	semantic_functions_tokens 		 [0][6][APE_TOKEN_CHAR_ID]				=		declaring_data_type;
+	semantic_functions_tokens 		 [0][6][APE_TOKEN_FECHA_PARENTESES_ID]	=		default_action;
+	semantic_functions_tokens 		 [0][6][APE_TOKEN_INT_ID]				=		declaring_data_type;
+	semantic_functions_tokens 		 [0][7][APE_TOKEN_ID_ID]				=		declaring_variable;
+	semantic_functions_tokens 		 [0][8][APE_TOKEN_BEGIN_ID]				=		default_action;
 	semantic_functions_tokens 		 [0][9][APE_TOKEN_FECHA_CHAVES_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][10][APE_TOKEN_ID_ID]		=		default_action;
+	semantic_functions_tokens 		 [0][10][APE_TOKEN_ID_ID]				=		declaring_variable;
 	semantic_functions_tokens 		 [0][11][APE_TOKEN_ABRE_CHAVES_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][13][APE_TOKEN_BEGIN_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][13][APE_TOKEN_BOOLEAN_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][13][APE_TOKEN_CHAR_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][13][APE_TOKEN_INT_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][13][APE_TOKEN_PONTO_E_VIRGULA_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][14][APE_TOKEN_ID_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][15][APE_TOKEN_BEGIN_ID]		=		default_action;
+	semantic_functions_tokens 		 [0][13][APE_TOKEN_BEGIN_ID]			=		default_action;
+	semantic_functions_tokens 		 [0][13][APE_TOKEN_BOOLEAN_ID]			=		declaring_data_type;
+	semantic_functions_tokens 		 [0][13][APE_TOKEN_CHAR_ID]				=		declaring_data_type;
+	semantic_functions_tokens 		 [0][13][APE_TOKEN_INT_ID]				=		declaring_data_type;
+	semantic_functions_tokens 		 [0][13][APE_TOKEN_PONTO_E_VIRGULA_ID]	=		default_action;
+	semantic_functions_tokens 		 [0][14][APE_TOKEN_ID_ID]				=		declaring_variable;
+	semantic_functions_tokens 		 [0][15][APE_TOKEN_BEGIN_ID]			=		default_action;
 	semantic_functions_tokens 		 [0][16][APE_TOKEN_FECHA_CHAVES_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][16][APE_TOKEN_RETURN_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][18][APE_TOKEN_PONTO_E_VIRGULA_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][18][APE_TOKEN_VIRGULA_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][19][APE_TOKEN_PONTO_E_VIRGULA_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][20][APE_TOKEN_BOOLEAN_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][20][APE_TOKEN_CHAR_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][20][APE_TOKEN_INT_ID]		=		default_action;
+	semantic_functions_tokens 		 [0][16][APE_TOKEN_RETURN_ID]			=		default_action;
+	semantic_functions_tokens 		 [0][18][APE_TOKEN_PONTO_E_VIRGULA_ID]	=		default_action;
+	semantic_functions_tokens 		 [0][18][APE_TOKEN_VIRGULA_ID]			=		default_action;
+	semantic_functions_tokens 		 [0][19][APE_TOKEN_PONTO_E_VIRGULA_ID]	=		default_action;
+	semantic_functions_tokens 		 [0][20][APE_TOKEN_BOOLEAN_ID]			=		declaring_data_type;
+	semantic_functions_tokens 		 [0][20][APE_TOKEN_CHAR_ID]				=		declaring_data_type;
+	semantic_functions_tokens 		 [0][20][APE_TOKEN_INT_ID]				=		declaring_data_type;
 	semantic_functions_tokens 		 [0][21][APE_TOKEN_FECHA_CHAVES_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][22][APE_TOKEN_PONTO_E_VIRGULA_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][22][APE_TOKEN_VIRGULA_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][23][APE_TOKEN_BOOLEAN_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][23][APE_TOKEN_CHAR_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][23][APE_TOKEN_INT_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][24][APE_TOKEN_FECHA_PARENTESES_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][24][APE_TOKEN_VIRGULA_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][25][APE_TOKEN_BOOLEAN_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][25][APE_TOKEN_CHAR_ID]		=		default_action;
-	semantic_functions_tokens 		 [0][25][APE_TOKEN_INT_ID]		=		default_action;
+	semantic_functions_tokens 		 [0][22][APE_TOKEN_PONTO_E_VIRGULA_ID]	=		default_action;
+	semantic_functions_tokens 		 [0][22][APE_TOKEN_VIRGULA_ID]			=		default_action;
+	semantic_functions_tokens 		 [0][23][APE_TOKEN_BOOLEAN_ID]			=		declaring_data_type;
+	semantic_functions_tokens 		 [0][23][APE_TOKEN_CHAR_ID]				=		declaring_data_type;
+	semantic_functions_tokens 		 [0][23][APE_TOKEN_INT_ID]				=		declaring_data_type;
+	semantic_functions_tokens 		 [0][24][APE_TOKEN_FECHA_PARENTESES_ID]	=		default_action;
+	semantic_functions_tokens 		 [0][24][APE_TOKEN_VIRGULA_ID]			=		default_action;
+	semantic_functions_tokens 		 [0][25][APE_TOKEN_BOOLEAN_ID]			=		declaring_data_type;
+	semantic_functions_tokens 		 [0][25][APE_TOKEN_CHAR_ID]				=		declaring_data_type;
+	semantic_functions_tokens 		 [0][25][APE_TOKEN_INT_ID]				=		declaring_data_type;
 	
 	/* machine transitions */
 	semantic_functions_machines 		 [0][9][APE_MACHINE_COMANDO_ID]		=		default_action;
-	semantic_functions_machines 		 [0][16][APE_MACHINE_COMANDO_ID]		=		default_action;
-	semantic_functions_machines 		 [0][17][APE_MACHINE_EXPRESSAO_ID]		=		default_action;
+	semantic_functions_machines 		 [0][16][APE_MACHINE_COMANDO_ID]	=		default_action;
+	semantic_functions_machines 		 [0][17][APE_MACHINE_EXPRESSAO_ID]	=		default_action;
 	
 	/* Machine 1: comando */
 	
 	/* token transitions */
-	semantic_functions_tokens 		 [1][0][APE_TOKEN_ID_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][0][APE_TOKEN_IF_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][0][APE_TOKEN_PRINT_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][0][APE_TOKEN_SCAN_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][0][APE_TOKEN_WHILE_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][1][APE_TOKEN_ABRE_PARENTESES_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][1][APE_TOKEN_IGUAL_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][2][APE_TOKEN_ABRE_PARENTESES_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][3][APE_TOKEN_ABRE_PARENTESES_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][4][APE_TOKEN_ABRE_PARENTESES_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][5][APE_TOKEN_ABRE_PARENTESES_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][7][APE_TOKEN_ID_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][8][APE_TOKEN_STRING_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][9][APE_TOKEN_FECHA_PARENTESES_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][10][APE_TOKEN_FECHA_PARENTESES_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][10][APE_TOKEN_SOMA_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][12][APE_TOKEN_PONTO_E_VIRGULA_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][14][APE_TOKEN_FECHA_PARENTESES_ID]		=		default_action;
+	semantic_functions_tokens 		 [1][0][APE_TOKEN_ID_ID]				=		default_action;
+	semantic_functions_tokens 		 [1][0][APE_TOKEN_IF_ID]				=		default_action;
+	semantic_functions_tokens 		 [1][0][APE_TOKEN_PRINT_ID]				=		default_action;
+	semantic_functions_tokens 		 [1][0][APE_TOKEN_SCAN_ID]				=		default_action;
+	semantic_functions_tokens 		 [1][0][APE_TOKEN_WHILE_ID]				=		default_action;
+	semantic_functions_tokens 		 [1][1][APE_TOKEN_ABRE_PARENTESES_ID]	=		default_action;
+	semantic_functions_tokens 		 [1][1][APE_TOKEN_IGUAL_ID]				=		default_action;
+	semantic_functions_tokens 		 [1][2][APE_TOKEN_ABRE_PARENTESES_ID]	=		default_action;
+	semantic_functions_tokens 		 [1][3][APE_TOKEN_ABRE_PARENTESES_ID]	=		default_action;
+	semantic_functions_tokens 		 [1][4][APE_TOKEN_ABRE_PARENTESES_ID]	=		default_action;
+	semantic_functions_tokens 		 [1][5][APE_TOKEN_ABRE_PARENTESES_ID]	=		default_action;
+	semantic_functions_tokens 		 [1][7][APE_TOKEN_ID_ID]				=		default_action;
+	semantic_functions_tokens 		 [1][8][APE_TOKEN_STRING_ID]			=		default_action;
+	semantic_functions_tokens 		 [1][9][APE_TOKEN_FECHA_PARENTESES_ID]	=		default_action;
+	semantic_functions_tokens 		 [1][10][APE_TOKEN_FECHA_PARENTESES_ID]	=		default_action;
+	semantic_functions_tokens 		 [1][10][APE_TOKEN_SOMA_ID]				=		default_action;
+	semantic_functions_tokens 		 [1][12][APE_TOKEN_PONTO_E_VIRGULA_ID]	=		default_action;
+	semantic_functions_tokens 		 [1][14][APE_TOKEN_FECHA_PARENTESES_ID]	=		default_action;
 	semantic_functions_tokens 		 [1][15][APE_TOKEN_ABRE_CHAVES_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][16][APE_TOKEN_BOOLEAN_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][16][APE_TOKEN_CHAR_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][16][APE_TOKEN_INT_ID]		=		default_action;
+	semantic_functions_tokens 		 [1][16][APE_TOKEN_BOOLEAN_ID]			=		declaring_data_type;
+	semantic_functions_tokens 		 [1][16][APE_TOKEN_CHAR_ID]				=		declaring_data_type;
+	semantic_functions_tokens 		 [1][16][APE_TOKEN_INT_ID]				=		declaring_data_type;
 	semantic_functions_tokens 		 [1][17][APE_TOKEN_FECHA_CHAVES_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][18][APE_TOKEN_VIRGULA_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][19][APE_TOKEN_ELSE_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][20][APE_TOKEN_ID_ID]		=		default_action;
+	semantic_functions_tokens 		 [1][18][APE_TOKEN_VIRGULA_ID]			=		default_action;
+	semantic_functions_tokens 		 [1][19][APE_TOKEN_ELSE_ID]				=		default_action;
+	semantic_functions_tokens 		 [1][20][APE_TOKEN_ID_ID]				=		declaring_variable;
 	semantic_functions_tokens 		 [1][21][APE_TOKEN_ABRE_CHAVES_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][22][APE_TOKEN_FECHA_PARENTESES_ID]		=		default_action;
+	semantic_functions_tokens 		 [1][22][APE_TOKEN_FECHA_PARENTESES_ID]	=		default_action;
 	semantic_functions_tokens 		 [1][23][APE_TOKEN_FECHA_CHAVES_ID]		=		default_action;
-	semantic_functions_tokens 		 [1][25][APE_TOKEN_FECHA_PARENTESES_ID]		=		default_action;
+	semantic_functions_tokens 		 [1][25][APE_TOKEN_FECHA_PARENTESES_ID]	=		default_action;
 	
 	/* machine transitions */
-	semantic_functions_machines 		 [1][6][APE_MACHINE_EXPRESSAO_ID]		=		default_action;
-	semantic_functions_machines 		 [1][7][APE_MACHINE_CONDICAO_ID]		=		default_action;
-	semantic_functions_machines 		 [1][7][APE_MACHINE_EXPRESSAO_ID]		=		default_action;
-	semantic_functions_machines 		 [1][8][APE_MACHINE_CONDICAO_ID]		=		default_action;
-	semantic_functions_machines 		 [1][8][APE_MACHINE_EXPRESSAO_ID]		=		default_action;
-	semantic_functions_machines 		 [1][13][APE_MACHINE_CONDICAO_ID]		=		default_action;
-	semantic_functions_machines 		 [1][17][APE_MACHINE_COMANDO_ID]		=		default_action;
-	semantic_functions_machines 		 [1][23][APE_MACHINE_COMANDO_ID]		=		default_action;
-	semantic_functions_machines 		 [1][24][APE_MACHINE_CONDICAO_ID]		=		default_action;
+	semantic_functions_machines 		 [1][6][APE_MACHINE_EXPRESSAO_ID]	=		default_action;
+	semantic_functions_machines 		 [1][7][APE_MACHINE_CONDICAO_ID]	=		default_action;
+	semantic_functions_machines 		 [1][7][APE_MACHINE_EXPRESSAO_ID]	=		default_action;
+	semantic_functions_machines 		 [1][8][APE_MACHINE_CONDICAO_ID]	=		default_action;
+	semantic_functions_machines 		 [1][8][APE_MACHINE_EXPRESSAO_ID]	=		default_action;
+	semantic_functions_machines 		 [1][13][APE_MACHINE_CONDICAO_ID]	=		default_action;
+	semantic_functions_machines 		 [1][17][APE_MACHINE_COMANDO_ID]	=		default_action;
+	semantic_functions_machines 		 [1][23][APE_MACHINE_COMANDO_ID]	=		default_action;
+	semantic_functions_machines 		 [1][24][APE_MACHINE_CONDICAO_ID]	=		default_action;
 	
 	/* Machine 2: expressao */
 	
 	/* token transitions */
-	semantic_functions_tokens 		 [2][0][APE_TOKEN_ABRE_PARENTESES_ID]		=		default_action;
-	semantic_functions_tokens 		 [2][0][APE_TOKEN_ID_ID]		=		default_action;
-	semantic_functions_tokens 		 [2][0][APE_TOKEN_INTEIRO_ID]		=		default_action;
-	semantic_functions_tokens 		 [2][2][APE_TOKEN_ABRE_PARENTESES_ID]		=		default_action;
-	semantic_functions_tokens 		 [2][2][APE_TOKEN_DIVISAO_ID]		=		default_action;
+	semantic_functions_tokens 		 [2][0][APE_TOKEN_ABRE_PARENTESES_ID]	=		default_action;
+	semantic_functions_tokens 		 [2][0][APE_TOKEN_ID_ID]				=		default_action;
+	semantic_functions_tokens 		 [2][0][APE_TOKEN_INTEIRO_ID]			=		default_action;
+	semantic_functions_tokens 		 [2][2][APE_TOKEN_ABRE_PARENTESES_ID]	=		default_action;
+	semantic_functions_tokens 		 [2][2][APE_TOKEN_DIVISAO_ID]			=		default_action;
 	semantic_functions_tokens 		 [2][2][APE_TOKEN_MULTIPLICACAO_ID]		=		default_action;
-	semantic_functions_tokens 		 [2][2][APE_TOKEN_SOMA_ID]		=		default_action;
-	semantic_functions_tokens 		 [2][2][APE_TOKEN_SUBTRACAO_ID]		=		default_action;
-	semantic_functions_tokens 		 [2][3][APE_TOKEN_DIVISAO_ID]		=		default_action;
+	semantic_functions_tokens 		 [2][2][APE_TOKEN_SOMA_ID]				=		default_action;
+	semantic_functions_tokens 		 [2][2][APE_TOKEN_SUBTRACAO_ID]			=		default_action;
+	semantic_functions_tokens 		 [2][3][APE_TOKEN_DIVISAO_ID]			=		default_action;
 	semantic_functions_tokens 		 [2][3][APE_TOKEN_MULTIPLICACAO_ID]		=		default_action;
-	semantic_functions_tokens 		 [2][3][APE_TOKEN_SOMA_ID]		=		default_action;
-	semantic_functions_tokens 		 [2][3][APE_TOKEN_SUBTRACAO_ID]		=		default_action;
-	semantic_functions_tokens 		 [2][4][APE_TOKEN_FECHA_PARENTESES_ID]		=		default_action;
-	semantic_functions_tokens 		 [2][5][APE_TOKEN_ID_ID]		=		default_action;
+	semantic_functions_tokens 		 [2][3][APE_TOKEN_SOMA_ID]				=		default_action;
+	semantic_functions_tokens 		 [2][3][APE_TOKEN_SUBTRACAO_ID]			=		default_action;
+	semantic_functions_tokens 		 [2][4][APE_TOKEN_FECHA_PARENTESES_ID]	=		default_action;
+	semantic_functions_tokens 		 [2][5][APE_TOKEN_ID_ID]				=		default_action;
 	
 	/* machine transitions */
-	semantic_functions_machines 		 [2][1][APE_MACHINE_EXPRESSAO_ID]		=		default_action;
-	semantic_functions_machines 		 [2][5][APE_MACHINE_CONDICAO_ID]		=		default_action;
-	semantic_functions_machines 		 [2][5][APE_MACHINE_EXPRESSAO_ID]		=		default_action;
+	semantic_functions_machines 		 [2][1][APE_MACHINE_EXPRESSAO_ID]	=		default_action;
+	semantic_functions_machines 		 [2][5][APE_MACHINE_CONDICAO_ID]	=		default_action;
+	semantic_functions_machines 		 [2][5][APE_MACHINE_EXPRESSAO_ID]	=		default_action;
 	
 	/* Machine 3: condicao */
 	
 	/* token transitions */
-	semantic_functions_tokens 		 [3][0][APE_TOKEN_BOOLEANO_ID]		=		default_action;
-	semantic_functions_tokens 		 [3][0][APE_TOKEN_NOT_ID]		=		default_action;
-	semantic_functions_tokens 		 [3][1][APE_TOKEN_DIFERENTE_ID]		=		default_action;
+	semantic_functions_tokens 		 [3][0][APE_TOKEN_BOOLEANO_ID]			=		default_action;
+	semantic_functions_tokens 		 [3][0][APE_TOKEN_NOT_ID]				=		default_action;
+	semantic_functions_tokens 		 [3][1][APE_TOKEN_DIFERENTE_ID]			=		default_action;
 	semantic_functions_tokens 		 [3][1][APE_TOKEN_IGUAL_IGUAL_ID]		=		default_action;
-	semantic_functions_tokens 		 [3][1][APE_TOKEN_MAIOR_ID]		=		default_action;
+	semantic_functions_tokens 		 [3][1][APE_TOKEN_MAIOR_ID]				=		default_action;
 	semantic_functions_tokens 		 [3][1][APE_TOKEN_MAIOR_IGUAL_ID]		=		default_action;
-	semantic_functions_tokens 		 [3][1][APE_TOKEN_MENOR_ID]		=		default_action;
+	semantic_functions_tokens 		 [3][1][APE_TOKEN_MENOR_ID]				=		default_action;
 	semantic_functions_tokens 		 [3][1][APE_TOKEN_MENOR_IGUAL_ID]		=		default_action;
-	semantic_functions_tokens 		 [3][2][APE_TOKEN_AND_ID]		=		default_action;
-	semantic_functions_tokens 		 [3][2][APE_TOKEN_OR_ID]		=		default_action;
-	semantic_functions_tokens 		 [3][3][APE_TOKEN_ABRE_PARENTESES_ID]		=		default_action;
-	semantic_functions_tokens 		 [3][7][APE_TOKEN_FECHA_PARENTESES_ID]		=		default_action;
+	semantic_functions_tokens 		 [3][2][APE_TOKEN_AND_ID]				=		default_action;
+	semantic_functions_tokens 		 [3][2][APE_TOKEN_OR_ID]				=		default_action;
+	semantic_functions_tokens 		 [3][3][APE_TOKEN_ABRE_PARENTESES_ID]	=		default_action;
+	semantic_functions_tokens 		 [3][7][APE_TOKEN_FECHA_PARENTESES_ID]	=		default_action;
 	
 	/* machine transitions */
-	semantic_functions_machines 		 [3][0][APE_MACHINE_CONDICAO_ID]		=		default_action;
-	semantic_functions_machines 		 [3][0][APE_MACHINE_EXPRESSAO_ID]		=		default_action;
-	semantic_functions_machines 		 [3][5][APE_MACHINE_EXPRESSAO_ID]		=		default_action;
-	semantic_functions_machines 		 [3][6][APE_MACHINE_CONDICAO_ID]		=		default_action;
-	semantic_functions_machines 		 [3][8][APE_MACHINE_CONDICAO_ID]		=		default_action;
+	semantic_functions_machines 		 [3][0][APE_MACHINE_CONDICAO_ID]	=		default_action;
+	semantic_functions_machines 		 [3][0][APE_MACHINE_EXPRESSAO_ID]	=		default_action;
+	semantic_functions_machines 		 [3][5][APE_MACHINE_EXPRESSAO_ID]	=		default_action;
+	semantic_functions_machines 		 [3][6][APE_MACHINE_CONDICAO_ID]	=		default_action;
+	semantic_functions_machines 		 [3][8][APE_MACHINE_CONDICAO_ID]	=		default_action;
 }
 
 //////////////////////////////////////////////////////////
