@@ -1,0 +1,47 @@
+programa, (0, "functions") -> 1
+programa, (1, "int") -> 2
+programa, (2, id) -> 4
+programa, (4, "(") -> 6
+programa, (6, "int") -> 10
+programa, (10, id) -> 24
+programa, (24, ")") -> 11
+programa, (11, "{") -> 13
+programa, (13, "int") -> 14
+programa, (14, id) -> 22
+programa, (22, ";") -> 15
+programa, (15, "begin") -> 16
+programa, (16, comando) -> 16
+comando, (0, "if") -> 2
+comando, (2, "(") -> 13
+comando, (13, condicao) -> 14
+condicao, (0, expressao) -> 1
+expressao, (0, id) -> 2
+condicao, (1, ">") -> 5
+condicao, (5, expressao) -> 4
+expressao, (0, inteiro) -> 3
+condicao, (7, ")") -> 4
+comando, (14, ")") -> 15
+comando, (15, "{") -> 17
+comando, (17, comando) -> 17
+comando, (0, id) -> 1
+comando, 
+comando, 
+comando, 
+expressao, 
+expressao, 
+expressao, 
+expressao, 
+expressao, 
+expressao, 
+condicao, 
+condicao, 
+condicao, 
+condicao, 
+condicao, 
+condicao, 
+programa, 
+programa, 
+programa, 
+programa, 
+programa, 
+programa, 

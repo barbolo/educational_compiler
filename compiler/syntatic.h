@@ -8,6 +8,7 @@
 
 #include "analyser.h"
 #include "ape.h"
+#include "actions.h"
 
 void run_sintatic();
 

@@ -6,18 +6,22 @@
 #include "tables.h"
 #include "syntatic.h"
 #include "actions.h"
+#include "writer.h"
+#include "semantic.h"
 
 int main (int argc, const char * argv[]) {
 	
 	/* initialize the file reader */
-	//init_reader("../../../resources/sample.edu");
-	init_reader("../../../resources/sampleOsimplesLevaAoComplexo.edu");
+	init_reader("../../../resources/sample.edu");
+	//init_reader("../../../resources/sampleOsimplesLevaAoComplexo.edu");
+	
+	initialize_writer("../../../resources/sample.asm");
 	
 	/* initialize transducer automata transitions */
 	initialize_transitions();
 	
-	/* initialize semantic tables */
-	initialize_semantic_tables();
+	/* initialize semantic */
+	initialize_semantic();
 	
 	/* initialize semantic actions */
 	init_semantic_actions();
@@ -28,11 +32,6 @@ int main (int argc, const char * argv[]) {
 	/* call sintatic analyser*/
 	run_sintatic();
 	
-	//TESTE TEMPORÁRIO!!
-	//Imprime a tabela de simbolos:
-	//print_symbol_table(current_scope->last->symbol_table);
-	//print_symbol_table(current_symbol_table);
-	print_symbol_tables( &scopes);
-	
+	close_writer();
 	return 0;
 }

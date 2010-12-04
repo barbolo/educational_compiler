@@ -27,25 +27,26 @@ void run_sintatic(){
 		
 		// execute APE transition
 		if (!ape_consume_token() || token.type == TOKEN_TYPE_INVALID) {
-			printf("\nAi que burrico! Tem erro no seu código, Zé! Olha o último token! =P\n\n");
-			exit(1);
+			printf("\nAi que burrico! Tem erro SINTÁTICO no seu código, Zé! Olha o último token! =P\n\n");
+			exit(-1);
+		}
+		
+		//if the semantic actions detect an error, it will set semantic_error to 1.
+		if (semantic_error == 1) {
+			printf("\nAi que burrico! Tem erro SEMÂNTICO no seu código, Zé!\n\n");
+			exit(-1);
 		}
 		
 		//Decide if it is a declaration of an identifier.
 		//code to do that.
 		is_declaration = 1;
 		
-		//if the semantic actions detect an error, it will set semantic_error to 1.
-		if (semantic_error == 1) {
-			printf("\n\nSemantic error.\n");
-			break;
-		}
-		
 		// get the next token
 		get_next_token(is_declaration);
 	}
 	
 	if (was_correctly_parsed()) {
+		write_variables();
 		printf("\nParabéns! Você conseguiu gerar um código compilável!\n\n");
 	} else {
 		printf("Oops! Seu código não foi compilado até o fim!\n\n ");

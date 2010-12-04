@@ -8,12 +8,16 @@
  *
  */
 
+#include <stdlib.h>
+#include <stdio.h>
+
 #include "machine.h"
-#include "symbol_table_hashtable.h"
 #include "token.h"
 #include "tables.h"
 #include "syntatic.h"
-#include "scope_list.h"
+
+#include "symbol_table.h"
+#include "stack_frame.h"
 
 
 void (*semantic_functions_tokens[100][100][100]) ();
@@ -22,12 +26,9 @@ void (*semantic_functions_machines[100][100][100]) ();
 void init_semantic_actions();
 
 
-
-int data_type_being_declared;
-
 int get_data_type_by_name(char * type);
 
-void print_symbol_tables( scope_list * scopes);
+//void print_symbol_tables( scope_list * scopes);
 
 
 //Semantic actions
@@ -41,12 +42,15 @@ int test_if_identifier_is_unique();
 
 
 
-void declaring_data_type();
+void declaring_type();
 
 void declaring_variable();
 
 void declaring_function();
 
+int nome_do_identificador_eh_unico();
+
+void write_variables();
 
 
 /*

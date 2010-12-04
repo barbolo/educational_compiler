@@ -1,0 +1,17 @@
+				;		@  /0
+0000 a004		;		SC main
+0002 c000		;		HM /0
+
+0004 0000		;	main	K	/0
+0006 8204		;		LD	K_0	; carrega constante 5 no acumulador
+0008 9200		;		MM	i	; armazena conteúdo do acumulador na variável i
+000a 8206		;		LD	K_1	; carrega constante 4 no acumulador
+000c 9202		;		MM	a	; armazena conteúdo do acumulador na variável a
+000e c000		;		HM /0
+
+				;	@	/200	; começo da área de dados
+
+0200 0000		;	i	K	=0	; declaração da variável i
+0202 0000		;	a	K	=0	; declaração da variável a
+0204 0005		;	K_0		K	=5 ; declaração da constante K_0
+0206 0004		;	K_1		K	=4 ; declaração da constante K_1

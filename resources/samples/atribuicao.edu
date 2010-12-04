@@ -1,0 +1,29 @@
+functions
+
+main {
+	int i, int a;	
+	begin
+	i = 5;
+	a = 4;
+}
+
+
+
+
+		@  /0
+		SC main
+
+main	K	/0
+		LD	K_0	; carrega constante 5 no acumulador
+		MM	i	; armazena conteúdo do acumulador na variável i
+		LD	K_1	; carrega constante 4 no acumulador
+		MM	a	; armazena conteúdo do acumulador na variável a
+		#	main
+		HM /0
+
+
+		@	/200	; começo da área de dados
+i		K		=0	; declaração da variável i
+a		K		=0	; declaração da variável a
+K_0		K		=5 ; declaração da constante K_0
+K_1		K		=4 ; declaração da constante K_1
