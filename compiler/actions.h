@@ -49,20 +49,6 @@ void declaring_function();
 
 
 
-//hum... vamo fazer assim:
-
-//aí vai ter q fazer qdo inicia o programa ele iniciar a primeira tabela de simbolos dentro dessa hashtable dos escopos...
-// cada celula desse hastable de escopos vai ter uma tabela de simbolos e ponteiros pra próxima tabela de simbolos e pra anterior.
-// e qdo aparecer um { vai ter q criar e adicionar mais uma tabela de simbolos no hashtable de escopos.
-
-
-
-
-
-
-
-
-
 /*
 //Vou rascunhar o q deve ser feito...
 
@@ -71,8 +57,6 @@ void declaring_function();
 - criar as funções pra manipular a T.S. e seus campos
  exemplos:
 	- fç q busca na T.S. (vai ter q buscar em TODAS as TS, todos os escopos) um identificador. (toda vez q vier um identificador precisa procurar ele naS tabelaS de simbolos... se nao tiver em lugar nenhum é pq deu erro!)
-	- fç q vincula as tabelas de simbolo dos escopos (acho q isso é qdo cria uma nova tabela pq veio um novo escopo, 
-		  vc tem q atualizar a variável q diz em q escopo está atualmente e tb mandar a tabela do escopo anteriror apontar pa essa do novo escopo)
  
 - criar as pilhas de operadores e operandos pra poder executar as expressões. além disso tb tem q criar as fç pra manipular elas
  pra pilha é padrão...: inicia pilha, consulta pilha, empilha, desempilha.... mas tem tb as q regem o funcionamento das expressões
