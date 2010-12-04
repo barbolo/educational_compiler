@@ -10,12 +10,19 @@
 
 #include "hashtable.h"
 #include "symbol_table_hashtable.h"
+#include "scope_list.h"
 
-symbol_table_hash_table table_symbols;
+//List of scopes
+scope_list scopes;
+
+//Pointer to the Symbol Table of the current scope
+scope_list * current_scope;
+symbol_table_hash_table * current_symbol_table;
 hash_table table_numbers;
 hash_table table_reserved_words;
 hash_table table_specials;
 
+//symbol_table_hash_table table_symbols;
 
 
 /*****************************************************************************

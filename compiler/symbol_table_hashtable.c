@@ -10,18 +10,21 @@
 #include <stdlib.h>
 #include "strings.h"
 #include "symbol_table_hashtable.h"
+#include "tables.h"
 
 
-
-symbol_table_hash_table init_symbol_table(symbol_table_hash_table new_hash_table){
+symbol_table_hash_table * init_symbol_table(){
 	
-	new_hash_table.key = "no_key";
-	new_hash_table.value = -1;
-	new_hash_table.type = -1;
-	new_hash_table.dataType = -1;
-	new_hash_table.memory_address = -1;
-	new_hash_table.line_number = -1;
-	new_hash_table.next = NULL;
+	//Allocate memory to the new cell
+	symbol_table_hash_table * new_hash_table = (symbol_table_hash_table *) malloc(sizeof(symbol_table_hash_table));
+	
+	new_hash_table->key = "no_key";
+	new_hash_table->value = -1;
+	new_hash_table->type = -1;
+	new_hash_table->dataType = -1;
+	new_hash_table->memory_address = -1;
+	new_hash_table->line_number = -1;
+	new_hash_table->next = NULL;
 	
 	return new_hash_table;
 	
@@ -128,11 +131,12 @@ void print_symbol_table(symbol_table_hash_table * table){
 	
 	current_table_cell = table;
 	
-	printf("Symbol Table: \n\n");
+	printf("Scope: %d \nSymbol Table: \n\n", current_scope->id_value);
+	printf("Key(Token.value)	|	Value(ID na tabela)	|	Type(rótulo(0) ou variavel(1))	|	DataType (int:0 bool:1 char:2)	|	Memory Address	|	LineNumber  \n");
 	
 	while (1) {
 		
-		printf("Key(Token.value): %s  \nValue(ID na tabela): %d  \nType(rótulo(0) ou variavel(1)): %d   \nDataType (int:0 bool:1 char:2): %d   \nMemory Address: %d  \nLineNumber: %d   \n  \n", current_table_cell->key, current_table_cell->value, current_table_cell->type, current_table_cell->dataType, current_table_cell->memory_address, current_table_cell->line_number);
+		printf("%s							%d							%d											%d									%d						%d\n", current_table_cell->key, current_table_cell->value, current_table_cell->type, current_table_cell->dataType, current_table_cell->memory_address, current_table_cell->line_number);
 		
 		if (current_table_cell->next != NULL) {
 			current_table_cell = current_table_cell->next;
@@ -141,6 +145,7 @@ void print_symbol_table(symbol_table_hash_table * table){
 			break;
 		}	
 	}
+	printf("\n\n");
 }
 
 symbol_table_hash_table * find_cell_by_key_in_symbol_table(symbol_table_hash_table * table, char * key){

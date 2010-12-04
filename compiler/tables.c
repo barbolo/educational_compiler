@@ -11,7 +11,11 @@
 
 
 void initialize_semantic_tables() {
-	table_symbols = init_symbol_table(table_symbols);
+	
+	scopes = init_scope_list( scopes );
+	current_scope = &scopes;
+	current_symbol_table = current_scope->symbol_table;
+	
 	table_numbers = init_table(table_numbers);
 	table_reserved_words = init_table(table_reserved_words);
 	table_specials = init_table(table_specials);
@@ -46,7 +50,7 @@ int update_semantic_tables() {
 	else if (token.type == TOKEN_TYPE_RESERVED_WORD)
 		index = add(&table_reserved_words, token.value);
 	else if (token.type == TOKEN_TYPE_IDENTIFIER)
-		index = add_in_symbol_table(&table_symbols, token.value, token.line);
+		index = add_in_symbol_table(current_symbol_table, token.value, token.line);
 	else if (token.type == TOKEN_TYPE_SPECIAL)
 		index = add(&table_specials, token.value);
 	

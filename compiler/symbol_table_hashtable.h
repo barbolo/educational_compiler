@@ -1,7 +1,7 @@
 #ifndef ST_HASHTABLE_H
 #define ST_HASHTABLE_H
 /*
- *  hashtable.h
+ *  symbol_table_hashtable.h
  *  compiler
  *
  *  Created by Filipe Morgado Simões de Campos e Rafael Barbolo Lopes on 24/09/10.
@@ -57,7 +57,7 @@ typedef struct _ST_No {
  args: .
  returns: .
  *****************************************************************************/
-symbol_table_hash_table init_symbol_table(symbol_table_hash_table new_hash_table);
+symbol_table_hash_table * init_symbol_table();
 
 
 /*****************************************************************************

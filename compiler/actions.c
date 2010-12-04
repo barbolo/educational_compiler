@@ -30,7 +30,47 @@ int get_data_type_by_name(char * type){
 	return -1;
 }
 
+void print_symbol_tables(scope_list * scopes){
+		
+	scope_list * current_scope_cell;
+	
+	current_scope_cell = scopes;
+	
+	
+	while (1) {
+		
+		symbol_table_hash_table * current_table_cell;
+		
+		current_table_cell = current_scope_cell->symbol_table;
+		
+		printf("Scope: %d \nSymbol Table: \n\n", current_scope_cell->id_value);
+		printf("Key(Token.value)	|	Value(ID na tabela)	|	Type(rótulo(0) ou variavel(1))	|	DataType (int:0 bool:1 char:2)	|	Memory Address	|	LineNumber  \n");
+		
+		while (1) {
+			
+			printf("%s							%d							%d											%d									%d						%d\n", current_table_cell->key, current_table_cell->value, current_table_cell->type, current_table_cell->dataType, current_table_cell->memory_address, current_table_cell->line_number);
+			
+			if (current_table_cell->next != NULL) {
+				current_table_cell = current_table_cell->next;
+			}
+			else {
+				break;
+			}	
+		}
+		printf("\n\n");
+		
+		
+		if (current_scope_cell->next != NULL) {
+			current_scope_cell = current_scope_cell->next;
+		}
+		else {
+			break;
+		}
+		
 
+	}
+	
+}
 
 void default_action() {
 	// do nothing
@@ -45,25 +85,25 @@ void save_data_type(){
 void set_identifier_type_in_ST(){
 	
 	//Test if the current token is in the symbol table
-	if ( find_by_key_in_symbol_table(&table_symbols, token.value) != -1 ) {
+	if ( find_by_key_in_symbol_table(current_symbol_table, token.value) != -1 ) {
 		//Set data type
-		(find_cell_by_key_in_symbol_table(&table_symbols, token.value))->dataType = data_type_being_declared;
+		(find_cell_by_key_in_symbol_table(current_symbol_table, token.value))->dataType = data_type_being_declared;
 	}
 }
 
 void set_variable_type(){
 	//Test if the current token is in the symbol table
-	if ( find_by_key_in_symbol_table(&table_symbols, token.value) != -1 ) {
+	if ( find_by_key_in_symbol_table(current_symbol_table, token.value) != -1 ) {
 		//Set data type
-		(find_cell_by_key_in_symbol_table(&table_symbols, token.value))->type = IDENTIFIER_TYPE_VARIABLE;
+		(find_cell_by_key_in_symbol_table(current_symbol_table, token.value))->type = IDENTIFIER_TYPE_VARIABLE;
 	}
 }
 
 void set_function_type(){
 	//Test if the current token is in the symbol table
-	if ( find_by_key_in_symbol_table(&table_symbols, token.value) != -1 ) {
+	if ( find_by_key_in_symbol_table(current_symbol_table, token.value) != -1 ) {
 		//Set data type
-		(find_cell_by_key_in_symbol_table(&table_symbols, token.value))->type = IDENTIFIER_TYPE_LABEL;
+		(find_cell_by_key_in_symbol_table(current_symbol_table, token.value))->type = IDENTIFIER_TYPE_LABEL;
 	}
 }
 
@@ -80,7 +120,7 @@ int test_if_identifier_is_unique(){
 	//	found_a_token_with_the_same_value = 1;
 	//}
 	
-	data_type = (find_cell_by_key_in_symbol_table(&table_symbols, token.value))->dataType;
+	data_type = (find_cell_by_key_in_symbol_table(current_symbol_table, token.value))->dataType;
 	
 	//It will find itself every time, so we test if it has values equals to -1, it means: it has been just added to the table.
 	// So, we are not trying to add an existent identifier.
@@ -136,6 +176,16 @@ void declaring_function(){
 	
 }
 
+//Create a new scope and its symboltable
+void create_new_scope(){
+	
+	//Add new scope and update the current scope variable
+	current_scope = add_scope(&scopes);
+	
+	//Update current symbol table variable
+	current_symbol_table = current_scope->symbol_table;
+	
+}
 
 
 
@@ -155,7 +205,7 @@ void init_semantic_actions() {
 	semantic_functions_tokens 		 [0][1][APE_TOKEN_MAIN_ID]				=		default_action;
 	semantic_functions_tokens 		 [0][1][APE_TOKEN_VOID_ID]				=		declaring_data_type;
 	semantic_functions_tokens 		 [0][2][APE_TOKEN_ID_ID]				=		declaring_function;
-	semantic_functions_tokens 		 [0][3][APE_TOKEN_ABRE_CHAVES_ID]		=		default_action; //abre chaves!!deve ter uma ação pra criar uma nova TS! ou nao!!
+	semantic_functions_tokens 		 [0][3][APE_TOKEN_ABRE_CHAVES_ID]		=		create_new_scope;
 	semantic_functions_tokens 		 [0][4][APE_TOKEN_ABRE_PARENTESES_ID]	=		default_action;
 	semantic_functions_tokens 		 [0][5][APE_TOKEN_BEGIN_ID]				=		default_action;
 	semantic_functions_tokens 		 [0][5][APE_TOKEN_BOOLEAN_ID]			=		declaring_data_type;
