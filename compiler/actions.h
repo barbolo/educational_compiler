@@ -11,6 +11,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#include "stack.h"
+
 #include "machine.h"
 #include "token.h"
 #include "tables.h"

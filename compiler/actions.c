@@ -9,8 +9,10 @@
 
 #include "actions.h"
 
-char * ultimo_identificador_lido;
+char * ultimo_identificador_lido = NULL;
 char buffer[100];
+Stack * pilha_operandos = NULL;
+Stack * pilha_operadores = NULL;
 
 void default_action() {
 	// do nothing
@@ -68,6 +70,7 @@ void comecando_atribuicao() {
 	ultimo_identificador_lido = token.value;
 }
 
+// É chamada quando o comando de atribuição finaliza
 void atribuicao_finalizada() {
 	
 	// LOAD
@@ -84,6 +87,119 @@ void atribuicao_finalizada() {
 	write("\t; armazena conteúdo do acumulador na variável ");
 	write(ultimo_identificador_lido);
 	write("\n");
+}
+
+// empilha (pilha de operandos, identificador encontrado)
+void jj_expressao_1() {
+	push_stack(pilha_operandos, token.value);
+}
+
+// empilha (pilha de operandos, número encontrado)
+void jj_expressao_2() {
+	push_stack(pilha_operandos, token.value);
+}
+
+// empilha (pilha de operadores, "(")
+void jj_expressao_3() {
+	push_stack(pilha_operadores, "(");
+}
+
+// nada executa
+void jj_expressao_4() {
+}
+
+// X5:	consulta (pilha de operadores, Y);
+//		Se Y != "(": executa GERACÓDIGO, detalhada adiante;. GO TO X5.
+//		Se Y =	"(":	desempilha (pilha de operadores, Y);
+void jj_expressao_5() {
+	if (strcmp(pilha_operadores->content, "(") != 0) {
+		jj_gera_codigo();
+		jj_expressao_5();
+	} else {
+		pop_stack(pilha_operadores);
+	}
+}
+
+// X6:	consulta (pilha de operadores, Y);
+//		Se Y for "+", "-", "*" ou "/":
+//			executa GERACÓDIGO, detalhada adiante; GO TO X6;
+//		Caso contrário: empilha (pilha de operadores, "+");
+void jj_expressao_6() {
+	if (strcmp(pilha_operadores->content, "+") == 0 ||
+		strcmp(pilha_operadores->content, "-") == 0 ||
+		strcmp(pilha_operadores->content, "*") == 0 ||
+		strcmp(pilha_operadores->content, "/") == 0) {
+		jj_gera_codigo();
+		jj_expressao_6();
+	} else {
+		push_stack(pilha_operadores, "+");
+	}
+}
+
+// X7:	consulta (pilha de operadores, Y);
+//		Se Y for "+", "-", "*" ou "/":
+//			executa GERACÓDIGO, detalhada adiante; GO TO X7;
+//		Caso contrário: empilha (pilha de operadores, "-");
+void jj_expressao_7() {
+	if (strcmp(pilha_operadores->content, "+") == 0 ||
+		strcmp(pilha_operadores->content, "-") == 0 ||
+		strcmp(pilha_operadores->content, "*") == 0 ||
+		strcmp(pilha_operadores->content, "/") == 0) {
+		jj_gera_codigo();
+		jj_expressao_7();
+	} else {
+		push_stack(pilha_operadores, "-");
+	}
+}
+
+// X8:	consulta (pilha de operadores, Y);
+//		Se Y for "*" ou "/": executa GERACÓDIGO, detalhada adiante; GO TO X8;
+//		Caso contrário: empilha (pilha de operadores, "*");
+void jj_expressao_8() {
+	if (strcmp(pilha_operadores->content, "*") == 0 ||
+		strcmp(pilha_operadores->content, "/") == 0) {
+		jj_gera_codigo();
+		jj_expressao_8();
+	} else {
+		push_stack(pilha_operadores, "*");
+	}
+}
+
+// X9:	consulta (pilha de operadores, Y);
+//		Se Y for "*" ou "/": executa GERACÓDIGO, detalhada adiante; GO TO X9;
+//		Caso contrário: empilha (pilha de operadores, "/");
+void jj_expressao_9() {
+	if (strcmp(pilha_operadores->content, "*") == 0 ||
+		strcmp(pilha_operadores->content, "/") == 0) {
+		jj_gera_codigo();
+		jj_expressao_9();
+	} else {
+		push_stack(pilha_operadores, "/");
+	}
+}
+
+// (* Esta rotina é associada ao final do reconhecimento da expressão *)
+// X10:	consulta (pilha de operadores, Y);
+//		Se Y não for "vazio" : executa GERACÓDIGO, detalhada adiante, GO TO X10;
+void jj_expressao_10() {
+	if (pilha_operadores != NULL) {
+		jj_gera_codigo();
+		jj_expressao_10();
+	}
+}
+
+// GERACÓDIGO:	Desempilha (pilha de operadores, Y);
+//				Desempilha (pilha de operandos, B);
+//				Desempilha (pilha de operandos, A);
+//				Gera ("LDA", A);
+//				Se Y = "+": gera("ADA", B);
+//				Se Y = "-": gera("SUB", B);
+//				Se Y = "*": gera("MUL", B);
+//				Se Y = "/": gera("DIV", B);
+//				Incrementacontador(CONTATEMP);
+//				Gera("STA", "#TEMP".CONTATEMP);
+//				empilha(pilha de operandos, "#TEMP".CONTATEMP);
+void jj_gera_codigo() {
 }
 
 void write_variables() {

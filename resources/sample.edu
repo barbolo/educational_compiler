@@ -4,5 +4,5 @@ main {
 	int a, int b;	
 	begin
 	a = 5;
-	b = 1;
+	b = a - 1;
 }

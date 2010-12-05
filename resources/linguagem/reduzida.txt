@@ -10,9 +10,10 @@ condicional = “if” “(“ condicao “)” “{“ {comando} “}” [“el
 iteracao = “while” “(“ condicao “)” “{“ {comando} “}”.
 entrada = “scan” “(“ tipo ”,” id “)” “;”.
 saída = “print” “(“ (string|expressao|condicao) {"+" (string|expressao|condicao)} “)” “;”.
+
 expressao = termo {("+"|"-") termo}.
 termo = fator {("*"|"/") fator}.
-fator = "(" expressao ")" | id | chamada_funcao | inteiro.
+fator = "(" expressao ")" | id | inteiro.
 
 condicao = (expressao comparador expressao) | expressao_booleana.
 comparador = "<" | "<=" | ">" | ">=" | "==" | "!=".

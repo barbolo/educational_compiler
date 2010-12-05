@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8DD76FAC0486AB0100D96B5E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.c */; settings = {ATTRIBUTES = (); }; };
+		B082A53912ABA3C500168445 /* stack.c in Sources */ = {isa = PBXBuildFile; fileRef = B082A53812ABA3C500168445 /* stack.c */; };
 		B0A80ADB12515FFF0079D32B /* strings.c in Sources */ = {isa = PBXBuildFile; fileRef = B0A80ADA12515FFF0079D32B /* strings.c */; };
 		B0A9D977129DA57E00899179 /* ape_stack.c in Sources */ = {isa = PBXBuildFile; fileRef = B0A9D976129DA57E00899179 /* ape_stack.c */; };
 		B0A9D97A129DCDA800899179 /* machine.c in Sources */ = {isa = PBXBuildFile; fileRef = B0A9D979129DCDA800899179 /* machine.c */; };
@@ -40,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		B082A53712ABA3C500168445 /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
+		B082A53812ABA3C500168445 /* stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stack.c; sourceTree = "<group>"; };
 		B0A80AD912515FFF0079D32B /* strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strings.h; sourceTree = "<group>"; };
 		B0A80ADA12515FFF0079D32B /* strings.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = strings.c; sourceTree = "<group>"; };
 		B0A9D975129DA57E00899179 /* ape_stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ape_stack.h; sourceTree = "<group>"; };
@@ -135,6 +138,8 @@
 				B0A80ADA12515FFF0079D32B /* strings.c */,
 				B0E1472D12AA4DFB008652EF /* writer.h */,
 				B0E1472E12AA4DFB008652EF /* writer.c */,
+				B082A53712ABA3C500168445 /* stack.h */,
+				B082A53812ABA3C500168445 /* stack.c */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 				B0E1478B12AA56C6008652EF /* stack_frame.c in Sources */,
 				B0E1478E12AA59CD008652EF /* symbol_table.c in Sources */,
 				B0E1496D12AA9818008652EF /* semantic.c in Sources */,
+				B082A53912ABA3C500168445 /* stack.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
