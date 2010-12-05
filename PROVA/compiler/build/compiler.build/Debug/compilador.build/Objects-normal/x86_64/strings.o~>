@@ -1,0 +1,5 @@
+In file included from /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/strings.c:9:
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/strings.h:23: warning: conflicting types for built-in function 'strlen'
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/strings.h:25: warning: conflicting types for built-in function 'strcpy'
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/strings.c: In function 'strlen':
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/strings.c:39: warning: control reaches end of non-void function

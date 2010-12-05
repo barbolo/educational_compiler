@@ -1,0 +1,2 @@
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/stack.c:39: error: conflicting types for 'consulta_pilha'
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/stack.h:29: error: previous declaration of 'consulta_pilha' was here

@@ -1,0 +1,341 @@
+Tcompilador
+v7
+r0
+t307247746.794968
+cCheck dependencies
+cCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/main.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/main.c normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/reader.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/reader.c normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/printer.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/printer.c normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/transducer.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/transducer.c normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/symbols.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/symbols.c normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/stringtcc.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/stringtcc.c normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/analyser.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/analyser.c normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/token.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/token.c normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/hashtable.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/tablesymbols.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/tablesymbols.c normal x86_64 c com.apple.compilers.gcc.4_2
+cLd /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug/compilador normal x86_64
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004BE7308700000000000000EE
+t1273442439
+s238
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/stdio.h
+c000000004AC326060000000000004174
+t1254303238
+s16756
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/analyser.c
+c000000004CA000B6000000000000093E
+t1285554358
+s2366
+i"analyser.h"
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/analyser.h
+c000000004CA000B600000000000003B1
+t1285554358
+s945
+i<stdio.h>
+i"reader.h"
+i"token.h"
+i"transducer.h"
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug/compilador
+t1285554946
+s16680
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/analyser.o
+t1285554946
+s6436
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/compilador.LinkFileList
+c000000004CA0030000000000000005CF
+t1285554944
+s1487
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/hashtable.o
+t1285554946
+s4656
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/main.o
+t1285554945
+s5980
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/printer.o
+t1285554945
+s1576
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/reader.o
+t1285554945
+s5372
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/stringtcc.o
+t1285554945
+s1580
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/symbols.o
+t1285554945
+s1576
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/tablesymbols.o
+t1285554946
+s1780
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/token.o
+t1285554946
+s3884
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/transducer.o
+t1285554945
+s2704
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c
+c000000004CA000B60000000000000792
+t1285554358
+s1938
+i"hashtable.h"
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.h
+c000000004CA000B6000000000000057C
+t1285554358
+s1404
+i<stdio.h>
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/main.c
+c000000004CA000B600000000000003CD
+t1285554358
+s973
+i<stdio.h>
+i"analyser.h"
+i"hashtable.h"
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/printer.c
+c000000004C9CD4D700000000000000B9
+t1285346519
+s185
+i"printer.h"
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/printer.h
+c000000004C9D11180000000000000460
+t1285361944
+s1120
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/reader.c
+c000000004CA000B70000000000000817
+t1285554359
+s2071
+i"reader.h"
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/reader.h
+c000000004CA000B700000000000004F3
+t1285554359
+s1267
+i<stdio.h>
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/stringtcc.c
+c000000004C9D111800000000000000BB
+t1285361944
+s187
+i"stringtcc.h"
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/stringtcc.h
+c000000004C9D1118000000000000021A
+t1285361944
+s538
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/symbols.c
+c000000004C9CD4D700000000000000B9
+t1285346519
+s185
+i"symbols.h"
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/symbols.h
+c000000004C9CD4D700000000000000EA
+t1285346519
+s234
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/tablesymbols.c
+c000000004CA000B700000000000000C1
+t1285554359
+s193
+i"tablesymbols.h"
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/tablesymbols.h
+c000000004CA000B700000000000000BD
+t1285554359
+s189
+i"hashtable.h"
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/token.c
+c000000004CA000B700000000000003D8
+t1285554359
+s984
+i"token.h"
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/token.h
+c000000004CA000B7000000000000066F
+t1285554359
+s1647
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/transducer.c
+c000000004CA000B70000000000000347
+t1285554359
+s839
+i"transducer.h"
+
+N/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/transducer.h
+c000000004CA000B7000000000000046D
+t1285554359
+s1133
+i"token.h"
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies307247744#307247744#0(0"0(0#1#0"7947009927035180032#0"0#
+
+CCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/analyser.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/analyser.c normal x86_64 c com.apple.compilers.gcc.4_2
+s307247745.978988
+e307247746.037293
+r1
+xCompileC
+xbuild/compiler.build/Debug/compilador.build/Objects-normal/x86_64/analyser.o
+x/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/analyser.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@90"Compile /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/analyser.c307247745#307247746#0(0"0(0#0#82"/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/analyser.c4300911832#1681"    cd /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-generated-files.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-own-target-headers.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-all-target-headers.hmap -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-project-headers.hmap -F/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug/include -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources/x86_64 -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources -c /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/analyser.c -o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/analyser.o0#
+
+CCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/hashtable.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c normal x86_64 c com.apple.compilers.gcc.4_2
+s307247746.037397
+e307247746.091178
+r1
+xCompileC
+xbuild/compiler.build/Debug/compilador.build/Objects-normal/x86_64/hashtable.o
+x/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+o/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c: In function 'add':
+o/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c:49: warning: implicit declaration of function 'malloc'
+o/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c:49: warning: incompatible implicit declaration of built-in function 'malloc'
+lSLF07#2@91"Compile /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c307247746#307247746#0(404"/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c: In function 'add':/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c:49: warning: implicit declaration of function 'malloc'/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c:49: warning: incompatible implicit declaration of built-in function 'malloc'2(22@41"Implicit declaration of function 'malloc'307247746#104#139#0(6@83"/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c307247158#49#0#49#0#36"implicit declaration of function '*'0(22@63"Incompatible implicit declaration of built-in function 'malloc'307247746#243#161#0(6@83"/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c307247158#49#0#49#0#0"0(0#0#83"/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c4300911832#1683"    cd /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-generated-files.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-own-target-headers.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-all-target-headers.hmap -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-project-headers.hmap -F/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug/include -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources/x86_64 -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources -c /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c -o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/hashtable.o0#
+
+CCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/main.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/main.c normal x86_64 c com.apple.compilers.gcc.4_2
+s307247744.925672
+e307247745.885079
+r1
+xCompileC
+xbuild/compiler.build/Debug/compilador.build/Objects-normal/x86_64/main.o
+x/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/main.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@86"Compile /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/main.c307247745#307247745#0(0"0(0#0#78"/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/main.c8029405159545332736#1673"    cd /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-generated-files.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-own-target-headers.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-all-target-headers.hmap -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-project-headers.hmap -F/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug/include -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources/x86_64 -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources -c /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/main.c -o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/main.o0#
+
+CCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/printer.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/printer.c normal x86_64 c com.apple.compilers.gcc.4_2
+s307247745.870577
+e307247745.950402
+r1
+xCompileC
+xbuild/compiler.build/Debug/compilador.build/Objects-normal/x86_64/printer.o
+x/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/printer.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@89"Compile /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/printer.c307247745#307247745#0(0"0(0#0#81"/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/printer.c4300911832#1679"    cd /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-generated-files.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-own-target-headers.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-all-target-headers.hmap -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-project-headers.hmap -F/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug/include -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources/x86_64 -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources -c /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/printer.c -o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/printer.o0#
+
+CCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/reader.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/reader.c normal x86_64 c com.apple.compilers.gcc.4_2
+s307247745.120872
+e307247745.870404
+r1
+xCompileC
+xbuild/compiler.build/Debug/compilador.build/Objects-normal/x86_64/reader.o
+x/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/reader.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@88"Compile /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/reader.c307247745#307247745#0(0"0(0#0#80"/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/reader.c4300911832#1677"    cd /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-generated-files.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-own-target-headers.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-all-target-headers.hmap -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-project-headers.hmap -F/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug/include -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources/x86_64 -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources -c /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/reader.c -o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/reader.o0#
+
+CCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/stringtcc.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/stringtcc.c normal x86_64 c com.apple.compilers.gcc.4_2
+s307247745.950497
+e307247745.984780
+r1
+xCompileC
+xbuild/compiler.build/Debug/compilador.build/Objects-normal/x86_64/stringtcc.o
+x/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/stringtcc.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@91"Compile /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/stringtcc.c307247745#307247745#0(0"0(0#0#83"/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/stringtcc.c4300911832#1683"    cd /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-generated-files.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-own-target-headers.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-all-target-headers.hmap -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-project-headers.hmap -F/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug/include -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources/x86_64 -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources -c /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/stringtcc.c -o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/stringtcc.o0#
+
+CCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/symbols.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/symbols.c normal x86_64 c com.apple.compilers.gcc.4_2
+s307247745.947934
+e307247745.978868
+r1
+xCompileC
+xbuild/compiler.build/Debug/compilador.build/Objects-normal/x86_64/symbols.o
+x/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/symbols.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@89"Compile /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/symbols.c307247745#307247745#0(0"0(0#0#81"/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/symbols.c4300911832#1679"    cd /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-generated-files.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-own-target-headers.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-all-target-headers.hmap -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-project-headers.hmap -F/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug/include -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources/x86_64 -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources -c /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/symbols.c -o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/symbols.o0#
+
+CCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/tablesymbols.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/tablesymbols.c normal x86_64 c com.apple.compilers.gcc.4_2
+s307247746.046338
+e307247746.087014
+r1
+xCompileC
+xbuild/compiler.build/Debug/compilador.build/Objects-normal/x86_64/tablesymbols.o
+x/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/tablesymbols.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@94"Compile /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/tablesymbols.c307247746#307247746#0(0"0(0#0#86"/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/tablesymbols.c4300911832#1689"    cd /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-generated-files.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-own-target-headers.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-all-target-headers.hmap -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-project-headers.hmap -F/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug/include -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources/x86_64 -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources -c /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/tablesymbols.c -o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/tablesymbols.o0#
+
+CCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/token.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/token.c normal x86_64 c com.apple.compilers.gcc.4_2
+s307247745.984893
+e307247746.046231
+r1
+xCompileC
+xbuild/compiler.build/Debug/compilador.build/Objects-normal/x86_64/token.o
+x/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/token.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@87"Compile /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/token.c307247745#307247746#0(0"0(0#0#79"/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/token.c4300911832#1675"    cd /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-generated-files.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-own-target-headers.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-all-target-headers.hmap -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-project-headers.hmap -F/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug/include -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources/x86_64 -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources -c /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/token.c -o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/token.o0#
+
+CCompileC build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/transducer.o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/transducer.c normal x86_64 c com.apple.compilers.gcc.4_2
+s307247745.885199
+e307247745.947225
+r1
+xCompileC
+xbuild/compiler.build/Debug/compilador.build/Objects-normal/x86_64/transducer.o
+x/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/transducer.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+o/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/transducer.c: In function 'init_transducer':
+o/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/transducer.c:18: warning: unused variable 'total_states'
+o/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/transducer.c:17: warning: unused variable 'current_state'
+lSLF07#2@92"Compile /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/transducer.c307247745#307247745#0(376"/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/transducer.c: In function 'init_transducer':/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/transducer.c:18: warning: unused variable 'total_states'/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/transducer.c:17: warning: unused variable 'current_state'2(22@30"Unused variable 'total_states'307247745#117#129#0(6@84"/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/transducer.c307247159#18#0#18#0#19"unused variable '*'0(22@31"Unused variable 'current_state'307247745#246#130#0(6@84"/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/transducer.c307247159#17#0#17#0#19"unused variable '*'0(0#0#84"/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/transducer.c4300911832#1685"    cd /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-generated-files.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-own-target-headers.hmap -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-all-target-headers.hmap -iquote /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/compilador-project-headers.hmap -F/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug/include -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources/x86_64 -I/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/DerivedSources -c /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/transducer.c -o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/transducer.o0#
+
+CLd /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug/compilador normal x86_64
+s307247746.091280
+e307247746.794793
+r1
+xLd
+x/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug/compilador
+xnormal
+xx86_64
+lSLF07#2@99"Link /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug/compilador307247746#307247746#0(0"0(0#0#0"4300911832#673"    cd /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug -F/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug -filelist /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/compiler.build/Debug/compilador.build/Objects-normal/x86_64/compilador.LinkFileList -mmacosx-version-min=10.6 -o /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/build/Debug/compilador0#
+

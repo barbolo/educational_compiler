@@ -1,0 +1,8 @@
+In file included from /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/tables.h:16,
+                 from /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/tables.c:9:
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/stack_frame.h:19: error: expected specifier-qualifier-list before 'SymbolTable'
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/stack_frame.h:29: error: expected ')' before '*' token
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/stack_frame.h:32: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/tables.c: In function 'initialize_semantic':
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/tables.c:13: warning: implicit declaration of function 'nova_tabela_de_simbolos'
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/tables.c:13: warning: assignment makes pointer from integer without a cast

@@ -1,0 +1,9 @@
+In file included from /Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c:11:
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/strings.h:23: warning: conflicting types for built-in function 'strlen'
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/strings.h:25: warning: conflicting types for built-in function 'strcpy'
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c:12:25: error: linkedtable.h: No such file or directory
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c:16: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'init_table'
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c:27: error: expected ')' before '*' token
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c:71: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c:89: error: expected ')' before '*' token
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/compiler/hashtable.c:109: error: expected ')' before '*' token
