@@ -16,23 +16,27 @@ void initialize_semantic_tables() {
 	table_symbols = init_table(table_symbols);
 	
 	/* add reserved words */
-	add(&table_reserved_words, "functions");
-	add(&table_reserved_words, "int");
-	add(&table_reserved_words, "char");
-	add(&table_reserved_words, "boolean");
-	add(&table_reserved_words, "void");
-	add(&table_reserved_words, "main");
-	add(&table_reserved_words, "begin");
-	add(&table_reserved_words, "return");
-	add(&table_reserved_words, "if");
-	add(&table_reserved_words, "while");
-	add(&table_reserved_words, "scan");
-	add(&table_reserved_words, "print");
-	add(&table_reserved_words, "else");
-	add(&table_reserved_words, "not");
 	add(&table_reserved_words, "and");
+	add(&table_reserved_words, "break");
+	add(&table_reserved_words, "do");
+	add(&table_reserved_words, "else");
+	add(&table_reserved_words, "elseif");
+	add(&table_reserved_words, "end");
+	add(&table_reserved_words, "false");
+	add(&table_reserved_words, "for");
+	add(&table_reserved_words, "if");
+	add(&table_reserved_words, "function");
+	add(&table_reserved_words, "in");
+	add(&table_reserved_words, "local");
+	add(&table_reserved_words, "nil");
+	add(&table_reserved_words, "not");
+	add(&table_reserved_words, "repeat");
 	add(&table_reserved_words, "or");
-	add(&table_reserved_words, "call");
+	add(&table_reserved_words, "return");
+	add(&table_reserved_words, "then");
+	add(&table_reserved_words, "true");
+	add(&table_reserved_words, "until");
+	add(&table_reserved_words, "while");
 	
 }
 

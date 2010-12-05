@@ -36,17 +36,23 @@ void initialize_transitions() {
 	transducer_transitions[0][(int)'\t'].type = TOKEN_TYPE_IGNORED;
 	
 	
-	/* transitions with comments */
+	/* transitions with comments*/
+	 
 	s = transducer_new_state();
-	transducer_transitions[0][(int)'%'].next_state = s;
-	transducer_transitions[0][(int)'%'].type = TOKEN_TYPE_IGNORED;
-	for (aux = 0; aux < 256; aux++) {
-		transducer_transitions[s][aux].next_state = s;
-		transducer_transitions[s][aux].type = TOKEN_TYPE_IGNORED;
-	}
-	transducer_transitions[s][(int)'\n'].next_state = 0;
-	transducer_transitions[s][(int)'\n'].type = TOKEN_TYPE_IGNORED;
+	transducer_transitions[0][(int)'-'].next_state = s;
+	transducer_transitions[0][(int)'-'].type = TOKEN_TYPE_IGNORED;
 	
+	s2 = transducer_new_state();
+	transducer_transitions[s][(int)'-'].next_state = s2;
+	transducer_transitions[s][(int)'-'].type = TOKEN_TYPE_IGNORED;
+	
+	for (aux = 0; aux < 256; aux++) {
+		transducer_transitions[s2][aux].next_state = s2;
+		transducer_transitions[s2][aux].type = TOKEN_TYPE_IGNORED;
+	}
+	transducer_transitions[s2][(int)'\n'].next_state = 0;
+	transducer_transitions[s2][(int)'\n'].type = TOKEN_TYPE_IGNORED;
+	 
 	
 	/* transitions with identifiers */
 	s = transducer_new_state();
@@ -97,6 +103,15 @@ void initialize_transitions() {
 	transducer_transitions[0][(int)'/'].next_state = 0;
 	transducer_transitions[0][(int)'/'].type = TOKEN_TYPE_SPECIAL;
 	
+	transducer_transitions[0][(int)'%'].next_state = 0;
+	transducer_transitions[0][(int)'%'].type = TOKEN_TYPE_SPECIAL;
+
+	transducer_transitions[0][(int)'^'].next_state = 0;
+	transducer_transitions[0][(int)'^'].type = TOKEN_TYPE_SPECIAL;
+	
+	transducer_transitions[0][(int)'#'].next_state = 0;
+	transducer_transitions[0][(int)'#'].type = TOKEN_TYPE_SPECIAL;
+	
 	transducer_transitions[0][(int)'('].next_state = 0;
 	transducer_transitions[0][(int)'('].type = TOKEN_TYPE_SPECIAL;
 	
@@ -105,7 +120,16 @@ void initialize_transitions() {
 	
 	transducer_transitions[0][(int)','].next_state = 0;
 	transducer_transitions[0][(int)','].type = TOKEN_TYPE_SPECIAL;
+	
+	transducer_transitions[0][(int)'.'].next_state = 0;
+	transducer_transitions[0][(int)'.'].type = TOKEN_TYPE_SPECIAL;	
 
+	transducer_transitions[0][(int)'..'].next_state = 0;
+	transducer_transitions[0][(int)'..'].type = TOKEN_TYPE_SPECIAL;	
+
+	transducer_transitions[0][(int)'...'].next_state = 0;
+	transducer_transitions[0][(int)'...'].type = TOKEN_TYPE_SPECIAL;	
+	
 	transducer_transitions[0][(int)'}'].next_state = 0;
 	transducer_transitions[0][(int)'}'].type = TOKEN_TYPE_SPECIAL;
 	
@@ -155,11 +179,11 @@ void initialize_transitions() {
 	
 	
 	
-	// !=
+	// ~=
 	s = transducer_new_state();
 	
-	transducer_transitions[0][(int)'!'].next_state = s;
-	transducer_transitions[0][(int)'!'].type = TOKEN_TYPE_INCOMPLETE;
+	transducer_transitions[0][(int)'~'].next_state = s;
+	transducer_transitions[0][(int)'~'].type = TOKEN_TYPE_INCOMPLETE;
 	
 	transducer_transitions[s][(int)'='].next_state = 0;
 	transducer_transitions[s][(int)'='].type = TOKEN_TYPE_SPECIAL;

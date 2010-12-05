@@ -1,0 +1,8 @@
+/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/PROVA/compiler/transducer.c: In function 'initialize_transitions':
+/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/PROVA/compiler/transducer.c:45: error: 's2' undeclared (first use in this function)
+/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/PROVA/compiler/transducer.c:45: error: (Each undeclared identifier is reported only once
+/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/PROVA/compiler/transducer.c:45: error: for each function it appears in.)
+/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/PROVA/compiler/transducer.c:127:33: warning: multi-character character constant
+/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/PROVA/compiler/transducer.c:128:33: warning: multi-character character constant
+/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/PROVA/compiler/transducer.c:130:33: warning: multi-character character constant
+/Users/Filipe/Documents/0 MEUS/Poli/9 Quadrimestre/Linguagens e Compiladores - PCS2056/compilador/educational_compiler/PROVA/compiler/transducer.c:131:33: warning: multi-character character constant
