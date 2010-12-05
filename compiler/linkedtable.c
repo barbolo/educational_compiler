@@ -1,5 +1,5 @@
 /*
- *  hashtable.c
+ *  linked_table.c
  *  compiler
  *
  *  Created by Filipe Morgado Simões de Campos e Rafael Barbolo Lopes on 24/09/10
@@ -9,22 +9,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "strings.h"
-#include "hashtable.h"
+#include "linkedtable.h"
 
 
 
-hash_table init_table(hash_table new_hash_table){
+linked_table init_table(linked_table new_linked_table){
 	
-	new_hash_table.key = "no_key";
-	new_hash_table.value = -1;
-	new_hash_table.next = NULL;
+	new_linked_table.key = "no_key";
+	new_linked_table.value = -1;
+	new_linked_table.next = NULL;
 	
-	return new_hash_table;
+	return new_linked_table;
 		
 }
 
 
-int add(hash_table * table, char * key){
+int add(linked_table * table, char * key){
 
 	int value;
 	
@@ -48,10 +48,10 @@ int add(hash_table * table, char * key){
 		else {
 			
 			//Allocate memory to the new cell
-			hash_table * new_hash_cell = (hash_table *) malloc(sizeof(hash_table));
+			linked_table * new_hash_cell = (linked_table *) malloc(sizeof(linked_table));
 
 			//Find the last cell and store a pointer to it.
-			hash_table * last_cell_pointer = find_last_cell(table);
+			linked_table * last_cell_pointer = find_last_cell(table);
 			
 			// 
 			new_hash_cell->key = key;
@@ -68,9 +68,9 @@ int add(hash_table * table, char * key){
 }
 
 
-hash_table * find_last_cell(hash_table * table){
+linked_table * find_last_cell(linked_table * table){
 	
-	hash_table * current_table_cell;
+	linked_table * current_table_cell;
 	
 	current_table_cell = table;
 	
@@ -86,24 +86,19 @@ hash_table * find_last_cell(hash_table * table){
 }
 
 
-int find_by_key(hash_table * table, char * key){
+int find_by_key(linked_table * table, char * key){
 	
-	hash_table * current_table_cell;
+	linked_table * current_table_cell;
 	
 	current_table_cell = table;
 	
-	while (1) {
+	while (current_table_cell != NULL) {
 		
 		if (strcmp(current_table_cell->key, key) == 0) {
 			return current_table_cell->value;
-		} 
-		
-		if (current_table_cell->next != NULL) {
-			current_table_cell = current_table_cell->next;
 		}
-		else {
-			return -1;
-		}	
+		
+		current_table_cell = current_table_cell->next;
 	}
 	
 	return -1;
@@ -111,9 +106,9 @@ int find_by_key(hash_table * table, char * key){
 
 
 
-void print_table(hash_table * table){
+void print_table(linked_table * table){
 	
-	hash_table * current_table_cell;
+	linked_table * current_table_cell;
 	
 	current_table_cell = table;
 	

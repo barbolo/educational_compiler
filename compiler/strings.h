@@ -9,6 +9,7 @@
  *
  */
 
+#include <stdlib.h>
 
 /*****************************************************************************
  name: strcmp
@@ -19,6 +20,8 @@
 
 int strcmp(char *s1, char *s2);
 
+int strlen(char * src);
 
+char *strcpy(char * src);
 
 #endif

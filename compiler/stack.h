@@ -22,12 +22,12 @@ typedef struct stack_node {
 	struct stack_node *next;
 } Stack;
 
-void push_stack(Stack * s, char * c);
+void push_stack(Stack ** head, char * c);
 
+char * pop_stack(Stack ** head);
 
-char * pop_stack(Stack * s);
+char * consulta_pilha(Stack * head);
 
-
-int is_stack_empty(Stack * s);
+int is_stack_empty(Stack * head);
 
 #endif

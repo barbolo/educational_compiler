@@ -3,152 +3,136 @@
 //////////////////////////////////////////////////////////
 
 
-if (strcmp(token->value, "functions")) {
-	return APE_TOKEN_FUNCTIONS_ID;
-}
-
-if (strcmp(token->value, "int")) {
+if (strcmp(token.value, "int") == 0) {
 	return APE_TOKEN_INT_ID;
 }
 
-if (strcmp(token->value, "char")) {
+if (strcmp(token.value, "char") == 0) {
 	return APE_TOKEN_CHAR_ID;
 }
 
-if (strcmp(token->value, "boolean")) {
+if (strcmp(token.value, "boolean") == 0) {
 	return APE_TOKEN_BOOLEAN_ID;
 }
 
-if (strcmp(token->value, "void")) {
+if (strcmp(token.value, "void") == 0) {
 	return APE_TOKEN_VOID_ID;
 }
 
-if (strcmp(token->value, "main")) {
+if (strcmp(token.value, "main") == 0) {
 	return APE_TOKEN_MAIN_ID;
 }
 
-if (strcmp(token->value, "id")) {
+if (strcmp(token.value, "id") == 0) {
 	return APE_TOKEN_ID_ID;
 }
 
-if (strcmp(token->value, "{")) {
+if (strcmp(token.value, "{") == 0) {
 	return APE_TOKEN_ABRE_CHAVES_ID;
 }
 
-if (strcmp(token->value, "(")) {
+if (strcmp(token.value, "(") == 0) {
 	return APE_TOKEN_ABRE_PARENTESES_ID;
 }
 
-if (strcmp(token->value, ";")) {
+if (strcmp(token.value, ";") == 0) {
 	return APE_TOKEN_PONTO_E_VIRGULA_ID;
 }
 
-if (strcmp(token->value, "begin")) {
-	return APE_TOKEN_BEGIN_ID;
-}
-
-if (strcmp(token->value, ")")) {
-	return APE_TOKEN_FECHA_PARENTESES_ID;
-}
-
-if (strcmp(token->value, "}")) {
+if (strcmp(token.value, "}") == 0) {
 	return APE_TOKEN_FECHA_CHAVES_ID;
 }
 
-if (strcmp(token->value, "return")) {
+if (strcmp(token.value, ")") == 0) {
+	return APE_TOKEN_FECHA_PARENTESES_ID;
+}
+
+if (strcmp(token.value, "return") == 0) {
 	return APE_TOKEN_RETURN_ID;
 }
 
-if (strcmp(token->value, ",")) {
+if (strcmp(token.value, ",") == 0) {
 	return APE_TOKEN_VIRGULA_ID;
 }
 
-if (strcmp(token->value, "if")) {
+if (strcmp(token.value, "call") == 0) {
+	return APE_TOKEN_CALL_ID;
+}
+
+if (strcmp(token.value, "if") == 0) {
 	return APE_TOKEN_IF_ID;
 }
 
-if (strcmp(token->value, "while")) {
+if (strcmp(token.value, "while") == 0) {
 	return APE_TOKEN_WHILE_ID;
 }
 
-if (strcmp(token->value, "scan")) {
+if (strcmp(token.value, "scan") == 0) {
 	return APE_TOKEN_SCAN_ID;
 }
 
-if (strcmp(token->value, "print")) {
+if (strcmp(token.value, "print") == 0) {
 	return APE_TOKEN_PRINT_ID;
 }
 
-if (strcmp(token->value, "=")) {
+if (strcmp(token.value, "=") == 0) {
 	return APE_TOKEN_IGUAL_ID;
 }
 
-if (strcmp(token->value, "string")) {
+if (strcmp(token.value, "string") == 0) {
 	return APE_TOKEN_STRING_ID;
 }
 
-if (strcmp(token->value, "+")) {
+if (strcmp(token.value, "+") == 0) {
 	return APE_TOKEN_SOMA_ID;
 }
 
-if (strcmp(token->value, "else")) {
+if (strcmp(token.value, "else") == 0) {
 	return APE_TOKEN_ELSE_ID;
 }
 
-if (strcmp(token->value, "inteiro")) {
+if (strcmp(token.value, "inteiro") == 0) {
 	return APE_TOKEN_INTEIRO_ID;
 }
 
-if (strcmp(token->value, "*")) {
+if (strcmp(token.value, "*") == 0) {
 	return APE_TOKEN_MULTIPLICACAO_ID;
 }
 
-if (strcmp(token->value, "/")) {
+if (strcmp(token.value, "/") == 0) {
 	return APE_TOKEN_DIVISAO_ID;
 }
 
-if (strcmp(token->value, "-")) {
+if (strcmp(token.value, "-") == 0) {
 	return APE_TOKEN_SUBTRACAO_ID;
 }
 
-if (strcmp(token->value, "NOT")) {
-	return APE_TOKEN_NOT_ID;
-}
-
-if (strcmp(token->value, "booleano")) {
+if (strcmp(token.value, "booleano") == 0) {
 	return APE_TOKEN_BOOLEANO_ID;
 }
 
-if (strcmp(token->value, "<")) {
+if (strcmp(token.value, "<") == 0) {
 	return APE_TOKEN_MENOR_ID;
 }
 
-if (strcmp(token->value, "<=")) {
+if (strcmp(token.value, "<=") == 0) {
 	return APE_TOKEN_MENOR_IGUAL_ID;
 }
 
-if (strcmp(token->value, ">")) {
+if (strcmp(token.value, ">") == 0) {
 	return APE_TOKEN_MAIOR_ID;
 }
 
-if (strcmp(token->value, ">=")) {
+if (strcmp(token.value, ">=") == 0) {
 	return APE_TOKEN_MAIOR_IGUAL_ID;
 }
 
-if (strcmp(token->value, "==")) {
+if (strcmp(token.value, "==") == 0) {
 	return APE_TOKEN_IGUAL_IGUAL_ID;
 }
 
-if (strcmp(token->value, "!=")) {
+if (strcmp(token.value, "!=") == 0) {
 	return APE_TOKEN_DIFERENTE_ID;
-}
-
-if (strcmp(token->value, "AND")) {
-	return APE_TOKEN_AND_ID;
-}
-
-if (strcmp(token->value, "OR")) {
-	return APE_TOKEN_OR_ID;
 }
 
 //////////////////////////////////////////////////////////

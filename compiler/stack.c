@@ -9,33 +9,42 @@
 
 #include "stack.h"
 
-void push_stack(Stack * s, char * c) {
+void push_stack(Stack ** head, char * c) {
 	Stack * node = malloc(sizeof(Stack));
 	
 	if (node == NULL) {
 		fputs("Error: no space available for Stack node\n", stderr);
 	} else {
 		node->content = c;
-		node->next = s;
-		s = node;
+		node->next = *head;
+		*head = node;
 	}
 
 }
 
-char * pop_stack(Stack * s) {
-	if (is_stack_empty(s)) {
+char * pop_stack(Stack ** head) {
+	if (is_stack_empty(*head)) {
 		fputs("Error: Stack underflow\n", stderr);
 		abort();
 	} else {
-		Stack * top = s;
+		Stack * top = *head;
 		char * c = top->content;
-		s = top->next;
+		*head = top->next;
 		free(top);
 		return c;
 	}
 
 }
 
-int is_stack_empty(Stack * s) {
-	return s == NULL;
+char * consulta_pilha(Stack * head) {
+	if (is_stack_empty(head)) {
+		return NULL;
+	} else {
+		return head->content;
+	}
+
+}
+
+int is_stack_empty(Stack * head) {
+	return head == NULL;
 }

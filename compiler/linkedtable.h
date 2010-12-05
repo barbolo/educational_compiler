@@ -1,7 +1,7 @@
-#ifndef HASHTABLE_H
-#define HASHTABLE_H
+#ifndef LINKEDTABLE_H
+#define LINKEDTABLE_H
 /*
- *  hashtable.h
+ *  linkedtable.h
  *  compiler
  *
  *  Created by Filipe Morgado Simões de Campos e Rafael Barbolo Lopes on 24/09/10.
@@ -21,7 +21,7 @@ typedef struct _No {
 
 	struct _No * next;
 	
-} hash_table;
+} linked_table;
 
 
 
@@ -34,16 +34,16 @@ typedef struct _No {
  args: .
  returns: .
  *****************************************************************************/
-hash_table init_table(hash_table new_hash_table);
+linked_table init_table(linked_table new_linked_table);
 
 
 /*****************************************************************************
  name: add
  purpose: Add values to the table.
  args: The key and the table.
- returns: The hash_table value added.
+ returns: The linked_table value added.
  *****************************************************************************/
-int add(hash_table * table, char * key);
+int add(linked_table * table, char * key);
 
 
 /*****************************************************************************
@@ -52,7 +52,7 @@ int add(hash_table * table, char * key);
  args: .
  returns: .
  *****************************************************************************/
-hash_table * find_last_cell(hash_table * table);
+linked_table * find_last_cell(linked_table * table);
 
 
 /*****************************************************************************
@@ -61,7 +61,7 @@ hash_table * find_last_cell(hash_table * table);
  args: .
  returns: .
  *****************************************************************************/
-int find_by_key(hash_table * table, char * key);
+int find_by_key(linked_table * table, char * key);
 
 
 /*****************************************************************************
@@ -70,6 +70,6 @@ int find_by_key(hash_table * table, char * key);
  args: .
  returns: .
  *****************************************************************************/
-void print_table(hash_table * table);
+void print_table(linked_table * table);
 
 #endif

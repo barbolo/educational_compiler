@@ -1,13 +1,9 @@
-functions
-
 main {
 	int i, int a;	
-	begin
+	
 	i = 5;
 	a = 4;
 }
-
-
 
 
 		@  /0

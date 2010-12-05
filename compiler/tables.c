@@ -32,6 +32,7 @@ void initialize_semantic_tables() {
 	add(&table_reserved_words, "not");
 	add(&table_reserved_words, "and");
 	add(&table_reserved_words, "or");
+	add(&table_reserved_words, "call");
 	
 }
 

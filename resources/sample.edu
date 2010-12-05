@@ -1,8 +1,4 @@
-functions
-
 main {
-	int a, int b;	
-	begin
-	a = 5;
-	b = a - 1;
+	int a;
+	a = 4*5 - 10;
 }

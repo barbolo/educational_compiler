@@ -8,7 +8,7 @@
  *
  */
 
-#include "hashtable.h"
+#include "linkedtable.h"
 
 #include "symbol_table.h"
 #include "stack_frame.h"
@@ -18,10 +18,10 @@
 
 
 // Tables
-hash_table table_numbers;
-hash_table table_reserved_words;
-hash_table table_specials;
-hash_table table_symbols;
+linked_table table_numbers;
+linked_table table_reserved_words;
+linked_table table_specials;
+linked_table table_symbols;
 
 
 /*****************************************************************************

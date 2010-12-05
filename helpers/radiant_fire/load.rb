@@ -246,7 +246,7 @@ File.open(ape_c_path, 'w') do |f|
   
   token_ids.sort{|a,b| a[1] <=> b[1]}.each do |token, val|
     f.write"
-if (strcmp(token->value, \"#{val[1].gsub('"','')}\")) {
+if (strcmp(token.value, \"#{val[1].gsub('"','')}\") == 0) {
 	return #{token};
 }
 "
@@ -295,6 +295,11 @@ void init_semantic_actions() {
       read_to.sort.each do |read, to|
         f.write "\tsemantic_functions_machines \t\t [#{index}][#{from}][#{read}]\t\t=\t\tdefault_action;\n" if to != 'APE_INVALID_STATE'
       end
+    end
+    
+    f.write "\n\t/* ações semânticas de saída */\n"
+    machine['states'].sort.each do |s|
+      f.write "\tsemantic_funcions_saida \t\t [#{index}][#{s}]\t\t=\t\tdefault_action;\n"
     end
     
   end

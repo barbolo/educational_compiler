@@ -13,6 +13,9 @@
 
 int strcmp(char *s1, char *s2) {
 	
+	if (s1 == NULL || s2 == NULL)
+		return 1; // cannot compare NULL to anything, including NULL.
+	
 	while (*s1 == *s2) {
 		
 		if (*s1 == 0) {
@@ -27,4 +30,22 @@ int strcmp(char *s1, char *s2) {
 	/* return true */
 	return 1;
 
+}
+
+int strlen(char * src) {
+	int i;
+	for (i = 0; src[i] != '\0'; i++)
+	return i;
+}
+
+char * strcpy(char * src) {
+	if (src == NULL) {
+		return NULL;
+	}
+	char * dest = malloc(sizeof(char)*strlen(src));
+	unsigned i;
+	for (i=0; src[i] != '\0'; ++i)
+		dest[i] = src[i];
+	dest[i] = '\0';
+	return dest;
 }

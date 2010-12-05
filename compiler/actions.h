@@ -24,6 +24,7 @@
 
 void (*semantic_functions_tokens[100][100][100]) ();
 void (*semantic_functions_machines[100][100][100]) ();
+void (*semantic_funcions_saida[100][100]) ();
 
 void init_semantic_actions();
 
@@ -42,13 +43,34 @@ void set_identifier_type_in_ST();
 
 int test_if_identifier_is_unique();
 
-
+void definir_nome_da_variavel_retornada_por_expressao(char * nome);
 
 void declaring_type();
 
 void declaring_variable();
 
 void declaring_function();
+
+void jj_expressao_1();
+void jj_expressao_2();
+void jj_expressao_3();
+void jj_expressao_4();
+void jj_expressao_5();
+void jj_expressao_6();
+void jj_expressao_7();
+void jj_expressao_8();
+void jj_expressao_9();
+void jj_expressao_10();
+void jj_expressao_11();
+void jj_expressao_12();
+void jj_expressao_13();
+
+void jj_gera_codigo();
+
+void jj_gera(char * x, char * y, char *c);
+
+void jj_erro(char * erro);
+
 
 int nome_do_identificador_eh_unico();
 

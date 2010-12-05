@@ -1,8 +1,6 @@
-functions
 
 int fatorial(int n) {
 	int retorno;
-	begin
 	
 	if (n > 1) {
 		retorno = fatorial(n2);
@@ -16,7 +14,7 @@ int fatorial(int n) {
 main {
 
 	int a, int b, int n, int resultado;
-	begin
+
 	a = 10;
 	b = 5;
 	
