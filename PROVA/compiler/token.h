@@ -20,6 +20,9 @@
 #define TOKEN_TYPE_IGNORED			5	// blank char, \n, \t, comments
 #define TOKEN_TYPE_END_OF_FILE		6	// this is a special token type, that belongs to the tokens returned when the file content has been all read
 #define TOKEN_TYPE_STRING			7
+#define TOKEN_TYPE_FLOAT_NUMBER		8
+#define TOKEN_TYPE_HEXA_NUMBER		9
+#define TOKEN_TYPE_SCIENTIFC_NUMBER	10
 
 
 typedef int type_of_token;

@@ -1,0 +1,4 @@
+In file included from /Users/barbolo/Desenvolvimento/git/github/educational_compiler/PROVA/compiler/ape.h:9,
+                 from /Users/barbolo/Desenvolvimento/git/github/educational_compiler/PROVA/compiler/ape.c:7:
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/PROVA/compiler/strings.h:23: warning: conflicting types for built-in function 'strlen'
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/PROVA/compiler/strings.h:25: warning: conflicting types for built-in function 'strcpy'

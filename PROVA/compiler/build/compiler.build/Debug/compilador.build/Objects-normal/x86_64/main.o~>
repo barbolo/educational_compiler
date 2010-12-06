@@ -1,0 +1,7 @@
+In file included from /Users/barbolo/Desenvolvimento/git/github/educational_compiler/PROVA/compiler/symbol_table.h:13,
+                 from /Users/barbolo/Desenvolvimento/git/github/educational_compiler/PROVA/compiler/tables.h:13,
+                 from /Users/barbolo/Desenvolvimento/git/github/educational_compiler/PROVA/compiler/main.c:6:
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/PROVA/compiler/strings.h:23: warning: conflicting types for built-in function 'strlen'
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/PROVA/compiler/strings.h:25: warning: conflicting types for built-in function 'strcpy'
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/PROVA/compiler/main.c: In function 'main':
+/Users/barbolo/Desenvolvimento/git/github/educational_compiler/PROVA/compiler/main.c:20: warning: implicit declaration of function 'initialize_transitions'

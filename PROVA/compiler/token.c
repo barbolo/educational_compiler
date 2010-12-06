@@ -41,6 +41,15 @@ char * token_type_name() {
 		case  TOKEN_TYPE_STRING:
 			type_name = "string";
 			break;
+		case  TOKEN_TYPE_FLOAT_NUMBER:
+			type_name = "float number";
+			break;
+		case  TOKEN_TYPE_HEXA_NUMBER:
+			type_name = "hexa number";
+			break;
+		case  TOKEN_TYPE_SCIENTIFC_NUMBER:
+			type_name = "scientific number";
+			break;
 		default:
 			type_name = "Wrong token type identifier.";
 			break;

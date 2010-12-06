@@ -25,6 +25,8 @@ APE ape_parser;
 /* check if the current state of the ape is a final state */
 int is_ape_in_final_state();
 
+int is_initial_state_final(Machine m);
+
 /* change the current ape machine after enqueueing */
 void change_ape_machine(int machine_id, int state);
 

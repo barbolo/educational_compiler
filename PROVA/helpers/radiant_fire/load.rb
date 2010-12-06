@@ -79,7 +79,17 @@ FIXED_CHARS = {
   '>' => 'maior',
   '>=' => 'maior_igual',
   '==' => 'igual_igual',
-  '!=' => 'diferente'
+  '!=' => 'diferente',
+  '.' => 'ponto',
+  '..' => 'ponto_ponto',
+  '...' => 'ponto_ponto_ponto',
+  '[' => 'abre_colchetes',
+  ']' => 'fecha_colchetes',
+  ':' => 'dois_pontos',
+  '#' => 'jogo_da_velha',
+  '^' => 'acento_circunflexo',
+  '%' => 'porcentagem',
+  '~=' => 'tio_igual'
 }
 
 def token_cons(token)

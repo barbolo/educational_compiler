@@ -1,0 +1,19 @@
+- Descrição da linguagem lua.bnf em lua.wirth
+- Redução da linguagem lua.wirth para a linguagem lua_reduzida.wirth
+
+ só queri acolocar q eu mexi no transducer.c
+acrescentei esas coisas:
+ and       break     do        else      elseif
+   end       false     for       function  if
+   in        local     nil       not       or
+   repeat    return    then      true      until     while
+
+Lua é case sensitive! Logo And e AND são palavras válidas
+
+As seguintes cadeias denotam outros itens léxicos:
+   +     -     *     /     %     ^     #
+   ==    ~=    <=    >=    <     >     =
+   (     )     {     }     [     ]
+   ;     :     ,     .     ..    ...
+
+e no tables.c os terminais

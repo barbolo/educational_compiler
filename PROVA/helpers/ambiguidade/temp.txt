@@ -1,0 +1,270 @@
+@names_of_machines_that_are_tokens = [Nome, Numero, Cadeia]
+
+// the first machine to be declared must be the initial machine
+
+*construtortabela
+initial: 0
+final: 3
+(0, "{") -> 1
+(1, listadecampos) -> 2
+(1, "}") -> 3
+(2, "}") -> 3
+
+*args
+initial: 0
+final: 2
+(0, "(") -> 1
+(0, construtortabela) -> 2
+(0, Cadeia) -> 2
+(1, listaexp) -> 3
+(1, ")") -> 2
+(3, ")") -> 2
+
+*chamadadefuncao
+initial: 0
+final: 2
+(0, expprefixo) -> 1
+(1, args) -> 2
+(1, ":") -> 3
+(3, Nome) -> 4
+(4, args) -> 2
+
+*expprefixo
+initial: 0
+final: 1, 3
+(0, Nome) -> 1
+(0, "(") -> 2
+(1, expprefixoaux) -> 3
+(2, exp) -> 4
+(4, ")") -> 1
+
+*expprefixoaux
+initial: 0
+final: 1, 4
+(0, args) -> 1
+(0, "[") -> 2
+(0, ":") -> 3
+(0, ".") -> 3
+(1, expprefixoaux) -> 4
+(2, exp) -> 6
+(3, Nome) -> 5
+(5, args) -> 1
+(6, "]") -> 1
+
+*ultimocomando
+initial: 0
+final: 1, 2
+(0, "return") -> 1
+(0, "break") -> 2
+(1, listaexp) -> 2
+
+*nomedafuncao
+initial: 0
+final: 1, 3
+(0, Nome) -> 1
+(1, ".") -> 0
+(1, ":") -> 2
+(2, Nome) -> 3
+
+*listadecampos
+initial: 0
+final: 1, 2
+(0, campo) -> 1
+(1, separadoresdecampos) -> 2
+(2, campo) -> 1
+
+*campo
+initial: 0
+final: 2
+(0, "[") -> 1
+(0, exp) -> 2
+(0, Nome) -> 3
+(1, exp) -> 4
+(3, "=") -> 5
+(4, "]") -> 3
+(5, exp) -> 2
+
+*comando
+initial: 0
+final: 2, 12
+(0, listavar) -> 1
+(0, chamadadefuncao) -> 2
+(0, "do") -> 3
+(0, "while") -> 4
+(0, "repeat") -> 5
+(0, "if") -> 6
+(0, "for") -> 7
+(0, "function") -> 8
+(0, "local") -> 9
+(1, "=") -> 10
+(3, bloco) -> 13
+(4, exp) -> 15
+(5, bloco) -> 20
+(6, exp) -> 22
+(7, Nome) -> 16
+(8, nomedafuncao) -> 14
+(9, "function") -> 11
+(9, listadenomes) -> 12
+(10, listaexp) -> 2
+(11, Nome) -> 14
+(12, "=") -> 10
+(13, "end") -> 2
+(14, corpodafuncao) -> 2
+(15, "do") -> 3
+(16, "=") -> 17
+(16, ",") -> 18
+(16, "in") -> 19
+(17, exp) -> 26
+(18, Nome) -> 24
+(19, listaexp) -> 15
+(20, "until") -> 21
+(21, exp) -> 2
+(22, "then") -> 23
+(23, bloco) -> 25
+(24, ",") -> 18
+(24, "in") -> 19
+(25, "end") -> 2
+(25, "elseif") -> 6
+(25, "else") -> 3
+(26, ",") -> 27
+(27, exp) -> 28
+(28, "do") -> 3
+(28, ",") -> 4
+
+*listaexp
+initial: 0
+final: 1
+(0, exp) -> 1
+(1, ",") -> 0
+
+*listadenomes
+initial: 0
+final: 1
+(0, Nome) -> 1
+(1, ",") -> 0
+
+*listavar
+initial: 0
+final: 1
+(0, var) -> 1
+(1, ",") -> 0
+
+*opunaria
+initial: 0
+final: 1
+(0, "-") -> 1
+(0, "not") -> 1
+(0, "#") -> 1
+
+*funcao
+initial: 0
+final: 2
+(0, "function") -> 1
+(1, corpodafuncao) -> 2
+
+*exp
+initial: 0
+final: 3
+(0, "nil") -> 1
+(0, "false") -> 1
+(0, "true") -> 1
+(0, Numero) -> 1
+(0, Cadeia) -> 1
+(0, "...") -> 1
+(0, funcao) -> 1
+(0, construtortabela) -> 1
+(0, expprefixo) -> 1
+(0, opunaria) -> 2
+(1, expaux) -> 3
+(2, exp) -> 1
+
+*expaux
+initial: 0
+final: 4
+(0, opbin) -> 1
+(1, "nil") -> 2
+(1, "false") -> 2
+(1, "true") -> 2
+(1, Numero) -> 2
+(1, Cadeia) -> 2
+(1, "...") -> 2
+(1, funcao) -> 2
+(1, construtortabela) -> 2
+(1, expprefixo) -> 2
+(1, opunaria) -> 3
+(2, expaux) -> 4
+(3, exp) -> 2
+
+*var
+initial: 0
+final: 1, 7
+(0, Nome) -> 1
+(0, "(") -> 2
+(1, expprefixoaux) -> 3
+(1, "[") -> 4
+(1, ".") -> 5
+(2, exp) -> 6
+(3, "[") -> 4
+(3, ".") -> 5
+(4, exp) -> 9
+(5, Nome) -> 7
+(6, ")") -> 8
+(8, expprefixoaux) -> 3
+(8, "[") -> 4
+(8, ".") -> 5
+(9, "]") -> 7
+
+*trecho
+initial: 0
+final: 1, 2, 3, 4
+(0, comando) -> 1
+(0, ultimocomando) -> 2
+(1, comando) -> 1
+(1, ";") -> 3
+(1, ultimocomando) -> 2
+(2, ";") -> 4
+(3, comando) -> 1
+(3, ultimocomando) -> 2
+
+*listapar
+initial: 0
+final: 1, 2
+(0, listadenomes) -> 1
+(0, "...") -> 2
+(1, ",") -> 3
+(3, "...") -> 2
+
+*separadoresdecampos
+initial: 0
+final: 1
+(0, ",") -> 1
+(0, ";") -> 1
+
+*corpodafuncao
+initial: 0
+final: 5
+(0, "(") -> 1
+(1, listapar) -> 2
+(1, ")") -> 3
+(2, ")") -> 3
+(3, bloco) -> 4
+(4, "end") -> 5
+
+*opbin
+initial: 0
+final: 1
+(0, "+") -> 1
+(0, "-") -> 1
+(0, "*") -> 1
+(0, "/") -> 1
+(0, "^") -> 1
+(0, "%") -> 1
+(0, "..") -> 1
+(0, "<") -> 1
+(0, "<=") -> 1
+(0, ">") -> 1
+(0, ">=") -> 1
+(0, "==") -> 1
+(0, "~=") -> 1
+(0, "and") -> 1
+(0, "or") -> 1

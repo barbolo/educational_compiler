@@ -25,6 +25,10 @@ void run_sintatic(){
 		printf("%10s		(%d)		%10s				%d		%5i		%5i\n", 
 			   token.value, token.index, token_type_name(), token.type, token.line, token.column);
 		
+		// descomente as duas linhas abaixo para testar o léxico:
+		//get_next_token(1);
+		//continue;
+		
 		// execute APE transition
 		if (!ape_consume_token() || token.type == TOKEN_TYPE_INVALID) {
 			printf("\nAi que burrico! Tem erro SINTÁTICO no seu código, Zé! Olha o último token! =P\n\n");

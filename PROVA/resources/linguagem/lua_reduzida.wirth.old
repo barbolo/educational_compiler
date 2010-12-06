@@ -1,0 +1,14 @@
+bloco = { (((Nome | (Nome | "(" exp ")") [expprefixoaux] "[" exp "]" | (Nome | "(" exp ")") [expprefixoaux] "." Nome) { "," (Nome | (Nome | "(" exp ")") [expprefixoaux] "[" exp "]" | (Nome | "(" exp ")") [expprefixoaux] "." Nome) }) "=" { exp "," } exp | ((Nome | "(" exp ")") [expprefixoaux] ("(" [ { exp "," } exp ] ")" | ("{" [("[" exp "]" "=" exp | exp ["=" exp]) { ("," | ";") ("[" exp "]" "=" exp | exp ["=" exp]) } [ ("," | ";") ]] "}") | Cadeia) | (Nome | "(" exp ")") [expprefixoaux] ":" Nome ("(" [ { exp "," } exp ] ")" | ("{" [("[" exp "]" "=" exp | exp ["=" exp]) { ("," | ";") ("[" exp "]" "=" exp | exp ["=" exp]) } [ ("," | ";") ]] "}") | Cadeia)) | "do" bloco "end" | "while" exp "do" bloco "end" | "repeat" bloco "until" exp | "if" exp "then" bloco {"elseif" exp "then" bloco} ["else" bloco] "end" | "for" Nome ({ "," Nome } "in" { exp "," } exp | "=" exp "," exp [ "," exp ]) "do" bloco "end" | "function" Nome { "." Nome } [ ":" Nome ] ("(" [ Nome { "," Nome } [ "," "..." ] | "..." ] ")" bloco "end") | "local" "function" Nome ("(" [ Nome { "," Nome } [ "," "..." ] | "..." ] ")" bloco "end") | "local" Nome { "," Nome } [ "=" { exp "," } exp ]) [ ";" ] } [ ("return" [ { exp "," } exp ] | "break") [ ";" ] ].
+
+
+exp = (("nil" | "false" | "true" | Numero | Cadeia | "..." | ("function" ("(" [ Nome { "," Nome } [ "," "..." ] | "..." ] ")" bloco "end")) | ("{" [("[" exp "]" "=" exp | exp ["=" exp]) { ("," | ";") ("[" exp "]" "=" exp | exp ["=" exp]) } [ ("," | ";") ]] "}") | ((Nome | "(" exp ")") [expprefixoaux]) | ("-" | "not" | "#") exp)) [expaux].
+
+
+expaux = [ ("+" | "-" | "*" | "/" | "^" | "%" | ".." | "<" | "<=" | ">" | ">=" | "==" | "~=" | "and" | "or")  ("nil" | "false" | "true" | Numero | Cadeia | "..." | ("function" ("(" [ Nome { "," Nome } [ "," "..." ] | "..." ] ")" bloco "end")) | ("{" [("[" exp "]" "=" exp | exp ["=" exp]) { ("," | ";") ("[" exp "]" "=" exp | exp ["=" exp]) } [ ("," | ";") ]] "}") | (Nome | "(" exp ")") [expprefixoaux] | ("-" | "not" | "#") exp) [expaux]].
+
+
+expprefixoaux = [ (Nome | "(" exp ")")  [expprefixoaux]  ( "[" exp "]" | "." Nome | ("(" [ { exp "," } exp ] ")" | ("{" [("[" exp "]" "=" exp | exp ["=" exp]) { ("," | ";") ("[" exp "]" "=" exp | exp ["=" exp]) } [ ("," | ";") ]] "}") | Cadeia) | ":" Nome ("(" [ { exp "," } exp ] ")" | ("{" [("[" exp "]" "=" exp | exp ["=" exp]) { ("," | ";") ("[" exp "]" "=" exp | exp ["=" exp]) } [ ("," | ";") ]] "}") | Cadeia)) ].
+
+
+
+exp ["=" exp] => Nome "=" exp | exp

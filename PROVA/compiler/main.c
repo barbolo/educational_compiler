@@ -12,8 +12,7 @@
 int main (int argc, const char * argv[]) {
 	
 	/* initialize the file reader */
-	init_reader("../../../resources/sample.edu");
-	//init_reader("../../../resources/sampleOsimplesLevaAoComplexo.edu");
+	init_reader("../../../resources/sample.lua");
 	
 	initialize_writer("../../../resources/sample.asm");
 	

@@ -45,7 +45,7 @@ int update_semantic_tables() {
 	
 	int index = -1;
 
-	if (token.type == TOKEN_TYPE_INT_NUMBER)
+	if (token.type == TOKEN_TYPE_INT_NUMBER || token.type == TOKEN_TYPE_HEXA_NUMBER || token.type == TOKEN_TYPE_SCIENTIFC_NUMBER || token.type == TOKEN_TYPE_FLOAT_NUMBER)
 		index = add(&table_numbers, token.value);
 	else if (token.type == TOKEN_TYPE_RESERVED_WORD)
 		index = add(&table_reserved_words, token.value);

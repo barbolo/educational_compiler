@@ -15,8 +15,4 @@ void initialize_semantic() {
 	
 	initialize_semantic_tables();
 	
-	write("\t\t@\t/0\n");
-	write("\t\tSC\tmain\n");
-	write("\n");
-	write("main\tK\t\t/0\n");
 }
